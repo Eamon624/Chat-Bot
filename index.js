@@ -45,8 +45,7 @@ app.post('/webhook', function (req, res)
 
 
             else{
-                message = "Sorry i didn't catch that, say that again";
-                sendMessage(event.sender.id, {text: message});
+                sendMessage(event.sender.id,{text: getConfused()});
             }
         }
     }
@@ -64,32 +63,60 @@ function getGreeting(){
     switch (rand) {
         case 1 :
             return "Greetings";
+
         case 2 :
             return "What can I help you with?";
+
         case 3:
             return "Hello there";
+
         case 4:
             return "Hey there";"What's up?"
+
         case 5:
             return "How can I help?";
+
         case 6:
             return "Hi there";
+
         case 7:
             return "What can I do for you?";
+
         case 8:
             return "Ask me something";
+
         case 9:
             return "Need help?";
+
         case 10:
             return "Hello, how are you?";
+
         case 11:
             return "Hi";
+
         case 12:
             return "Hello";
 
     }
 }
 
+function getConfused(){
+    var rand = Math.floor((Math.random() * 6) + 1);
+    switch (rand) {
+
+        case 1 :
+            return "What?";
+
+        case 2 :
+            return "Sorry, what?";
+
+        case 3 :
+            return "I didn't understand that";
+
+        case 4 :
+            return "I didn't quite understand that.";
+    }
+}
 
 
 // generic function sending messages
