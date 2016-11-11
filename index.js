@@ -54,9 +54,10 @@ app.post('/webhook', function (req, res)
 });
 
 /**
- * Sends greeting message to user
-**/
-  @returns {*}
+ * return a random greeting when user initiates
+ * conversation.
+ * @returns {*}
+ */
 
 function getGreeting(){
     var rand = Math.floor((Math.random() * 6) + 1);
