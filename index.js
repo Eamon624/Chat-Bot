@@ -22,16 +22,73 @@ app.get('/webhook', function (req, res) {
 });
 
 // handler receiving messages
-app.post('/webhook', function (req, res) {
+app.post('/webhook', function (req, res)
+{
     var events = req.body.entry[0].messaging;
-    for (i = 0; i < events.length; i++) {
+
+    for (i = 0; i < events.length; i++)
+    {
         var event = events[i];
-        if (event.message && event.message.text) {
-            sendMessage(event.sender.id, {text: "Go Fuck Yourself"});
+        if (event.message && event.message.text)
+        {
+            //Prints uses ID to the console in colour for easy readability
+            console.log('\x1b[36m', "Recipient ID: " + event.sender.id, '\x1b[0m');
+
+            //string user has entered
+            var string = event.message.text;
+
+            var message;
+            //If user greets the bot
+            if(string.match(/(hey)|(hello)|(hi)|(what's up?)/i)){
+                sendMessage(event.sender.id,{text: getGreeting()});
+            }
+
+
+            else{
+                message = "Sorry i didn't catch that, say that again";
+                sendMessage(event.sender.id, {text: message});
+            }
         }
     }
     res.sendStatus(200);
 });
+
+/**
+ * Sends greeting message to user
+**/
+  @returns {*}
+
+function getGreeting(){
+    var rand = Math.floor((Math.random() * 6) + 1);
+    switch (rand) {
+        case 1 :
+            return "Hello, how are you?";
+        case 2 :
+            return "Hi there.";
+        case 3:
+            return "What can I do for you?";
+        case 4:
+            return "What's up?";
+        case 5:
+            return "Need help?";
+        case 6:
+            return "Ask me something";
+        case 7:
+            return "How can I help?";
+        case 8:
+            return "Greetings";
+        case 9:
+            return "What can I help you with?";
+        case 10:
+            return "Hello there";
+        case 11:
+            return "Hey there";
+
+
+    }
+}
+
+
 
 // generic function sending messages
 function sendMessage(recipientId, message) {
