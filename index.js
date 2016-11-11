@@ -39,7 +39,7 @@ app.post('/webhook', function (req, res)
 
             var message;
             //If user greets the bot
-            if(string.match(/(hey)|(hello)|(hi)|(what's up?)/i)){
+            if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
                 sendMessage(event.sender.id,{text: getGreeting()});
             }
 
@@ -63,28 +63,29 @@ function getGreeting(){
     var rand = Math.floor((Math.random() * 6) + 1);
     switch (rand) {
         case 1 :
-            return "Hello, how are you?";
-        case 2 :
-            return "Hi there.";
-        case 3:
-            return "What can I do for you?";
-        case 4:
-            return "What's up?";
-        case 5:
-            return "Need help?";
-        case 6:
-            return "Ask me something";
-        case 7:
-            return "How can I help?";
-        case 8:
             return "Greetings";
-        case 9:
+        case 2 :
             return "What can I help you with?";
-        case 10:
+        case 3:
             return "Hello there";
+        case 4:
+            return "Hey there";"What's up?"
+        case 5:
+            return "How can I help?";
+        case 6:
+            return "Hi there";
+        case 7:
+            return "What can I do for you?";
+        case 8:
+            return "Ask me something";
+        case 9:
+            return "Need help?";
+        case 10:
+            return "Hello, how are you?";
         case 11:
-            return "Hey there";
-
+            return "Hi";
+        case 12:
+            return "Hello";
 
     }
 }
