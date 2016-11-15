@@ -43,6 +43,10 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id,{text: getGreeting()});
             }
 
+            else if (string.match(/(hi, i'm graham)|(graham)|(My name is graham)/i)){
+                sendMessage(event.sender.id,{text: getGraham()});
+            }
+
 
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
@@ -115,6 +119,29 @@ function getConfused(){
 
         case 4 :
             return "I didn't quite understand that.";
+    }
+}
+
+function getGreeting(){
+    var rand = Math.floor((Math.random() * 5) + 1);
+    switch (rand) {
+        case 1 :
+            return "Hey Graham";
+
+        case 2 :
+            return "Sup dawg";
+
+        case 3:
+            return "Wanna play some 8 ball pool?";
+
+        case 4:
+            return "What room is our class in?"
+
+        case 5:
+            return "hi Graham, I'm shitting in for the CA later on";
+
+
+
     }
 }
 
