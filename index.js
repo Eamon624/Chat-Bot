@@ -122,7 +122,7 @@ function getConfused(){
     }
 }
 
-function getGreeting(){
+function getGraham(){
     var rand = Math.floor((Math.random() * 5) + 1);
     switch (rand) {
         case 1 :
