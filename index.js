@@ -59,7 +59,7 @@ app.post('/webhook', function (req, res)
  */
 
 function getGreeting(){
-    var rand = Math.floor((Math.random() * 6) + 1);
+    var rand = Math.floor((Math.random() * 12) + 1);
     switch (rand) {
         case 1 :
             return "Greetings";
@@ -101,7 +101,7 @@ function getGreeting(){
 }
 
 function getConfused(){
-    var rand = Math.floor((Math.random() * 6) + 1);
+    var rand = Math.floor((Math.random() * 4) + 1);
     switch (rand) {
 
         case 1 :
