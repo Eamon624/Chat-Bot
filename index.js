@@ -47,6 +47,10 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id,{text: getGraham()});
             }
 
+            else if (string.match(/(hi, how are you?)|(How are you?)|(How's it going?)|(Hey, hows it going?)/i)){
+                sendMessage(event.sender.id,{text: getResponseGreeting()});
+            }
+
             else if (string.match(/(Fuck)|(Piss)|(Shit)|(Cunt)/i)){
                 sendMessage(event.sender.id,{text: getBadLanguage()});
             }
@@ -68,7 +72,7 @@ function getGreeting(){
     var rand = Math.floor((Math.random() * 12) + 1);
     switch (rand) {
         case 1 :
-            return "Greetings";
+            return "What's up?";
 
         case 2 :
             return "What can I help you with?";
@@ -77,7 +81,7 @@ function getGreeting(){
             return "Hello there";
 
         case 4:
-            return "Hey there";"What's up?"
+            return "Hey there";
 
         case 5:
             return "How can I help?";
@@ -102,6 +106,64 @@ function getGreeting(){
 
         case 12:
             return "Hello";
+
+    }
+}
+
+function getResponseGreeting(){
+    var rand = Math.floor((Math.random() * 12) + 1);
+    switch (rand) {
+        case 1 :
+            return "I'm good, What can I help you with?";
+
+        case 2 :
+            return "I'm great, What can I help you with?";
+
+        case 3 :
+            return "I'm good :) What can I help you with?";
+
+        case 4 :
+            return "I'm great :) What can I help you with?";
+
+        case 5 :
+            return "I'm good, How can I help you?";
+
+        case 6:
+            return "I'm great, How can I help you?";
+
+        case 7 :
+            return "I'm good :) What can I do for you?";
+
+        case 8 :
+            return "I'm great, :) What can I do for you?";
+
+        case 9 :
+            return "I'm good, Ask me something";
+
+        case 10 :
+            return "I'm great, Ask me something";
+        case 11 :
+            return "I'm great :) Ask me something";
+
+        case 12 :
+            return "I'm good :) Ask me something";
+
+        case 13 :
+            return "I'm good, Need help?";
+
+        case 14 :
+            return "I'm great, Need help?";
+
+        case 15 :
+            return "I'm good :) Need help?";
+
+        case 16 :
+            return "I'm great :) Need help?";
+
+        case 17 :
+            return "Hello, how are you?";
+
+
 
     }
 }
