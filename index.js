@@ -145,7 +145,7 @@ function getGraham(){
             return "Hey Graham";
 
         case 2 :
-            return "Sup dawg";
+            return "Sup dawg!";
 
         case 3:
             return "Wanna play some 8 ball pool?";
