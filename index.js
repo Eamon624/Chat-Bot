@@ -47,7 +47,9 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id,{text: getGraham()});
             }
 
-
+            else if (string.match(/(Fuck)|(Piss)|(Shit)|(Cunt)/i)){
+                sendMessage(event.sender.id,{text: getBadLanguage()});
+            }
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
             }
@@ -119,6 +121,20 @@ function getConfused(){
 
         case 4 :
             return "I didn't quite understand that.";
+    }
+}
+
+function getBadLanguage(){
+    var rand = Math.floor((Math.random() * 2) + 1);
+    switch (rand) {
+
+        case 1 :
+            return "That's not very nice.";
+
+        case 2 :
+            return "No need for bad language.";
+
+
     }
 }
 
