@@ -193,7 +193,7 @@ function getPaulHayes(){
     switch (rand) {
 
         case 1 :
-            return "Name: Dr.Paul Hayes %0A Department: Information Systems %0A Role: Lecturer %0A Room 3.18 %0A Telephone Number: (01) 4498612 %0A Email: paul.hayes@ncirl.ie";
+            return "\nName: Dr.Paul Hayes\nDepartment: Information Systems\nRole: Lecturer %0A Room 3.18\nTelephone Number: (01) 4498612\nEmail: paul.hayes@ncirl.ie";
 
 
 
