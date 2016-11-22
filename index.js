@@ -38,20 +38,22 @@ app.post('/webhook', function (req, res)
             var string = event.message.text;
 
             var message;
-            //If user greets the bot
+            //If user inputs any of these words than he gets one of the respones in the method
             if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
                 sendMessage(event.sender.id,{text: getGreeting()});
             }
 
-            else if (string.match(/(hi, i'm graham)|(graham)|(My name is graham)/i)){
-                sendMessage(event.sender.id,{text: getGraham()});
-            }
+
 
             else if (string.match(/(hi, how are you?)|(How are you?)|(How's it going?)|(Hey, hows it going?)/i)){
                 sendMessage(event.sender.id,{text: getResponseGreeting()});
             }
 
             else if (string.match(/(Fuck)|(Piss)|(Shit)|(Cunt)/i)){
+                sendMessage(event.sender.id,{text: getBadLanguage()});
+            }
+
+            else if (string.match(/(Paul Hayes)/i)){
                 sendMessage(event.sender.id,{text: getBadLanguage()});
             }
             else{
@@ -186,6 +188,16 @@ function getConfused(){
     }
 }
 
+function PaulHayes(){
+    var rand = Math.floor((Math.random() * 1) + 1);
+    switch (rand) {
+
+        case 1 :
+            return "Name: Dr.Paul Hayes %0A Department: Information Systems %0A Role: Lecturer %0A Room 3.18 %0A Telephone Number: (01) 4498612 %0A Email: paul.hayes@ncirl.ie";
+
+
+
+
 function getBadLanguage(){
     var rand = Math.floor((Math.random() * 2) + 1);
     switch (rand) {
@@ -200,28 +212,7 @@ function getBadLanguage(){
     }
 }
 
-function getGraham(){
-    var rand = Math.floor((Math.random() * 5) + 1);
-    switch (rand) {
-        case 1 :
-            return "Hey Graham";
 
-        case 2 :
-            return "Sup dawg!";
-
-        case 3:
-            return "Wanna play some 8 ball pool?";
-
-        case 4:
-            return "What room is our class in?"
-
-        case 5:
-            return "hi Graham, I'm shitting in for the CA later on";
-
-
-
-    }
-}
 
 
 // generic function sending messages
