@@ -54,7 +54,7 @@ app.post('/webhook', function (req, res)
             }
 
             else if (string.match(/(Paul Hayes)/i)){
-                sendMessage(event.sender.id,{text: getBadLanguage()});
+                sendMessage(event.sender.id,{text: getPaulHayes()});
             }
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
@@ -188,7 +188,7 @@ function getConfused(){
     }
 }
 
-function PaulHayes(){
+function getPaulHayes(){
     var rand = Math.floor((Math.random() * 1) + 1);
     switch (rand) {
 
@@ -196,6 +196,8 @@ function PaulHayes(){
             return "Name: Dr.Paul Hayes %0A Department: Information Systems %0A Role: Lecturer %0A Room 3.18 %0A Telephone Number: (01) 4498612 %0A Email: paul.hayes@ncirl.ie";
 
 
+
+}
 
 }
 function getBadLanguage(){
