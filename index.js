@@ -197,7 +197,7 @@ function PaulHayes(){
 
 
 
-
+}
 function getBadLanguage(){
     var rand = Math.floor((Math.random() * 2) + 1);
     switch (rand) {
