@@ -187,11 +187,8 @@ function getConfused(){
 }
 
 function getPaulHayes(){
-    var rand = Math.floor((Math.random() * 1) + 1);
-    switch (rand) {
 
-        case 1 :
-            return "\nName: Dr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie\n HEH?!";
+            return "\nName: Dr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie\nHEH?!";
 
 
 
