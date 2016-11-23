@@ -43,8 +43,6 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id,{text: getGreeting()});
             }
 
-
-
             else if (string.match(/(hi, how are you?)|(How are you?)|(How's it going?)|(Hey, hows it going?)/i)){
                 sendMessage(event.sender.id,{text: getResponseGreeting()});
             }
@@ -113,7 +111,7 @@ function getGreeting(){
 }
 
 function getResponseGreeting(){
-    var rand = Math.floor((Math.random() * 12) + 1);
+    var rand = Math.floor((Math.random() * 17) + 1);
     switch (rand) {
         case 1 :
             return "I'm good, What can I help you with?";
@@ -193,7 +191,7 @@ function getPaulHayes(){
     switch (rand) {
 
         case 1 :
-            return "\nName: Dr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie";
+            return "\nName: Dr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie\n HEH?!";
 
 
 
