@@ -194,13 +194,13 @@ function getConfused(){
 
 function getPaulHayes(){
 
-            return "\nName: Dr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie\nHEH?!";
+            return "\nDr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie\nHEH?!";
 
 }
 
 function getDominicCarr(){
 
-            return "\nName: Dr.Dr Dominic Carr\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498579\nEmail: Dominic.Carr@ncirl.ie";
+            return "\nDr Dominic Carr\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498579\nEmail: Dominic.Carr@ncirl.ie";
 
 
 }
@@ -223,7 +223,7 @@ function getCheeky(){
                 }
 
 
-                    }             
+                    }
 function getBadLanguage(){
     var rand = Math.floor((Math.random() * 2) + 1);
     switch (rand) {
