@@ -54,6 +54,12 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Paul Hayes)/i)){
                 sendMessage(event.sender.id,{text: getPaulHayes()});
             }
+            else if (string.match(/(Dominic Carr)/i)){
+                sendMessage(event.sender.id,{text: getDominicCarr()});
+            }
+            else if (string.match(/(You're so Cheeky)|(You're just a little cheeky Chat Bot aren't you)|(This is very cheeky)|(This is so cheeky)/i)){
+                sendMessage(event.sender.id,{text: getCheeky()});
+            }
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
             }
@@ -190,11 +196,34 @@ function getPaulHayes(){
 
             return "\nName: Dr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie\nHEH?!";
 
+}
+
+function getDominicCarr(){
+
+            return "\nName: Dr.Dr Dominic Carr\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498579\nEmail: Dominic.Carr@ncirl.ie";
 
 
 }
 
+function getCheeky(){
+  var rand = Math.floor((Math.random() * 5) + 1);
+  switch (rand) {
 
+        case 1 :
+            return "Hahahahhaah i know x";
+        case 2 :
+            return "Wanna go to the Salty Dog?";
+        case 3 :
+            return "Oh Shesh Y'all!";
+        case 4 :
+            return "Oh Dayum";
+        case 5 :
+            return "I love workmans!";
+
+                }
+
+
+                    }             
 function getBadLanguage(){
     var rand = Math.floor((Math.random() * 2) + 1);
     switch (rand) {
