@@ -38,6 +38,7 @@ app.post('/webhook', function (req, res)
             var string = event.message.text;
 
             var message;
+
             //If user inputs any of these words than he gets one of the respones in the method
             if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
                 sendMessage(event.sender.id,{text: getGreeting()});
@@ -60,6 +61,11 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(You're so Cheeky)|(You're just a little cheeky Chat Bot aren't you)|(This is very cheeky)|(This is so cheeky)/i)){
                 sendMessage(event.sender.id,{text: getCheeky()});
             }
+
+            else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i))
+            {
+                sendMessage(event.sender.id,{text: getActualTime()});
+            }
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
             }
@@ -73,6 +79,8 @@ app.post('/webhook', function (req, res)
  * conversation.
  * @returns {*}
  */
+
+ //Greetings
 
 function getGreeting(){
     var rand = Math.floor((Math.random() * 12) + 1);
@@ -174,6 +182,8 @@ function getResponseGreeting(){
     }
 }
 
+//Confused
+
 function getConfused(){
     var rand = Math.floor((Math.random() * 4) + 1);
     switch (rand) {
@@ -192,18 +202,22 @@ function getConfused(){
     }
 }
 
+//Lecturers Information
+
 function getPaulHayes(){
 
-            return "\nDr.Paul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie\nHEH?!";
+            return "\nPaul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie";
 
 }
 
 function getDominicCarr(){
 
-            return "\nDr Dominic Carr\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498579\nEmail: Dominic.Carr@ncirl.ie";
+            return "\nDominic Carr\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498579\nEmail: Dominic.Carr@ncirl.ie";
 
 
 }
+
+//Cheeky Responses
 
 function getCheeky(){
   var rand = Math.floor((Math.random() * 5) + 1);
@@ -224,6 +238,8 @@ function getCheeky(){
 
 
                     }
+
+
 function getBadLanguage(){
     var rand = Math.floor((Math.random() * 2) + 1);
     switch (rand) {
@@ -236,6 +252,14 @@ function getBadLanguage(){
 
 
     }
+}
+
+/**
+ * Returns the current time
+ * @returns {string}
+ */
+function getActualTime(){
+    return new Date().toLocaleTimeString('IRL', { hour12: false, hour: "numeric", minute: "numeric"} );
 }
 
 
