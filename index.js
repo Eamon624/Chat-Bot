@@ -58,7 +58,7 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Dominic Carr)/i)){
                 sendMessage(event.sender.id,{text: getDominicCarr()});
             }
-            else if (string.match(/(You're so Cheeky)|(You're just a little cheeky Chat Bot aren't you)|(This is very cheeky)|(This is so cheeky)/i)){
+            else if (string.match(/(Cheeky)/i)){
                 sendMessage(event.sender.id,{text: getCheeky()});
             }
 
@@ -220,25 +220,11 @@ function getDominicCarr(){
 //Cheeky Responses
 
 function getCheeky(){
-  var rand = Math.floor((Math.random() * 5) + 1);
-  switch (rand) {
 
-        case 1 :
-            return "Hahahahhaah i know x";
-        case 2 :
-            return "Wanna go to the Salty Dog?";
-        case 3 :
-            return "Oh Shesh Y'all!";
-        case 4 :
-            return "Oh Dayum";
-        case 5 :
-            return "I love workmans!";
-
-                }
+            return "Cheeky";
 
 
-                    }
-
+}
 
 function getBadLanguage(){
     var rand = Math.floor((Math.random() * 2) + 1);
