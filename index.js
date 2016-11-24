@@ -58,6 +58,9 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Dominic Carr)/i)){
                 sendMessage(event.sender.id,{text: getDominicCarr()});
             }
+            else if (string.match(/(Somebody once told me)/i)){
+                sendMessage(event.sender.id,{text: SmashMouth()});
+            }
             else if (string.match(/(This is very Cheeky)/i)){
                 sendMessage(event.sender.id,{text: getCheeky()});
             }
@@ -246,6 +249,11 @@ function getBadLanguage(){
  */
 function getActualTime(){
     return new Date().toLocaleTimeString('IRL', { hour12: false, hour: "numeric", minute: "numeric"} );
+}
+
+function SmashMouth(){
+
+            return "The world is gonna roll me, I ain;t the sharpest tool in the shed."
 }
 
 
