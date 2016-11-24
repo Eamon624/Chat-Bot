@@ -58,7 +58,7 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Dominic Carr)/i)){
                 sendMessage(event.sender.id,{text: getDominicCarr()});
             }
-            else if (string.match(/(Cheeky)/i)){
+            else if (string.match(/(This is very Cheeky)/i)){
                 sendMessage(event.sender.id,{text: getCheeky()});
             }
 
@@ -221,7 +221,7 @@ function getDominicCarr(){
 
 function getCheeky(){
 
-            return "Cheeky";
+            return "Hahahahha i know, wanna go to the salty dog?";
 
 
 }
