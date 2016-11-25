@@ -48,7 +48,7 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id,{text: getResponseGreeting()});
             }
 
-            else if (string.match(/(Fuck)|(Piss)|(Shit)|(Cunt)/i)){
+            else if (string.match(/()/i)){
                 sendMessage(event.sender.id,{text: getBadLanguage()});
             }
 
@@ -61,7 +61,7 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Somebody once told me)/i)){
                 sendMessage(event.sender.id,{text: SmashMouth()});
             }
-            else if (string.match(/(This is very Cheeky)/i)){
+            else if (string.match(/(Cheeky)/i)){
                 sendMessage(event.sender.id,{text: getCheeky()});
             }
 
@@ -207,7 +207,8 @@ function getConfused(){
 
 //Lecturers Information
 
-function getPaulHayes(){
+
+      function getPaulHayes(){
 
             return "\nPaul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie";
 
@@ -253,7 +254,7 @@ function getActualTime(){
 
 function SmashMouth(){
 
-            return "The world is gonna roll me, I ain;t the sharpest tool in the shed."
+            return "The world is gonna roll me, I ain't the sharpest tool in the shed."
 }
 
 
