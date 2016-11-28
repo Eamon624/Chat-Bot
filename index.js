@@ -48,9 +48,6 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id,{text: getResponseGreeting()});
             }
 
-            else if (string.match(/()/i)){
-                sendMessage(event.sender.id,{text: getBadLanguage()});
-            }
 
             else if (string.match(/(Paul Hayes)/i)){
                 sendMessage(event.sender.id,{text: getPaulHayes()});
@@ -58,12 +55,7 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Dominic Carr)/i)){
                 sendMessage(event.sender.id,{text: getDominicCarr()});
             }
-            else if (string.match(/(Somebody once told me)/i)){
-                sendMessage(event.sender.id,{text: SmashMouth()});
-            }
-            else if (string.match(/(Cheeky)/i)){
-                sendMessage(event.sender.id,{text: getCheeky()});
-            }
+
 
             else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i))
             {
@@ -208,7 +200,7 @@ function getConfused(){
 //Lecturers Information
 
 
-      function getPaulHayes(){
+function getPaulHayes(){
 
             return "\nPaul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie";
 
@@ -223,26 +215,8 @@ function getDominicCarr(){
 
 //Cheeky Responses
 
-function getCheeky(){
-
-            return "Hahahahha i know, wanna go to the salty dog?";
 
 
-}
-
-function getBadLanguage(){
-    var rand = Math.floor((Math.random() * 2) + 1);
-    switch (rand) {
-
-        case 1 :
-            return "That's not very nice.";
-
-        case 2 :
-            return "No need for bad language.";
-
-
-    }
-}
 
 /**
  * Returns the current time
@@ -252,10 +226,7 @@ function getActualTime(){
     return new Date().toLocaleTimeString('IRL', { hour12: false, hour: "numeric", minute: "numeric"} );
 }
 
-function SmashMouth(){
 
-            return "The world is gonna roll me, I ain't the sharpest tool in the shed."
-}
 
 
 
