@@ -57,7 +57,7 @@ app.post('/webhook', function (req, res)
             }
 
             else if(string.match(/(Time)|(SCR3)/i)){
-                sendMessage(event.sender.id,{text: getActualTime()});
+                sendMessage(event.sender.id,{text: getRoomStatusSCR3()});
             }
 
             else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i)){
@@ -200,7 +200,7 @@ function getConfused(){
 }
 
 // Room Status
-function RoomStatus(){
+function RoomStatusSCR3(){
 
   return "HCC1 Introduction to Programming is sheduled in this room until 3pm";
 
