@@ -56,11 +56,9 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id,{text: getDominicCarr()});
             }
 
-            else if(string.match(/(Time)|(SCR3)/i)){
-                sendMessage(event.sender.id,{text: getRoomStatusSCR3()});
-            }
 
-            else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i)){
+            else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i))
+            {
                 sendMessage(event.sender.id,{text: getActualTime()});
             }
             else{
@@ -198,19 +196,6 @@ function getConfused(){
             return "I didn't quite understand that.";
     }
 }
-
-// Room Status
-function RoomStatusSCR3(){
-
-  return "HCC1 Introduction to Programming is sheduled in this room until 3pm";
-
-}
-// Real Time Transport
-function
-// FAQS
-function
-// Link To Campus Maps
-function
 
 //Lecturers Information
 
