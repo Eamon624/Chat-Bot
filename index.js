@@ -77,7 +77,7 @@ app.post('/webhook', function (req, res)
 
             }
 
-            else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
+            else if (string.match(/(Student Portal)/i) ||string.match(/(moodle)/i) || string.match(/(eportal)/i)
     || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
     listMoodle(event.sender.id);
 }
