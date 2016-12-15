@@ -67,8 +67,8 @@ app.post('/webhook', function (req, res)
 
             }
 
-            else if (string.match(/(alrighty then)/i)) {
-    var url = "https://i.ytimg.com/vi/KwXSIpwGZS8/maxresdefault.jpg";
+            else if (string.match(/(Timetable)/i)) {
+    var url = "http://timetable.ncirl.ie/sws/showtimetable.aspx";
     pictureReply(event.sender.id, url)
 }
 
