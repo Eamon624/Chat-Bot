@@ -67,6 +67,11 @@ app.post('/webhook', function (req, res)
 
             }
 
+            else if (string.match(/(alrighty then)/i)) {
+    var url = "https://i.ytimg.com/vi/KwXSIpwGZS8/maxresdefault.jpg";
+    pictureReply(event.sender.id, url)
+}
+
             else if (string.match(/(Student Services)/i)){
                 sendMessage(event.sender.id,{text: getFAQ1()});
 
@@ -248,6 +253,8 @@ function getFAQ2(){
 // Buttons
 
 // Timetables
+
+
 
 // Room Status
 
