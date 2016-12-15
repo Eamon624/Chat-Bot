@@ -271,7 +271,7 @@ function listMoodle(id)
                 "buttons":[
                     {
                         "type":"web_url",
-                        "url":"https://moodle.itb.ie/login/index.php",
+                        "url":"https://moodle.ncirl.ie/",
                         "title":"Moodle"
                     },
                     {
