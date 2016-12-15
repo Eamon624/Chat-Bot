@@ -269,11 +269,6 @@ function listMoodle(id)
                 "template_type":"button",
                 "text":"Which site do you need?",
                 "buttons":[
-                  {
-                      "type":"web_url",
-                      "url":"https://www.google.ie/",
-                      "title":"Moodle"
-                  },
                     {
                         "type":"web_url",
                         "url":"https://www.google.ie/",
