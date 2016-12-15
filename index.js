@@ -63,9 +63,24 @@ app.post('/webhook', function (req, res)
             }
 
             else if (string.match(/(SCR3)/i)){
-                sendMessage(event.sender.id,{text: getRoomStatus()});
+                sendMessage(event.sender.id,{text: getRoomStatusSCR3()});
 
             }
+
+            else if (string.match(/(Student Services)/i)){
+                sendMessage(event.sender.id,{text: getFAQ1()});
+
+            }
+
+            else if (string.match(/(Where is the SU?)/i)){
+                sendMessage(event.sender.id,{text: getFAQ2()});
+
+            }
+
+            else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
+    || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
+    listMoodle(event.sender.id);
+}
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
             }
@@ -220,19 +235,61 @@ function getDominicCarr(){
 
 // FAQ
 
+function getFAQ1(){
+
+            return ""
+}
+
+function getFAQ2(){
+
+            return "The Student Union offices are located in the basement and the adjoining area is the central hub."
+}
+
 // Buttons
 
 // Timetables
 
 // Room Status
 
-function getRoomStatus(){
+function getRoomStatusSCR3(){
 
             return "HCC1, Introduction to Programming is sheduled in this room until 4pm"
 
 }
 
-
+/**
+ * list of useful ITB websites in a buttons template
+ */
+function listMoodle(id)
+{
+    var message = {
+        "attachment":{
+            "type":"template",
+            "payload":{
+                "template_type":"button",
+                "text":"Which site do you need?",
+                "buttons":[
+                    {
+                        "type":"web_url",
+                        "url":"https://moodle.itb.ie/login/index.php",
+                        "title":"Moodle"
+                    },
+                    {
+                        "type":"web_url",
+                        "url":"https://goo.gl/MwLMx4",
+                        "title":"Student Email"
+                    },
+                    {
+                        "type":"web_url",
+                        "url":"http://tesla.itb.ie/eportal/index.jsp",
+                        "title":"Eportal"
+                    }
+                ]
+            }
+        }
+    };
+    sendMessage(id, message);
+}
 
 
 
