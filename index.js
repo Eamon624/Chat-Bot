@@ -68,7 +68,7 @@ app.post('/webhook', function (req, res)
             }
 
             else if (string.match(/(Sock)/i)) {
-    var url = "http://timetable.ncirl.ie/sws/showtimetable.jpg";
+    var url = "http://imgur.com/2hcDEoz";
     pictureReply(event.sender.id, url)
 }
 
