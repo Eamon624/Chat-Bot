@@ -61,6 +61,11 @@ app.post('/webhook', function (req, res)
             {
                 sendMessage(event.sender.id,{text: getActualTime()});
             }
+
+            else if (string.match(/(SCR3)/i)){
+                sendMessage(event.sender.id,{text: getRoomStatus()});
+
+            }
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
             }
@@ -213,7 +218,20 @@ function getDominicCarr(){
 
 }
 
-//Cheeky Responses
+// FAQ
+
+// Buttons
+
+// Timetables
+
+// Room Status
+
+function getRoomStatus(){
+
+            return "HCC1, Introduction to Programming is sheduled in this room until 4pm"
+
+}
+
 
 
 
