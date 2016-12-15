@@ -271,17 +271,17 @@ function listMoodle(id)
                 "buttons":[
                     {
                         "type":"web_url",
-                        "url":"https://moodle.ncirl.ie",
+                        "url":"https://www.google.ie/",
                         "title":"Moodle"
                     },
                     {
                         "type":"web_url",
-                        "url":"https://goo.gl/MwLMx4",
+                        "url":"https://www.google.ie/",
                         "title":"Student Email"
                     },
                     {
                         "type":"web_url",
-                        "url":"http://tesla.itb.ie/eportal/index.jsp",
+                        "url":"https://www.google.ie/",
                         "title":"NCI 360"
                     }
                 ]
