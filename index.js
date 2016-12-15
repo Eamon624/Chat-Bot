@@ -271,25 +271,19 @@ function listMoodle(id)
                 "buttons":[
                     {
                         "type":"web_url",
-                        "url":"https://moodle.ncirl.ie/",
+                        "url":"https://moodle.itb.ie/login/index.php",
                         "title":"Moodle"
                     },
                     {
                         "type":"web_url",
-                        "url":"http://www.outlook.com/student.ncirl.ie",
+                        "url":"https://goo.gl/MwLMx4",
                         "title":"Student Email"
                     },
                     {
                         "type":"web_url",
-                        "url":"https://myncistudent.ncirl.ie/MyDetails/Pages/default_.aspx",
-                        "title":"My Details"
-                    },
-                    {
-                        "type":"web_url",
-                        "url":"https://nci360.ncirl.ie/",
-                        "title":"NCI 360"
+                        "url":"http://tesla.itb.ie/eportal/index.jsp",
+                        "title":"Eportal"
                     }
-
                 ]
             }
         }
