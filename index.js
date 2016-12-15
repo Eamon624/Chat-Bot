@@ -77,7 +77,7 @@ app.post('/webhook', function (req, res)
 
             }
 
-            else if (string.match(/(Student Portal)/i) ||string.match(/(moodle)/i) || string.match(/(eportal)/i)
+            else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
     || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
     listMoodle(event.sender.id);
 }
@@ -269,11 +269,11 @@ function listMoodle(id)
                 "template_type":"button",
                 "text":"Which site do you need?",
                 "buttons":[
-                    {
-                        "type":"web_url",
-                        "url":"https://myncistudent.ncirl.ie/Pages/Default.aspx",
-                        "title":"Student Portal"
-                    },
+                  {
+                      "type":"web_url",
+                      "url":"https://www.google.ie/",
+                      "title":"Moodle"
+                  },
                     {
                         "type":"web_url",
                         "url":"https://www.google.ie/",
