@@ -68,7 +68,7 @@ app.post('/webhook', function (req, res)
             }
 
             else if (string.match(/(Sock)/i)) {
-    var url = "http://imgur.com/2hcDEoz";
+    var url = "http://i.imgur.com/2hcDEoz.jpg";
     pictureReply(event.sender.id, url)
 }
 
