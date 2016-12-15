@@ -276,12 +276,12 @@ function listMoodle(id)
                     },
                     {
                         "type":"web_url",
-                        "url":"https://www.google.ie/",
+                        "url":"http://www.outlook.com/student.ncirl.ie",
                         "title":"Student Email"
                     },
                     {
                         "type":"web_url",
-                        "url":"https://www.google.ie/",
+                        "url":"https://nci360.ncirl.ie/",
                         "title":"NCI 360"
                     }
                 ]
