@@ -271,6 +271,11 @@ function listMoodle(id)
                 "buttons":[
                     {
                         "type":"web_url",
+                        "url":"https://myncistudent.ncirl.ie/Pages/Default.aspx",
+                        "title":"Student Portal"
+                    },
+                    {
+                        "type":"web_url",
                         "url":"https://www.google.ie/",
                         "title":"Moodle"
                     },
