@@ -72,7 +72,7 @@ app.post('/webhook', function (req, res)
 
             }
 
-            else if (string.match(/(BSHC4 Timetable)/i)) {
+            else if (string.match(/(BSHC4 Semester 1)/i)) {
     var url = "http://i.imgur.com/2hcDEoz.jpg";
     pictureReply(event.sender.id, url)
 }
