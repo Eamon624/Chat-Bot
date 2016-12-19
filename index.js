@@ -77,7 +77,7 @@ app.post('/webhook', function (req, res)
     pictureReply(event.sender.id, url)
 }
 
-            else if (string.match(/(Student Services)/i)){
+            else if (string.match(/(What time does the Library close?)/i)){
                 sendMessage(event.sender.id,{text: getFAQ1()});
 
             }
@@ -247,7 +247,7 @@ function getDominicCarr(){
 
 function getFAQ1(){
 
-            return ""
+            return "The Library closes at 9pm regularly and extends to 10pm during exam periods."
 }
 
 function getFAQ2(){
@@ -271,7 +271,7 @@ function getSkerriesTrain(){
 
 function getRoomStatusSCR3(){
 
-            return "HCC1, Introduction to Programming is sheduled in this room until 4pm"
+            return "HCC1, Introduction to Programming is sheduled in this room until 12pm"
 
 }
 
