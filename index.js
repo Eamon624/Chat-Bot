@@ -77,7 +77,7 @@ app.post('/webhook', function (req, res)
     pictureReply(event.sender.id, url)
 }
 
-            else if (string.match(/(What time does the Library close?)/i)){
+            else if (string.match(/(When does the Library close?)/i)){
                 sendMessage(event.sender.id,{text: getFAQ1()});
 
             }
