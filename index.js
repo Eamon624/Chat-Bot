@@ -67,7 +67,12 @@ app.post('/webhook', function (req, res)
 
             }
 
-            else if (string.match(/(Sock)/i)) {
+            else if (string.match(/(Train Connolly to Skerries)/i)){
+                sendMessage(event.sender.id,{text: getSkerriesTrain()});
+
+            }
+
+            else if (string.match(/(BSHC4 Timetable)/i)) {
     var url = "http://i.imgur.com/2hcDEoz.jpg";
     pictureReply(event.sender.id, url)
 }
@@ -254,7 +259,13 @@ function getFAQ2(){
 
 // Timetables
 
+// Skerries Train
 
+function getSkerriesTrain(){
+
+            return "The next train from Connolly to Skerries departs at 10.35pn"
+
+}
 
 // Room Status
 
