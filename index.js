@@ -247,7 +247,7 @@ function getDominicCarr(){
 
 function getFAQ1(){
 
-            return "The Library closes at 9pm regularly and extends to 10pm during exam periods."
+            return "The library closes at 9pm regularly and extends to 10pm during exam periods."
 }
 
 function getFAQ2(){
