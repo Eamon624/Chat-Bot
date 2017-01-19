@@ -91,13 +91,6 @@ app.post('/webhook', function (req, res)
     || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
     listMoodle(event.sender.id);
 }
-
-          else if (string.match(/(Who am i)/i)) {
-                 message = "Your name is " + userName + " :)";
-                 sendMessage(event.sender.id, {text: message});
-            }
-
-
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
             }
