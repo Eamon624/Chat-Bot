@@ -30,6 +30,10 @@ app.get('/webhook', function (req, res) {
     }
 });
 
+var recipientId;
+var userName;
+var all = false;
+
 // handler receiving messages
 app.post('/webhook', function (req, res)
 {
@@ -39,14 +43,23 @@ app.post('/webhook', function (req, res)
     {
         var event = events[i];
         if (event.message && event.message.text)
+
+
         {
             //Prints uses ID to the console in colour for easy readability
-            console.log('\x1b[36m', "Recipient ID: " + event.sender.id, '\x1b[0m');
+
 
             //string user has entered
             var string = event.message.text;
 
             var message;
+
+
+            //Prints uses ID to the console in colour for easy readability
+             recipientId = event.sender.id;
+
+             console.log('\x1b[36m', "Recipient ID: " + event.sender.id, '\x1b[0m');
+             console.log('\x1b[36m', "Message: " + string, '\x1b[0m');
 
             //If user inputs any of these words than he gets one of the respones in the method
             if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
@@ -99,7 +112,14 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
     || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
     listMoodle(event.sender.id);
+
+
 }
+
++           else if (string.match(/(Who am i)/i)) {
+                 message = "Your name is " + userName + " :)";
+                 sendMessage(event.sender.id, {text: message});
+             }
             else{
                 sendMessage(event.sender.id,{text: getConfused()});
             }
