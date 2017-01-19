@@ -32,7 +32,7 @@ app.get('/webhook', function (req, res) {
 
 var recipientId;
 var userName;
-var all = false;
+
 
 // handler receiving messages
 app.post('/webhook', function (req, res)
