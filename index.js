@@ -15,6 +15,14 @@ app.listen((process.env.PORT || 3000));
   var PAGE_ACCESS_TOKEN = "EAAJ2aBX63yMBAPmke2JGBlZBFpADDdgVwcdrlDH2nthuxfs3ZAjOHVZAAHUjvadzOC9io7f7siZAzua5Ji8VVPHGqukoegD9gmpdqs3xm6bUZCxIoThXyVeMmZBWu8KIvHtTFtqdcndzmUxCW2YAtsZCOp36ZCLVvhdEZBJqHLpfBDQZDZD";
 
 
+/****************************************************** */
+    app.listen(app.get('port'), function() {
+        console.log('Node app is running on port', app.get('port'));
+    });
+   @@ -21,10 +20,10 @@ app.get('/', function (req, res) {
+    });
+
+    
 // Server frontpage
 app.get('/', function (req, res) {
     res.send('Facebook ChatBot Server for NCI');
