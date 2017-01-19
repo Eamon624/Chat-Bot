@@ -4,8 +4,16 @@ var request = require('request');
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
+
+//start
+
 app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
+
+/** Access Tokens **/
+//Access Token for Facebook
+  var PAGE_ACCESS_TOKEN = "EAAJ2aBX63yMBAPmke2JGBlZBFpADDdgVwcdrlDH2nthuxfs3ZAjOHVZAAHUjvadzOC9io7f7siZAzua5Ji8VVPHGqukoegD9gmpdqs3xm6bUZCxIoThXyVeMmZBWu8KIvHtTFtqdcndzmUxCW2YAtsZCOp36ZCLVvhdEZBJqHLpfBDQZDZD";
+
 
 // Server frontpage
 app.get('/', function (req, res) {
