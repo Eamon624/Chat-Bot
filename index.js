@@ -316,7 +316,7 @@ app.post('/webhook', function (req, res)
            }
             //If the user entered in something it doesn't know or random letters
             else {
-                sendMessage(event.sender.id, {text: errorMessage()});
+                sendMessage(event.sender.id, {text: getConfused()});
             }
         }
 
