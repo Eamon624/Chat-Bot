@@ -753,51 +753,234 @@ function getHelpChoices(id){
  * conversation.
  * @returns {*}
  */
-function getGreeting(){
-    var rand = Math.floor((Math.random() * 7) + 1);
+
+ function getGreeting(){
+     var rand = Math.floor((Math.random() * 12) + 1);
+     switch (rand) {
+         case 1 :
+             return "What's up?";
+
+         case 2 :
+             return "What can I help you with?";
+
+         case 3:
+             return "Hello there";
+
+         case 4:
+             return "Hey there";
+
+         case 5:
+             return "How can I help?";
+
+         case 6:
+             return "Hi there";
+
+         case 7:
+             return "What can I do for you?";
+
+         case 8:
+             return "Ask me something";
+
+         case 9:
+             return "Need help?";
+
+         case 10:
+             return "Hello, how are you?";
+
+         case 11:
+             return "Hi";
+
+         case 12:
+             return "Hello";
+
+     }
+ }
+
+ function getResponseGreeting(){
+    var rand = Math.floor((Math.random() * 17) + 1);
     switch (rand) {
         case 1 :
-            return "Hello how are you?";
+            return "I'm good, What can I help you with?";
+
         case 2 :
-            return "Hello there :)";
-        case 3:
-            return "What can i do for you?";
-        case 4:
-            return "What's up? :)";
-        case 5:
-            return "Need help? just say 'Help me'";
+            return "I'm great, What can I help you with?";
+
+        case 3 :
+            return "I'm good :) What can I help you with?";
+
+        case 4 :
+            return "I'm great :) What can I help you with?";
+
+        case 5 :
+            return "I'm good, How can I help you?";
+
         case 6:
-            return "Ask me something or say 'help me'";
-        case 7:
-            return "Just say 'what can you do' for help 😎";
+            return "I'm great, How can I help you?";
+
+        case 7 :
+            return "I'm good :) What can I do for you?";
+
+        case 8 :
+            return "I'm great, :) What can I do for you?";
+
+        case 9 :
+            return "I'm good, Ask me something";
+
+        case 10 :
+            return "I'm great, Ask me something";
+        case 11 :
+            return "I'm great :) Ask me something";
+
+        case 12 :
+            return "I'm good :) Ask me something";
+
+        case 13 :
+            return "I'm good, Need help?";
+
+        case 14 :
+            return "I'm great, Need help?";
+
+        case 15 :
+            return "I'm good :) Need help?";
+
+        case 16 :
+            return "I'm great :) Need help?";
+
+        case 17 :
+            return "Hello, how are you?";
+
+
+
     }
 }
+
+
+function getConfused(){
+    var rand = Math.floor((Math.random() * 4) + 1);
+    switch (rand) {
+
+        case 1 :
+            return "What?";
+
+        case 2 :
+            return "Sorry, what?";
+
+        case 3 :
+            return "I didn't understand that";
+
+        case 4 :
+            return "I didn't quite understand that.";
+    }
+}
+
+//Lecturers Information
+
+
+function getPaulHayes(){
+
+            return "\nPaul Hayes\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498612\nEmail: Paul.Hayes@ncirl.ie";
+
+}
+
+function getDominicCarr(){
+
+            return "\nDominic Carr\nDepartment: IT\nRole: Lecturer\nRoom: 3.18\nNumber: (01) 4498579\nEmail: Dominic.Carr@ncirl.ie";
+
+
+}
+
+// FAQ
+
+function getFAQ1(){
+
+            return "The library closes at 9pm regularly and extends to 10pm during exam periods."
+}
+
+function getFAQ2(){
+
+            return "The Student Union offices are located in the basement and the adjoining area is the central hub."
+}
+
+// Buttons
+
+// Timetables
+
+// Skerries Train
+
+function getSkerriesTrain(){
+
+            return "The next train from Connolly to Skerries departs at 10.35pn"
+
+}
+
+// Room Status
+
+function getRoomStatusSCR3(){
+
+            return "HCC1, Introduction to Programming is sheduled in this room until 12pm"
+
+}
+
+/**
+ * list of useful ITB websites in a buttons template
+ */
+function listMoodle(id)
+{
+    var message = {
+        "attachment":{
+            "type":"template",
+            "payload":{
+                "template_type":"button",
+                "text":"Which site do you need?",
+                "buttons":[
+                    {
+                        "type":"web_url",
+                        "url":"https://moodle.ncirl.ie/",
+                        "title":"Moodle"
+                    },
+                    {
+                        "type":"web_url",
+                        "url":"http://www.outlook.com/student.ncirl.ie",
+                        "title":"Student Email"
+                    },
+                    {
+                        "type":"web_url",
+                        "url":"https://nci360.ncirl.ie/",
+                        "title":"NCI 360"
+                    }
+                ]
+            }
+        }
+    };
+    sendMessage(id, message);
+}
+
+/**
+ * Function to send picture messages
+ * @param recipientID
+ * @param url
+ */
+function pictureReply(recipientID, url)
+{
+    //JSON message sent as data to the FB API
+    var message =
+    {
+        "attachment": {
+            "type": "image",
+            "payload": {
+                "url": url
+            }
+        }
+    };
+    sendMessage(recipientID, message);
+}
+
 
 /**
  * if a user enters a phrase that the bot doesn't understand
  * @returns {*}
  */
-function errorMessage() {
-    var rand = Math.floor((Math.random() * 8) + 1);
-    switch (rand) {
-        case 1 :
-            return "Sorry i didn't catch that, say that again";
-        case 2 :
-            return "Can you rephrase that?";
-        case 3:
-            return "I'm not that smart. You're gonna have to say that a different way.";
-        case 4:
-            return "I don't understand. Say that again.";
-        case 5:
-            return "Ask me again because i didn't understand that.";
-        case 6:
-            return "What?";
-        case 7:
-            return "say 'help me' to see what i can do.";
-        case 8:
-            return "Hmm didn't catch that😕 \nSay 'help me' to see what i can do for you :)";
-    }
-}
+
 
 /**
  * Returns the current time
