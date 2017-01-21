@@ -85,9 +85,7 @@ app.post('/webhook', function (req, res)
             }
             //if the user mentions bus times
 
-            else if (string.match(/(bus times)|(busses)|(Shuttle bus)/i)) {
-                shuttlebusLocationChoices(event.sender.id);
-            }
+
 
             else if (string.match(/(The centre to ITB)/i)) {
                 var destination = "ITB";
@@ -99,28 +97,71 @@ app.post('/webhook', function (req, res)
                 getBusTimes(event.sender.id, destination);
             }
 
-            else if (string.match(/(Get Started)/i)) {
-                sendMessage(event.sender.id, {text: "Hello, My Name is Enki :)"});
-                getHelpChoices(event.sender.id);
-            }
-            else if (string.match(/(alrighty then)/i)) {
-                pictureReply(event.sender.id)
-            }
-            else if (string.match(/(What)/i) && string.match(/(your name?)/i)) {
-                message = "My name is enki. But i am just a prototype :(";
-                sendMessage(event.sender.id, {text: message});
-            }
-            else if (string.match(/(how are you?)/i)) {
-                message = "I'm good, but less about me. Ask me something specific" +
-                    " or say 'help' to see what i can do :)";
 
-                sendMessage(event.sender.id, {text: message});
+
+
+                        //If user inputs any of these words than he gets one of the respones in the method
+                        else if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
+                            sendMessage(event.sender.id,{text: getGreeting()});
+                        }
+
+                        else if (string.match(/(hi, how are you?)|(How are you?)|(How's it going?)|(Hey, hows it going?)/i)){
+                            sendMessage(event.sender.id,{text: getResponseGreeting()});
+                        }
+
+
+                        else if (string.match(/(Paul Hayes)/i)){
+                            sendMessage(event.sender.id,{text: getPaulHayes()});
+                        }
+                        else if (string.match(/(Dominic Carr)/i)){
+                            sendMessage(event.sender.id,{text: getDominicCarr()});
+                        }
+
+
+                        else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i))
+                        {
+                            sendMessage(event.sender.id,{text: getActualTime()});
+                        }
+
+                        else if (string.match(/(SCR3)/i)){
+                            sendMessage(event.sender.id,{text: getRoomStatusSCR3()});
+
+                        }
+
+                        else if (string.match(/(Train Connolly to Skerries)/i)){
+                            sendMessage(event.sender.id,{text: getSkerriesTrain()});
+
+                        }
+
+                        else if (string.match(/(BSHC4 Semester 1)/i)) {
+                var url = "http://i.imgur.com/2hcDEoz.jpg";
+                pictureReply(event.sender.id, url)
             }
+
+                        else if (string.match(/(When does the Library close?)/i)){
+                            sendMessage(event.sender.id,{text: getFAQ1()});
+
+                        }
+
+                        else if (string.match(/(Where is the SU?)/i)){
+                            sendMessage(event.sender.id,{text: getFAQ2()});
+
+                        }
+
+                        else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
+                || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
+                listMoodle(event.sender.id);
+
+
+            }
+
+
 
              else if (string.match(/(Thanks)/i) || string.match(/(Thank you)/i)) {
                 message = "No prob";
                 sendMessage(event.sender.id, {text: message});
             }
+
             else if (string.match(/(time)/i)) {
                 sendMessage(event.sender.id, {text: getActualTime()});
             }
@@ -130,15 +171,15 @@ app.post('/webhook', function (req, res)
                 message = "Your name is " + userName + " :)";
                 sendMessage(event.sender.id, {text: message});
             }
+
             else if (string.match(/(help me)/i) || string.match(/(What can you do?)/i)) {
                 getHelpChoices(event.sender.id);
             }
-            else if (string.match(/(map)/i) && string.match(/(college)/i) || string.match(/(Campus map)/i)) {
-                getMap(event.sender.id);
-            }
-            else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)|| string.match(/(college websites)/i)) {
-                listMoodle(event.sender.id);
-            }
+
+
+
+
+
             /********* Dublin bus responses *************/
             else if (string.match(/(Dublin bus)/i)) {
                busLocationChoices(event.sender.id);
