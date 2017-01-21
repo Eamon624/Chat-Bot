@@ -84,17 +84,21 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id, {text: getGreeting()});
             }
             //if the user mentions bus times
+
             else if (string.match(/(bus times)|(busses)|(Shuttle bus)/i)) {
                 shuttlebusLocationChoices(event.sender.id);
             }
+
             else if (string.match(/(The centre to ITB)/i)) {
                 var destination = "ITB";
                getBusTimes(event.sender.id, destination);
             }
+
             else if (string.match(/(ITB to the centre)/i)) {
                 var destination = "centre";
                 getBusTimes(event.sender.id, destination);
             }
+
             else if (string.match(/(Get Started)/i)) {
                 sendMessage(event.sender.id, {text: "Hello, My Name is Enki :)"});
                 getHelpChoices(event.sender.id);
@@ -109,27 +113,19 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(how are you?)/i)) {
                 message = "I'm good, but less about me. Ask me something specific" +
                     " or say 'help' to see what i can do :)";
+
                 sendMessage(event.sender.id, {text: message});
             }
+
              else if (string.match(/(Thanks)/i) || string.match(/(Thank you)/i)) {
-                message = "No problem :)";
+                message = "No prob";
                 sendMessage(event.sender.id, {text: message});
             }
             else if (string.match(/(time)/i)) {
                 sendMessage(event.sender.id, {text: getActualTime()});
             }
-            else if (string.match(/(i love you)/i)) {
-                message = "i love you too, but we can never be together :("
-                sendMessage(event.sender.id, {text: message});
-            }
-            else if (string.match(/(who made you)/i)) {
-                message = "I was made by Aaron Ward😍"
-                sendMessage(event.sender.id, {text: message});
-            }
-            else if (string.match(/(fuck)|(whore)|(faggot)|(cunt)|(wanker)/gi)) {
-                message = "No need for that kind of language mate."
-                sendMessage(event.sender.id, {text: message});
-            }
+
+
             else if (string.match(/(Who am i)/i)) {
                 message = "Your name is " + userName + " :)";
                 sendMessage(event.sender.id, {text: message});
@@ -179,9 +175,9 @@ app.post('/webhook', function (req, res)
                 dublinBus(stopId);
             }
             //CORDUFF BUS ROUTES
-           else if (string.match(/(220 to Ladys Well)/i)) {
-                stopId = "1835";
-                busNumber = "220";
+           else if (string.match(/(33 to City Centre)/i)) {
+                stopId = "7292";
+                busNumber = "33";
                 dublinBus(stopId);
             }
            else if (string.match(/(238 to Ladys Well)/i)) {
@@ -338,7 +334,7 @@ var pickBusTemplate = {
         },
         {
             "content_type":"text",
-            "title":"220 to Ladys Well",
+            "title":"33 to City Cetre",
             "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
         {
