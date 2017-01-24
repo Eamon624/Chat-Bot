@@ -89,7 +89,7 @@ app.post('/webhook', function (req, res)
 
 
 
-
+                        // Basic Responses
 
                         //If user inputs any of these words than he gets one of the respones in the method
                         else if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
@@ -125,9 +125,9 @@ app.post('/webhook', function (req, res)
                         }
 
                         else if (string.match(/(BSHC4 Semester 1)/i)) {
-                var url = "http://i.imgur.com/2hcDEoz.jpg";
-                pictureReply(event.sender.id, url)
-            }
+                            var url = "http://i.imgur.com/2hcDEoz.jpg";
+                            pictureReply(event.sender.id, url)
+                        }
 
                         else if (string.match(/(When does the Library close?)/i)){
                             sendMessage(event.sender.id,{text: getFAQ1()});
@@ -140,98 +140,85 @@ app.post('/webhook', function (req, res)
                         }
 
                         else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
-                || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
-                listMoodle(event.sender.id);
+                            || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
+                            listMoodle(event.sender.id);
 
 
-            }
+                        }
+
+                       else if (string.match(/(Thanks)/i) || string.match(/(Thank you)/i)) {
+                            message = "Anytime!";
+                            sendMessage(event.sender.id, {text: message});
+                        }
+
+                        else if (string.match(/(time)/i)) {
+                            sendMessage(event.sender.id, {text: getActualTime()});
+                        }
 
 
-
-             else if (string.match(/(Thanks)/i) || string.match(/(Thank you)/i)) {
-                message = "Anytime!";
-                sendMessage(event.sender.id, {text: message});
-            }
-
-            else if (string.match(/(time)/i)) {
-                sendMessage(event.sender.id, {text: getActualTime()});
-            }
+                        else if (string.match(/(Who am i)/i)) {
+                            message = "Your name is " + userName + " :)";
+                            sendMessage(event.sender.id, {text: message});
+                        }
 
 
-            else if (string.match(/(Who am i)/i)) {
-                message = "Your name is " + userName + " :)";
-                sendMessage(event.sender.id, {text: message});
-            }
-
-            else if (string.match(/(Quick Help)/i) || string.match(/(What can you do?)/i)) {
-                QuickHelp(event.sender.id);
-            }
+                        else if (string.match(/(Quick Help)/i) || string.match(/(What can you do?)/i)) {
+                            QuickHelp(event.sender.id);
+                        }
 
 
+                        // End of Basic Responses
 
 
+              /**************** Train Menu ******************/
 
-            /********* Dublin bus responses *************/
-            else if (string.match(/(Train Stations)/i)) {
-               TrainStationMenu(event.sender.id);
-            }
+                        else if (string.match(/(Train Stations)/i)) {
+                           TrainStationMenu(event.sender.id);
+                        }
 
+              /**************** Luas ******************/
 
-  /**************** Luas ******************/
+                        else if (string.match(/(Luas)/i)) {
+                            getLuasOptions(event.sender.id);
+                        }
 
+              /**************** Train Stations *********************/
+                        else if (string.match(/(Connolly)/i)) {
+                            getConnollyOptions(event.sender.id);
+                        }
 
-            else if (string.match(/(Luas)/i)) {
-                getLuasOptions(event.sender.id);
-            }
+                        else if (string.match(/(Tara Street)/i)) {
+                            getTaraStreetOptions(event.sender.id);
+                        }
 
-  /**************** Train Menu ******************/
-
-
-  /**************** Train Stations *********************/
-            else if (string.match(/(Connolly)/i)) {
-                getConnollyOptions(event.sender.id);
-            }
-
-            else if (string.match(/(Tara Street)/i)) {
-                getTaraStreetOptions(event.sender.id);
-            }
-
-            else if (string.match(/(Pearse)/i)) {
-                getPearseOptions(event.sender.id);
-            }
+                        else if (string.match(/(Pearse)/i)) {
+                            getPearseOptions(event.sender.id);
+                        }
 
 
-            //CORDUFF BUS ROUTES
-           else if (string.match(/(33 to City Centre)/i)) {
-                stopId = "7292";
-                busNumber = "33";
-                dublinBus(stopId);
-            }
-            else if (string.match(/(33a to City Centre)/i)) {
-                 stopId = "7292";
-                 busNumber = "33a";
-                 dublinBus(stopId);
-             }
-           else if (string.match(/(238 to Ladys Well)/i)) {
-                stopId = "1835"
-                busNumber = "238";
-                dublinBus(stopId)
-            }
-           else if (string.match(/(38 to Burlington)/i)) {
-                stopId = "1835"
-                busNumber = "38";
-                dublinBus(stopId)
-            }
+                      //Bus Routes
 
-            //If the user entered in something it doesn't know or random letters
-            else {
-                sendMessage(event.sender.id, {text: getConfused()});
-            }
-        }
+                     else if (string.match(/(33 to City Centre)/i)) {
+                          stopId = "7292";
+                          busNumber = "33";
+                          dublinBus(stopId);
+                      }
+                      else if (string.match(/(33a to City Centre)/i)) {
+                           stopId = "7292";
+                           busNumber = "33a";
+                           dublinBus(stopId);
+                       }
 
-    }
-    res.sendStatus(200);
-});
+
+                      // Error Message
+                      else {
+                          sendMessage(event.sender.id, {text: getConfused()});
+                      }
+                  }
+
+              }
+              res.sendStatus(200);
+          });
 
 /********************** DUBLIN BUS ************************************/
 
