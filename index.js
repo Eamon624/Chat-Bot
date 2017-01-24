@@ -87,15 +87,6 @@ app.post('/webhook', function (req, res)
 
 
 
-            else if (string.match(/(The centre to ITB)/i)) {
-                var destination = "ITB";
-               getBusTimes(event.sender.id, destination);
-            }
-
-            else if (string.match(/(ITB to the centre)/i)) {
-                var destination = "centre";
-                getBusTimes(event.sender.id, destination);
-            }
 
 
 
