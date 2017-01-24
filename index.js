@@ -206,43 +206,6 @@ app.post('/webhook', function (req, res)
                 dublinBus(stopId)
             }
 
-
-           //BLANCH CENTRE BUS ROUTES - CENTRE SIDE
-            else if (string.match(/(39A to Ongar)/i)) {
-                stopId = "7025"
-                busNumber = "39A";
-                dublinBus(stopId)
-            }
-           else if (string.match(/(39 to Ongar)/i)) {
-                stopId = "7025"
-                busNumber = "39";
-                dublinBus(stopId)
-            }
-           else if (string.match(/(220 to Lady's Well)/i)) { //Apostrophy for blanch
-                stopId = "7026"
-                busNumber = "220";
-                dublinBus(stopId)
-            }
-           else if (string.match(/(238 to Lady's Well)/i)) {
-                stopId = "7026"
-                busNumber = "238";
-                dublinBus(stopId)
-           }
-           else if (string.match(/(239 to Liffey Valley)/i)) {
-                stopId = "7026"
-                busNumber = "239";
-                dublinBus(stopId)
-           }
-           else if (string.match(/(270 to Dunboyne)/i)) {
-                stopId = "7026"
-                busNumber = "270";
-                dublinBus(stopId)
-           }
-            else if (string.match(/(236 to Damastown)/i)) {
-                stopId = "7026"
-                busNumber = "270";
-                dublinBus(stopId)
-           }
             //If the user entered in something it doesn't know or random letters
             else {
                 sendMessage(event.sender.id, {text: getConfused()});
