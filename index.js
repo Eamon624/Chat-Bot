@@ -249,7 +249,7 @@ app.post('/webhook', function (req, res)
  */
 function TrainStationMenu(id){
  var TrainStations = {
-    "text":"Where do you want to get the bus from?",
+    "text":"Where are you getting the train from?",
     "quick_replies":[
       {
         "content_type":"text",
