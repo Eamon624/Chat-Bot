@@ -531,19 +531,19 @@ function listMoodle(id) {
                         "type":"web_url",
                         "url": url,
                         "title":"Moodle",
-                        
+
                     },
                     {
                         "type":"web_url",
                         "url":"https://goo.gl/MwLMx4",
                         "title":"Student Email",
-                        "webview_height_ratio": "tall"
+
                     },
                     {
                         "type":"web_url",
                         "url":"http://tesla.itb.ie/eportal/index.jsp",
                         "title":"Eportal",
-                        "webview_height_ratio": "tall"
+
                     }
                 ]
             }
