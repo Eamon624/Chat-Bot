@@ -714,7 +714,7 @@ function getBusTimes(id, destination){
  */
 function getHelpChoices(id){
     var pickFunctionalityTemplate = {
-            "text" : "Here is a list of what i can do:\n-Give you the shuttle bus times🚌\n",
+            "text" : "Here is a list",
             "quick_replies":[
 
                 {
