@@ -685,6 +685,20 @@ function listMoodle(id)
  * @param recipientID
  * @param url
  */
+function pictureReply(recipientID, url)
+{
+    //JSON message sent as data to the FB API
+    var message =
+    {
+        "attachment": {
+            "type": "image",
+            "payload": {
+                "url": url
+            }
+        }
+    };
+    sendMessage(recipientID, message);
+}
 
 
 /**
