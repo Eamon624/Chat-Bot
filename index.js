@@ -360,8 +360,13 @@ function callback(error, response, body) {
             //Check if there is not times available
             if(resultCount === 0){
                 message = "There is no times available for " + busNumber + "";
+
+        var url = "https://i.imgsafe.org/76d43cf4b7.png";
+        pictureReply(event.sender.id, url);
             }
         }
+
+
         // reset the message variable back to null to prevent double values
         all = false;
         busNumber = "";
