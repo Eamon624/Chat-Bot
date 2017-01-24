@@ -542,7 +542,7 @@ function callback(error, response, body) {
         body = JSON.parse(body);
         //numberofresults will return as 0 if it past half 11
         if(body.numberofresults === 0){
-            message = "It's " + getActualTime() + ". So it's too late for busses mate";
+            message = "Nope";
         }
         else{
             var resultCount = 0;
@@ -714,35 +714,15 @@ function getBusTimes(id, destination){
  */
 function getHelpChoices(id){
     var pickFunctionalityTemplate = {
-            "text" : "Here is a list of what i can do:\n-Give you the shuttle bus times🚌\n"+
-                    "-Give you Dublin Bus times🚌\n-Let you access all the college websites on the go💻\n"+
-                    "-Show you the college map\n-Give you the current time⏰",
+            "text" : "Here is a list of what i can do:\n-Give you the shuttle bus times🚌\n",
             "quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":"Shuttle Bus",
-                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Dublin Bus Helper",
-                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
-                {
-                    "content_type":"text",
-                    "title":"College map",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
+
                 {
                     "content_type":"text",
                     "title":"College Websites",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Give me the time",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
                 }
+
             ]
         }
     sendMessage(id, pickFunctionalityTemplate);
