@@ -220,10 +220,10 @@ app.post('/webhook', function (req, res)
               res.sendStatus(200);
           });
 
-/********************** DUBLIN BUS ************************************/
+/********************** Train Station Real Time ************************************/
 
 /**
- * DUBLIN BUS - Location chooser
+ * Select Train Station
  */
 function TrainStationMenu(id){
  var TrainStations = {
@@ -250,8 +250,7 @@ function TrainStationMenu(id){
 }
 
 /**
- * Template given with picture of bus top with buttons
- * Choose busses from corduff bus stop
+ * Luas from NCI Menu
  */
 function getLuasOptions(id){
 
@@ -286,7 +285,9 @@ var LuasTemplate = {
   sendMessage(id, LuasTemplate);
 }
 
-
+/**
+ * Connolly Menu
+ */
 function getConnollyOptions(id){
 
 var ConnollyTemplate = {
@@ -319,6 +320,10 @@ var ConnollyTemplate = {
   }
   sendMessage(id, ConnollyTemplate);
 }
+
+/**
+ * Tara Street Menu
+ */
 
 function getTaraStreetOptions(id){
 
@@ -353,6 +358,10 @@ var TaraTemplate = {
   sendMessage(id, TaraTemplate);
 }
 
+/**
+ * Pearse Station Menu
+ */
+
 function getPearseOptions(id){
 
 var PearseTemplate = {
@@ -384,39 +393,6 @@ var PearseTemplate = {
     ]
   }
   sendMessage(id, PearseTemplate);
-}
-/**
- * To shorten the list, the bus stops are broken up into 2 groups:
- * the retail bus stop and the centre side bus stop.
- */
-function getBlanchBusStops(id){
- var pickBlanchBusStops = {
-    "attachment": {
-    "type": "template",
-    "payload": {
-        "template_type": "generic",
-        "elements":[
-            {
-               "title" : "Which bus stop do you want? 🤔",
-               "image_url": "https://farm6.staticflickr.com/5708/22400688731_6d0862b4bd_c.jpg",
-            }
-         ]
-        }
-     },
-    "quick_replies":[
-        {
-            "content_type":"text",
-            "title":"📍Retail Park Side",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-        {
-            "content_type":"text",
-            "title":"📍Centre Side",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        }
-        ]
-    }
-  sendMessage(id, pickBlanchBusStops);
 }
 
 
@@ -480,30 +456,6 @@ function callback(error, response, body) {
  * send message function
  * @param id
  */
-function getMap(id)
-{
-    var src = "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAKCAc4WVIs94GyHmnmao2-533exZJog5s&zoom=17&size=500x900&center=53.40594405147698,-6.3770287084247474&format=png&" +
-        "maptype=satellite";
-
-    var message =
-    {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": {
-                    "element": {
-                        "title": "College Map",
-                        "image_url": "https:\/\/maps.googleapis.com\/maps\/api\/staticmap?size=" +
-                        "764x400&center=53.4058244,-6.3784213&zoom=17&markers=53.4058244,-6.3784213&maptype=hybrid",
-                        "item_url" : src
-                    }
-                }
-            }
-        }
-    };
-    sendMessage(id, message)
-}
 
 /**
  * Function to send picture messages
