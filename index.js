@@ -317,7 +317,7 @@ var ConnollyTemplate = {
 
     ]
   }
-  sendMessage(id, LuasTemplate);
+  sendMessage(id, ConnollyTemplate);
 }
 /**
  * To shorten the list, the bus stops are broken up into 2 groups:
