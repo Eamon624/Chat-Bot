@@ -172,8 +172,8 @@ app.post('/webhook', function (req, res)
                 sendMessage(event.sender.id, {text: message});
             }
 
-            else if (string.match(/(help me)/i) || string.match(/(What can you do?)/i)) {
-                getHelpChoices(event.sender.id);
+            else if (string.match(/(Quick Help)/i) || string.match(/(What can you do?)/i)) {
+                QuickHelp(event.sender.id);
             }
 
 
@@ -552,8 +552,6 @@ function listMoodle(id) {
     sendMessage(id, message);
 }
 
-/****************************** SHUTTLE BUS ***********************************/
-
 
 
 /**************************** CONVERSATIONAL RESPONSES ********************************** */
@@ -562,7 +560,7 @@ function listMoodle(id) {
  * Return a menu for the user to choose what functionality
  * they can use.
  */
-function getHelpChoices(id){
+function QuickHelp(id){
     var pickFunctionalityTemplate = {
             "text" : "Here is a list",
             "quick_replies":[
