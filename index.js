@@ -542,7 +542,7 @@ function callback(error, response, body) {
         body = JSON.parse(body);
         //numberofresults will return as 0 if it past half 11
         if(body.numberofresults === 0){
-            message = "It's " + getActualTime() + ". So it's too late for busses mate";
+            message = "There is cuurent no busses sheduled for this stop.";
         }
         else{
             var resultCount = 0;
