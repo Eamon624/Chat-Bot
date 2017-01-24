@@ -192,6 +192,10 @@ app.post('/webhook', function (req, res)
                 getConnollyOptions(event.sender.id);
             }
 
+            else if (string.match(/(Tara Street)/i)) {
+                getTaraStreetOptions(event.sender.id);
+            }
+
 
             //CORDUFF BUS ROUTES
            else if (string.match(/(33 to City Centre)/i)) {
@@ -318,6 +322,39 @@ var ConnollyTemplate = {
     ]
   }
   sendMessage(id, ConnollyTemplate);
+}
+
+function getTaraStreetOptions(id){
+
+var TaraTemplate = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please Select you route",
+               "image_url": "https://i.imgsafe.org/78097909f5.jpg",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+        {
+            "content_type":"text",
+            "title":"To Dundalk",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"To Bray",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+
+    ]
+  }
+  sendMessage(id, TaraTemplate);
 }
 /**
  * To shorten the list, the bus stops are broken up into 2 groups:
