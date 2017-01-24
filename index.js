@@ -362,7 +362,7 @@ var pickBusTemplate = {
         "elements":[
             {
                "title" : "Which bus do you want? 🤔",
-               "image_url": "https://s23.postimg.org/obt3h5hwr/corduff_bus_image.jpg",
+               "image_url": "https://i.imgsafe.org/75d27db327.jpg",
             }
          ]
         }
@@ -922,11 +922,6 @@ function pictureReply(recipientID, url)
     sendMessage(recipientID, message);
 }
 
-
-/**
- * if a user enters a phrase that the bot doesn't understand
- * @returns {*}
- */
 
 
 /**
