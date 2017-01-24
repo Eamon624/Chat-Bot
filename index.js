@@ -671,40 +671,7 @@ function listMoodle(id) {
 
 /****************************** SHUTTLE BUS ***********************************/
 
-function shuttlebusLocationChoices(id){
-    var pickShuttleBusTemplate = {
-        "text" : "Which shuttle bus times do you want? 🤔",
-        "quick_replies":[
-            {
-                "content_type":"text",
-                "title":"ITB to the centre",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-            },
-            {
-                "content_type":"text",
-                "title":"The centre to ITB",
-                "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-            }
-        ]
-     }
-  sendMessage(id, pickShuttleBusTemplate);
-}
 
-/**
- * return shuttle-bus times from the ITB terminus
- * @returns {string}
- */
-function getBusTimes(id, destination){
-    var times = "Today's bus times are: ";
-    if(destination == "ITB"){
-        times += "\n08:00, 08:35, 09:10	09:45, \n10:20, 11:40, 12:40, 13:40,\n 14:40, 15:40";
-        sendMessage(id, {text: times})
-    }
-    else{
-        times += "\n08:10, 08:45, 09:20, 09:55,\n11:10, 12:10, 13:10, 14:10,\n15:10, 16:10, 16:50, 17:25,\n18:10\n";
-        sendMessage(id, {text: times})
-    }
-}
 
 /**************************** CONVERSATIONAL RESPONSES ********************************** */
 
