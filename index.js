@@ -184,15 +184,25 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Dublin bus)/i)) {
                busLocationChoices(event.sender.id);
             }
+
+
+  /**************** Luas ******************/
+
+
             else if (string.match(/(Luas)/i)) {
                 getLuasOptions(event.sender.id);
             }
 
+  /**************** Train Stations *********************/
             else if (string.match(/(Connolly)/i)) {
                 getConnollyOptions(event.sender.id);
             }
 
             else if (string.match(/(Tara Street)/i)) {
+                getTaraStreetOptions(event.sender.id);
+            }
+
+            else if (string.match(/(Pearse)/i)) {
                 getTaraStreetOptions(event.sender.id);
             }
 
@@ -355,6 +365,39 @@ var TaraTemplate = {
     ]
   }
   sendMessage(id, TaraTemplate);
+}
+
+function getPearseOptions(id){
+
+var PearseTemplate = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please Select you route",
+               "image_url": "https://i.imgsafe.org/781f37f3ea.jpg",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+        {
+            "content_type":"text",
+            "title":"To Dundalk",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"To Bray",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+
+    ]
+  }
+  sendMessage(id, PearseTemplate);
 }
 /**
  * To shorten the list, the bus stops are broken up into 2 groups:
