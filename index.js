@@ -158,7 +158,7 @@ app.post('/webhook', function (req, res)
 
 
              else if (string.match(/(Thanks)/i) || string.match(/(Thank you)/i)) {
-                message = "No prob";
+                message = "Anytime!";
                 sendMessage(event.sender.id, {text: message});
             }
 
@@ -354,7 +354,7 @@ function busLocationChoices(id){
  */
 function getLuasOptions(id){
 
-var pickBusTemplate = {
+var LuasTemplate = {
     "attachment": {
     "type": "template",
     "payload": {
@@ -382,7 +382,7 @@ var pickBusTemplate = {
 
     ]
   }
-  sendMessage(id, pickBusTemplate);
+  sendMessage(id, LuasTemplate);
 }
 
 /**
@@ -419,99 +419,7 @@ function getBlanchBusStops(id){
   sendMessage(id, pickBlanchBusStops);
 }
 
-/**
- * If a user pick the retail side bus stops
- */
-function getRetailParkBusses(id){
-    var pickRetialParkBusses = {
-    "text":"Which bus do you want? 🤔",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"All Routes🚏",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"39A to UCD",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"17A to Kilbarrack",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"220 to Ballymun",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"238 to Tyrellstown",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"37 to Wilton Terrace",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"39 to Burrlington Rd",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"76A to Tallaght",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]
-  }
-  sendMessage(id, pickRetialParkBusses);
-}
 
-/**
- * Give bus route for the centre side bus stop
- */
-function getCentreSideBusses(id){
-    var pickRetialParkBusses = {
-    "text":"Which bus do you want? 🤔",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"39A to Ongar",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"39 to Ongar",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"220 to Lady's Well",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"236 to Damastown",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"239 to Liffey Valley",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"270 to Dunboyne",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]
-  }
-  sendMessage(id, pickRetialParkBusses);
-}
 
 /**** Dublin bus API ******/
 function dublinBus(stopId){
@@ -554,7 +462,7 @@ function callback(error, response, body) {
             }
             //Check if there is not times available
             if(resultCount === 0){
-                message = "There is no times available for " + busNumber + " 😕";
+                message = "There is no times available for " + busNumber + "";
             }
         }
         // reset the message variable back to null to prevent double values
@@ -602,19 +510,7 @@ function getMap(id)
  * @param recipientID
  * @param url
  */
-function pictureReply(recipientID, url)
-{
-    var message =
-    {
-        "attachment": {
-            "type": "image",
-            "payload": {
-                "url": "https://i.ytimg.com/vi/KwXSIpwGZS8/maxresdefault.jpg"
-            }
-        }
-    };
-    sendMessage(recipientID, message);
-}
+
 
 /***************************** COLLEGE WEBSITES *************************************** */
 
@@ -894,21 +790,6 @@ function listMoodle(id)
  * @param recipientID
  * @param url
  */
-function pictureReply(recipientID, url)
-{
-    //JSON message sent as data to the FB API
-    var message =
-    {
-        "attachment": {
-            "type": "image",
-            "payload": {
-                "url": url
-            }
-        }
-    };
-    sendMessage(recipientID, message);
-}
-
 
 
 /**
