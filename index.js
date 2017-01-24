@@ -97,9 +97,6 @@ app.post('/webhook', function (req, res)
                 getBusTimes(event.sender.id, destination);
             }
 
-
-
-
                         //If user inputs any of these words than he gets one of the respones in the method
                         else if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
                             sendMessage(event.sender.id,{text: getGreeting()});
@@ -718,29 +715,10 @@ function getHelpChoices(id){
                     "-Give you Dublin Bus times🚌\n-Let you access all the college websites on the go💻\n"+
                     "-Show you the college map\n-Give you the current time⏰",
             "quick_replies":[
+
                 {
                     "content_type":"text",
-                    "title":"Shuttle Bus",
-                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Dublin Bus Helper",
-                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
-                {
-                    "content_type":"text",
-                    "title":"College map",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
-                {
-                    "content_type":"text",
-                    "title":"College Websites",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-                },
-                {
-                    "content_type":"text",
-                    "title":"Give me the time",
+                    "title":"What's the time?",
                     "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
                 }
             ]
@@ -976,13 +954,6 @@ function pictureReply(recipientID, url)
 }
 
 
-/**
- * if a user enters a phrase that the bot doesn't understand
- * @returns {*}
- */
-
-
-/**
  * Returns the current time
  * @returns {string}
  */
