@@ -108,9 +108,7 @@ app.post('/webhook', function (req, res)
                             sendMessage(event.sender.id,{text: getDominicCarr()});
                         }
 
-                        else if (string.match(/(map)/i) && string.match(/(college)/i) || string.match(/(Campus map)/i)) {
-                            getMap(event.sender.id);
-                        }
+
 
 
                         else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i))
@@ -145,7 +143,7 @@ app.post('/webhook', function (req, res)
 
                         else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
                             || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
-                            listMoodle(event.sender.id);
+                            CollegeWebsites(event.sender.id);
 
 
                         }
@@ -460,30 +458,6 @@ function callback(error, response, body) {
  * send message function
  * @param id
  */
-function getMap(id)
-{
-    var src = "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAKCAc4WVIs94GyHmnmao2-533exZJog5s&zoom=17&size=500x900&center=53.40594405147698,-6.3770287084247474&format=png&" +
-        "maptype=satellite";
-
-    var message =
-    {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": {
-                    "element": {
-                        "title": "College Map",
-                        "image_url": "https:\/\/maps.googleapis.com\/maps\/api\/staticmap?size=" +
-                        "764x400&center=53.4058244,-6.3784213&zoom=17&markers=53.4058244,-6.3784213&maptype=hybrid",
-                        "item_url" : src
-                    }
-                }
-            }
-        }
-    };
-    sendMessage(id, message)
-}
 
 /**
  * Function to send picture messages
@@ -497,41 +471,6 @@ function getMap(id)
 /**
  * List of useful ITB websites in a buttons template
  */
-function listMoodle(id) {
-    var url = "https://moodle.itb.ie/login/index.php";
-    // var url = "https://addforbot.000webhostapp.com/";
-    var message = {
-        "attachment":{
-            "type":"template",
-            "payload":{
-                "template_type":"button",
-                "text":"Which site do you need?",
-                "buttons":[
-                    {
-                        "type":"web_url",
-                        "url": url,
-                        "title":"Moodle",
-
-                    },
-                    {
-                        "type":"web_url",
-                        "url":"https://goo.gl/MwLMx4",
-                        "title":"Student Email",
-
-                    },
-                    {
-                        "type":"web_url",
-                        "url":"http://tesla.itb.ie/eportal/index.jsp",
-                        "title":"Eportal",
-
-                    }
-                ]
-            }
-        }
-    };
-    sendMessage(id, message);
-}
-
 
 
 /**************************** CONVERSATIONAL RESPONSES ********************************** */
@@ -732,7 +671,7 @@ function getRoomStatusSCR3(){
 /**
  * list of useful ITB websites in a buttons template
  */
-function listMoodle(id)
+function CollegeWebsites(id)
 {
     var message = {
         "attachment":{
