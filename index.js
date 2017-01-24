@@ -75,7 +75,7 @@ app.post('/webhook', function (req, res)
             var message;
             recipientId = event.sender.id;
 
-            //Prints uses ID to the cnsole in colour for easy readability
+            //Prints uses ID to the console in colour for easy readability
             console.log('\x1b[36m', "Recipient ID: " + event.sender.id, '\x1b[0m');
             console.log('\x1b[36m', "Message: " + string, '\x1b[0m');
 
@@ -87,11 +87,14 @@ app.post('/webhook', function (req, res)
 
 
 
+                    /************************** Basic Responses***************************/
+
+                        //If what the user says matches one of thesese a message is sent back
 
 
-                        // Basic Responses
 
-                        //If user inputs any of these words than he gets one of the respones in the method
+                        // Basic Greetings
+
                         else if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
                             sendMessage(event.sender.id,{text: getGreeting()});
                         }
@@ -100,6 +103,7 @@ app.post('/webhook', function (req, res)
                             sendMessage(event.sender.id,{text: getResponseGreeting()});
                         }
 
+                        // Basic Lecturers
 
                         else if (string.match(/(Paul Hayes)/i)){
                             sendMessage(event.sender.id,{text: getPaulHayes()});
@@ -108,13 +112,14 @@ app.post('/webhook', function (req, res)
                             sendMessage(event.sender.id,{text: getDominicCarr()});
                         }
 
-
-
+                        // Time
 
                         else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i))
                         {
                             sendMessage(event.sender.id,{text: getActualTime()});
                         }
+
+                        // Very Simple FAQS ( To be changed )
 
                         else if (string.match(/(SCR3)/i)){
                             sendMessage(event.sender.id,{text: getRoomStatusSCR3()});
@@ -141,27 +146,32 @@ app.post('/webhook', function (req, res)
 
                         }
 
-                        else if (string.match(/(moodle)/i) || string.match(/(eportal)/i)
-                            || string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
+                        // College Websites Menu
+
+                        else if (string.match(/(moodle)/i) ||string.match(/(student resources)/i) || string.match(/(college websites)/i)) {
                             CollegeWebsites(event.sender.id);
 
 
                         }
+
+                        // User thanks chatbot
 
                        else if (string.match(/(Thanks)/i) || string.match(/(Thank you)/i)) {
                             message = "Anytime!";
                             sendMessage(event.sender.id, {text: message});
                         }
 
-                        else if (string.match(/(time)/i)) {
-                            sendMessage(event.sender.id, {text: getActualTime()});
-                        }
+                        // Username of Sender ( Not Working)
+
+
 
 
                         else if (string.match(/(Who am i)/i)) {
                             message = "Your name is " + userName + " :)";
                             sendMessage(event.sender.id, {text: message});
                         }
+
+                        // All Services offered by chatbot.
 
 
                         else if (string.match(/(Quick Help)/i) || string.match(/(What can you do?)/i)) {
@@ -440,7 +450,7 @@ function callback(error, response, body) {
             }
             //Check if there is not times available
             if(resultCount === 0){
-                message = "There is no times available for " + busNumber + "";
+                message = "There is currently no times available for " + busNumber + "";
             }
         }
         // reset the message variable back to null to prevent double values
@@ -473,7 +483,7 @@ function callback(error, response, body) {
  */
 
 
-/**************************** CONVERSATIONAL RESPONSES ********************************** */
+
 
 /**
  * Return a menu for the user to choose what functionality
@@ -500,6 +510,9 @@ function QuickHelp(id){
  * conversation.
  * @returns {*}
  */
+
+/**************************** BASIC CONVERSATIONAL RESPONSES ********************************** */
+
 
  function getGreeting(){
      var rand = Math.floor((Math.random() * 12) + 1);
