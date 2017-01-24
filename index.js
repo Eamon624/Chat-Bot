@@ -682,7 +682,7 @@ function getRoomStatusSCR3(){
 }
 
 /**
- * list of useful ITB websites in a buttons template
+ * College Websites
  */
 function CollegeWebsites(id)
 {
