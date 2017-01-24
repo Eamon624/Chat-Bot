@@ -203,7 +203,7 @@ app.post('/webhook', function (req, res)
             }
 
             else if (string.match(/(Pearse)/i)) {
-                getTaraStreetOptions(event.sender.id);
+                getPearseOptions(event.sender.id);
             }
 
 
