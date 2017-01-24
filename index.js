@@ -97,6 +97,9 @@ app.post('/webhook', function (req, res)
                 getBusTimes(event.sender.id, destination);
             }
 
+
+
+
                         //If user inputs any of these words than he gets one of the respones in the method
                         else if(string.match(/(hi)|(hey)|(hello)|(what's up?)|(yo)|(sup)|(wassup)/i)){
                             sendMessage(event.sender.id,{text: getGreeting()});
@@ -539,7 +542,7 @@ function callback(error, response, body) {
         body = JSON.parse(body);
         //numberofresults will return as 0 if it past half 11
         if(body.numberofresults === 0){
-            message = "There is cuurent no busses sheduled for this stop.";
+            message = "It's " + getActualTime() + ". So it's too late for busses mate";
         }
         else{
             var resultCount = 0;
@@ -973,7 +976,13 @@ function pictureReply(recipientID, url)
 }
 
 
+/**
+ * if a user enters a phrase that the bot doesn't understand
+ * @returns {*}
+ */
 
+
+/**
  * Returns the current time
  * @returns {string}
  */
