@@ -531,7 +531,7 @@ function listMoodle(id) {
                         "type":"web_url",
                         "url": url,
                         "title":"Moodle",
-                        "webview_height_ratio": "tall"
+                        
                     },
                     {
                         "type":"web_url",
