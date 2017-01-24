@@ -715,10 +715,29 @@ function getHelpChoices(id){
                     "-Give you Dublin Bus times🚌\n-Let you access all the college websites on the go💻\n"+
                     "-Show you the college map\n-Give you the current time⏰",
             "quick_replies":[
-
                 {
                     "content_type":"text",
-                    "title":"What's the time?",
+                    "title":"Shuttle Bus",
+                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Dublin Bus Helper",
+                    "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                },
+                {
+                    "content_type":"text",
+                    "title":"College map",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                },
+                {
+                    "content_type":"text",
+                    "title":"College Websites",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                },
+                {
+                    "content_type":"text",
+                    "title":"Give me the time",
                     "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
                 }
             ]
@@ -952,6 +971,7 @@ function pictureReply(recipientID, url)
     };
     sendMessage(recipientID, message);
 }
+
 
 
  * Returns the current time
