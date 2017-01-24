@@ -205,52 +205,7 @@ app.post('/webhook', function (req, res)
                 busNumber = "38";
                 dublinBus(stopId)
             }
-           else if (string.match(/(38a to Burlington)/i)) {
-                stopId = "1835"
-                busNumber = "38A";
-                dublinBus(stopId)
-            }
-            //BLANCH CENTRE BUS ROUTES _ RETAIL SIDE
-            else if (string.match(/(39A to UCD)/i)) {
-                stopId = "4747"
-                busNumber = "39A";
-                dublinBus(stopId)
-            }
-           else if (string.match(/(17A to Kilbarrack)/i)) {
-                stopId = "4747"
-                busNumber = "17A";
-                dublinBus(stopId)
-            }
-           else if (string.match(/(220 to Ballymun)/i)) {
-                stopId = "4747"
-                busNumber = "220";
-                dublinBus(stopId)
-            }
-           else if (string.match(/(239 to Tyrellstown)/i)) {
-                stopId = "4747"
-                busNumber = "239";
-                dublinBus(stopId)
-           }
-           else if (string.match(/(238 to Tyrellstown)/i)) {
-                stopId = "4747"
-                busNumber = "238";
-                dublinBus(stopId)
-           }
-           else if (string.match(/(37 to Wilton Terrace)/i)) {
-                stopId = "4747"
-                busNumber = "37";
-                dublinBus(stopId)
-           }
-           else if (string.match(/(39 to Burrlington Rd)/i)) {
-                stopId = "4747"
-                busNumber = "39";
-                dublinBus(stopId)
-           }
-           else if (string.match(/(76A to Tallaght)/i)) {
-                stopId = "4747"
-                busNumber = "76A";
-                dubl21inBus(stopId)
-           }
+
 
            //BLANCH CENTRE BUS ROUTES - CENTRE SIDE
             else if (string.match(/(39A to Ongar)/i)) {
