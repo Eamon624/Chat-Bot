@@ -203,24 +203,6 @@ app.post('/webhook', function (req, res)
 /**
  * DUBLIN BUS - Location chooser
  */
-function busLocationChoices(id){
- var pickLocations = {
-    "text":"Where do you want to get the bus from? 🤔",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Corduff",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"Blanch Centre",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]
-  }
-  sendMessage(id, pickLocations);
-}
 
 /**
  * Template given with picture of bus top with buttons
