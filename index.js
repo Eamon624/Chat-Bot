@@ -192,9 +192,14 @@ app.post('/webhook', function (req, res)
             //CORDUFF BUS ROUTES
            else if (string.match(/(33 to City Centre)/i)) {
                 stopId = "7292";
-                all = true;
+                busNumber = "33";
                 dublinBus(stopId);
             }
+            else if (string.match(/(33a to City Centre)/i)) {
+                 stopId = "7292";
+                 busNumber = "33a";
+                 dublinBus(stopId);
+             }
            else if (string.match(/(238 to Ladys Well)/i)) {
                 stopId = "1835"
                 busNumber = "238";
