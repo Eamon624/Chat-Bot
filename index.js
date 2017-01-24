@@ -268,7 +268,7 @@ function TrainStationMenu(id){
       }
     ]
   }
-  sendMessage(id, pTrainStations);
+  sendMessage(id, TrainStations);
 }
 
 /**
