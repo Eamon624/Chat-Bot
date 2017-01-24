@@ -184,8 +184,8 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Dublin bus)/i)) {
                busLocationChoices(event.sender.id);
             }
-            else if (string.match(/(Corduff)/i)) {
-                getCorduffBusses(event.sender.id);
+            else if (string.match(/(Luas)/i)) {
+                getLuasOptions(event.sender.id);
             }
             else if (string.match(/(Blanch Centre)/i)) {
                 getBlanchBusStops(event.sender.id);
@@ -352,7 +352,7 @@ function busLocationChoices(id){
  * Template given with picture of bus top with buttons
  * Choose busses from corduff bus stop
  */
-function getCorduffBusses(id){
+function getLuasOptions(id){
 
 var pickBusTemplate = {
     "attachment": {
@@ -361,38 +361,25 @@ var pickBusTemplate = {
         "template_type": "generic",
         "elements":[
             {
-               "title" : "Which bus do you want? 🤔",
+               "title" : "Luas from NCI.",
                "image_url": "https://i.imgsafe.org/75d27db327.jpg",
             }
          ]
         }
      },
     "quick_replies":[
+
         {
             "content_type":"text",
-            "title":"All Routes🚌",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-        {
-            "content_type":"text",
-            "title":"33 to City Centre",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-        {
-            "content_type":"text",
-            "title":"238 to Ladys Well",
+            "title":"Northbound",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
         {
             "content_type":"text",
-            "title":"38 to Burlington",
+            "title":"Southbound",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
-        {
-            "content_type":"text",
-            "title":"38a to Burlington",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        }
+
     ]
   }
   sendMessage(id, pickBusTemplate);
