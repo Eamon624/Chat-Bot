@@ -188,25 +188,7 @@ app.post('/webhook', function (req, res)
                 getLuasOptions(event.sender.id);
             }
 
-            else if (string.match(/(25a)/i)) {
-                stopId = "4619";
-                all = true;
-                dublinBus(stopId);
-            }
-            // All routes use Emojis to distinguish which stop it is and not
-            // to give values from other stops
-            //retail park all routes
-            else if (string.match(/(All Routes🚏)/i)) {
-                stopId = "4747";
-                all = true;
-                dublinBus(stopId);
-            }
-            //corduff all routes
-            else if (string.match(/(All Routes🚌)/i)) {
-                stopId = "1835";
-                all = true;
-                dublinBus(stopId);
-            }
+
             //CORDUFF BUS ROUTES
            else if (string.match(/(33 to City Centre)/i)) {
                 stopId = "7292";
