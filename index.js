@@ -181,8 +181,8 @@ app.post('/webhook', function (req, res)
 
 
             /********* Dublin bus responses *************/
-            else if (string.match(/(Dublin bus)/i)) {
-               busLocationChoices(event.sender.id);
+            else if (string.match(/(Train Stations)/i)) {
+               TrainStationMenu(event.sender.id);
             }
 
 
@@ -192,6 +192,9 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Luas)/i)) {
                 getLuasOptions(event.sender.id);
             }
+
+  /**************** Train Menu ******************/
+
 
   /**************** Train Stations *********************/
             else if (string.match(/(Connolly)/i)) {
@@ -244,23 +247,28 @@ app.post('/webhook', function (req, res)
 /**
  * DUBLIN BUS - Location chooser
  */
-function busLocationChoices(id){
- var pickLocations = {
-    "text":"Where do you want to get the bus from? 🤔",
+function TrainStationMenu(id){
+ var TrainStations = {
+    "text":"Where do you want to get the bus from?",
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Corduff",
+        "title":"Connolly",
         "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       },
       {
         "content_type":"text",
-        "title":"Blanch Centre",
+        "title":"Tara Street",
+        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },
+      {
+        "content_type":"text",
+        "title":"Pearse",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
   }
-  sendMessage(id, pickLocations);
+  sendMessage(id, pTrainStations);
 }
 
 /**
