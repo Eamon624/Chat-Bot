@@ -187,15 +187,7 @@ app.post('/webhook', function (req, res)
             else if (string.match(/(Luas)/i)) {
                 getLuasOptions(event.sender.id);
             }
-            else if (string.match(/(Blanch Centre)/i)) {
-                getBlanchBusStops(event.sender.id);
-            }
-            else if (string.match(/(📍Retail Park Side)/i)) {
-                getRetailParkBusses(event.sender.id);
-            }
-            else if (string.match(/(📍Centre Side)/i)) {
-                getCentreSideBusses(event.sender.id);
-            }
+
             else if (string.match(/(25a)/i)) {
                 stopId = "4619";
                 all = true;
