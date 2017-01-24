@@ -188,6 +188,10 @@ app.post('/webhook', function (req, res)
                 getLuasOptions(event.sender.id);
             }
 
+            else if (string.match(/(Connolly)/i)) {
+                getConnollyOptions(event.sender.id);
+            }
+
 
             //CORDUFF BUS ROUTES
            else if (string.match(/(33 to City Centre)/i)) {
@@ -282,6 +286,39 @@ var LuasTemplate = {
   sendMessage(id, LuasTemplate);
 }
 
+
+function getConnollyOptions(id){
+
+var ConnollyTemplate = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please Select you route",
+               "image_url": "https://i.imgsafe.org/77eb7c9606.jpg",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+        {
+            "content_type":"text",
+            "title":"To Dundalk",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"To Bray",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+
+    ]
+  }
+  sendMessage(id, LuasTemplate);
+}
 /**
  * To shorten the list, the bus stops are broken up into 2 groups:
  * the retail bus stop and the centre side bus stop.
