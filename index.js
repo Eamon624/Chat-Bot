@@ -456,6 +456,30 @@ function callback(error, response, body) {
  * send message function
  * @param id
  */
+function getMap(id)
+{
+    var src = "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAKCAc4WVIs94GyHmnmao2-533exZJog5s&zoom=17&size=500x900&center=53.40594405147698,-6.3770287084247474&format=png&" +
+        "maptype=satellite";
+
+    var message =
+    {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": {
+                    "element": {
+                        "title": "College Map",
+                        "image_url": "https:\/\/maps.googleapis.com\/maps\/api\/staticmap?size=" +
+                        "764x400&center=53.4058244,-6.3784213&zoom=17&markers=53.4058244,-6.3784213&maptype=hybrid",
+                        "item_url" : src
+                    }
+                }
+            }
+        }
+    };
+    sendMessage(id, message)
+}
 
 /**
  * Function to send picture messages
