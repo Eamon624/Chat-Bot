@@ -108,6 +108,10 @@ app.post('/webhook', function (req, res)
                             sendMessage(event.sender.id,{text: getDominicCarr()});
                         }
 
+                        else if (string.match(/(map)/i) && string.match(/(college)/i) || string.match(/(Campus map)/i)) {
+                            getMap(event.sender.id);
+                        }
+
 
                         else if(string.match(/(Time)|(What's the time?)|(What's the time)|(Do you know the time?)|(What's the time)/i))
                         {
