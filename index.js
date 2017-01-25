@@ -552,7 +552,7 @@ var TalbotStreetBusMenu = {
         "elements":[
             {
                "title" : "Please select your bus route.",
-               "image_url": "https://i.imgsafe.org/88ad16ea08.jpg",
+               "image_url": "https://i.imgsafe.org/8c6454537d.png",
             }
          ]
         }
