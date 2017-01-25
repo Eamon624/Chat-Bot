@@ -423,7 +423,7 @@ var LowerAbbeyStreetMenu = {
 
     ]
   }
-  sendMessage(id, LoverAbbeyStreetMenu);
+  sendMessage(id, LowerAbbeyStreetMenu);
 }
 
 
