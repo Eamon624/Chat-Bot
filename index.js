@@ -673,6 +673,20 @@ function sendLocale(recipientId) {
 
   callSendAPI(messageData);
 }
+
+function sendSingleJsonMessage(recipientId,filename) {
+   try {
+      filename = "./script/" + filename;
+      var json  = require(filename);
+      var fullMessage = { recipient: { id: recipientId  }};
+      fullMessage.message = json;
+      callSendAPI(fullMessage);
+   }
+   catch (e)
+   {
+      console.log("error in sendSingleJsonMessage " + e.message + " " + filename + " " + fullMessage);
+   }
+}
 /**
  * Pearse Station Menu
  */
