@@ -972,14 +972,3 @@ function pictureReply(recipientID, url)
 function getActualTime(){
     return new Date().toLocaleTimeString('IRL', { hour12: false, hour: "numeric", minute: "numeric"});
 }
-
-{
-    "menu": [{
-        "type": "url",
-        "title": "Coffecccccu",
-        "url": "www.coffeeMenu.com"
-    }, {
-        "type": "text",
-        "title": "Water"
-    }]
-}
