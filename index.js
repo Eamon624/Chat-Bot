@@ -28,6 +28,8 @@ app.get('/webhook', function (req, res) {
     }
 });
 
+var firstName = "undefined";
+var lastName = "undefined";
 /**
  * Sends the message to the user
  * @param recipientId
