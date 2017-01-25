@@ -944,6 +944,36 @@ function CollegeWebsites(id)
     sendMessage(id, message);
 }
 
+function EventHandler(context, event) {
+if(event.messageobj.text=='startchattingevent'&& event.messageobj.type=='event'){
+var button = {
+              "type": "survey",
+              "question": "What would you like to do?",
+              "options": ["Eat", "Drink", "Both"],
+              "msgid": "gt_212"
+             }
+context.sendResponse(JSON.stringify(button));
+}
+
+{
+    "menu": [{
+        "type": "url",
+        "title": "Coffee Menu",
+        "url": "www.coffeeMenu.com"
+    }, {
+        "type": "text",
+        "title": "Water"
+    }]
+}
+
+messageobj = {"refmsgid": "persistent_menu","text": "Water","type": "msg"}
+
+if(event.messageobj.refmsgid=='persistent_menu'&&  event.message.toLowerCase()=='water'){
+    context.sendResponse("Sure, I will add water to your order");
+    return;
+ }
+
+
 /**
  * Function to send picture messages
  * @param recipientID
