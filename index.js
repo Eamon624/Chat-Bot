@@ -520,24 +520,10 @@ var AstonKeyBusMenu = {
      },
     "quick_replies":[
 
+
         {
             "content_type":"text",
-            "title":"33 to Balbriggan",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-        {
-            "content_type":"text",
-            "title":"41 to Swords Manor",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-        {
-            "content_type":"text",
-            "title":"41b to Rolestown",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-        {
-            "content_type":"text",
-            "title":"41c to Swords Manor",
+            "title":"79 to Spiddal Park",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         }
 
