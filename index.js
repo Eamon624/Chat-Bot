@@ -220,6 +220,10 @@ app.post('/webhook', function (req, res)
                             TalbotStreetBusQuery(event.sender.id);
                         }
 
+                        else if (string.match(/(DCU Stop)/i)) {
+                            MyBusQuery(event.sender.id);
+                        }
+
                       //Bus Routes
 
                      else if (string.match(/(33 to City Centre)/i)) {
