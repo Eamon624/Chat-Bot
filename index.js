@@ -216,6 +216,10 @@ app.post('/webhook', function (req, res)
                             AstonKeyBusQuery(event.sender.id);
                         }
 
+                        else if (string.match(/(Talbot Street)/i)) {
+                            TalbotStreetBusQuery(event.sender.id);
+                        }
+
                       //Bus Routes
 
                      else if (string.match(/(33 to City Centre)/i)) {
