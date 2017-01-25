@@ -233,7 +233,23 @@ app.post('/webhook', function (req, res)
                             dublinBus(stopId);
                         }
 
+                        else if (string.match(/(41 to Swords Manor)/i)) {
+                             stopId = "288";
+                             busNumber = "41";
+                             dublinBus(stopId);
+                         }
 
+                       else if (string.match(/(41b to Rolestown)/i)) {
+                            stopId = "288";
+                            busNumber = "41b";
+                            dublinBus(stopId);
+                        }
+
+                      else if (string.match(/(41c to Swords Manor)/i)) {
+                           stopId = "288";
+                           busNumber = "41c";
+                           dublinBus(stopId);
+                       }
 
 
                       // Error Message
@@ -451,17 +467,17 @@ var LowerAbbeyStreetMenu = {
         },
         {
             "content_type":"text",
-            "title":"41 Towards Swords Manor",
+            "title":"41 to Swords Manor",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
         {
             "content_type":"text",
-            "title":"41b Towards Rolestown",
+            "title":"41b to Rolestown",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
         {
             "content_type":"text",
-            "title":"41c Towards Swords Manor",
+            "title":"41c to Swords Manor",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         }
 
