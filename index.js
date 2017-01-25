@@ -583,8 +583,8 @@ var TaraTemplate = {
 
         {
             "content_type":"text",
-            "title":"To Dundalk",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+            "title":"Who am i?",
+            "payload":"who"
         },
         {
             "content_type":"text",
