@@ -275,6 +275,18 @@ app.post('/webhook', function (req, res)
                              dublinBus(stopId);
                          }
 
+                         // My Stop
+
+                         else if (string.match(/(My Stop)/i)) {
+                              stopId = "213";
+                              all = true;
+                              dublinBus(stopId);
+                          }
+
+
+
+
+
 
                       // Error Message
                       else {
@@ -584,6 +596,39 @@ var TalbotStreetBusMenu = {
   }
   sendMessage(id, TalbotStreetBusMenu);
 }
+
+/********************** My Stop ************************************/
+
+function MyBusQuery(id){
+
+var DCUBusMenu = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please select your bus route.",
+               "image_url": "https://i.imgsafe.org/8caea89df3.png",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+
+        {
+            "content_type":"text",
+            "title":"My Stop",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+
+
+    ]
+  }
+  sendMessage(id, DCUBusMenu);
+}
+
 
 /**** Dublin bus API ******/
 function dublinBus(stopId){
