@@ -225,6 +225,16 @@ app.post('/webhook', function (req, res)
                            dublinBus(stopId);
                        }
 
+                       // Lower Abbey Street stopId
+
+                       else if (string.match(/(33 Towards Balbriggan)/i)) {
+                            stopId = "292";
+                            busNumber = "33";
+                            dublinBus(stopId);
+                        }
+
+
+
 
                       // Error Message
                       else {
