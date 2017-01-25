@@ -597,6 +597,60 @@ var TaraTemplate = {
   sendMessage(id, TaraTemplate);
 }
 
+function sendCustomMessage(recipientId,messageText) {
+
+console.log("sendCustoMessage "+ messageText);
+
+    switch (messageText.toLowerCase()) {
+
+      case 'joke':
+        sendJoke(recipientId);
+        break
+
+      case 'image':
+        sendRandomImage(recipientId);
+        break
+
+      case 'who':
+        sendLocale(recipientId);
+        break
+
+      case 'add keyword':
+        addKeywordStep1(recipientId);
+        break
+
+      case 'list keywords':
+        sendKeywordList(recipientId);
+        break
+
+      case 'addkeyword_text':
+        addKeywordText(recipientId);
+        break
+
+      case 'addkeyword_button':
+        addKeywordButton(recipientId);
+        break
+
+      case 'addkeyword_button1':
+        addKeywordButtonStep3(recipientId,1);
+        break
+
+      case 'addkeyword_button2':
+        addKeywordButtonStep3(recipientId,2);
+        break
+
+      case 'addkeyword_button3':
+        addKeywordButtonStep3(recipientId,3);
+        break
+
+
+      default:
+         sendJsonMessage(recipientId,messageText);
+
+    }
+    previousMessageHash[recipientId] = messageText.toLowerCase();
+}
+
 /**
  * Pearse Station Menu
  */
