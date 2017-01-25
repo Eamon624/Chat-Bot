@@ -207,6 +207,12 @@ app.post('/webhook', function (req, res)
                             getPearseOptions(event.sender.id);
                         }
 
+              /**************** Bus Routes via Streets  *********************/
+
+                        else if (string.match(/(Lower Abbey Street)/i)) {
+                            LoverAbbeyStreetMenu(event.sender.id);
+                        }
+
 
                       //Bus Routes
 
@@ -220,7 +226,6 @@ app.post('/webhook', function (req, res)
                            busNumber = "33a";
                            dublinBus(stopId);
                        }
-
 
                       // Error Message
                       else {
@@ -261,41 +266,6 @@ function TrainStationMenu(id){
   sendMessage(id, TrainStations);
 }
 
-/**
- * Luas from NCI Menu
- */
-function getLuasOptions(id){
-
-var LuasTemplate = {
-    "attachment": {
-    "type": "template",
-    "payload": {
-        "template_type": "generic",
-        "elements":[
-            {
-               "title" : "Luas from NCI.",
-               "image_url": "https://i.imgsafe.org/75d27db327.jpg",
-            }
-         ]
-        }
-     },
-    "quick_replies":[
-
-        {
-            "content_type":"text",
-            "title":"Northbound",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-        {
-            "content_type":"text",
-            "title":"Southbound",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-        },
-
-    ]
-  }
-  sendMessage(id, LuasTemplate);
-}
 
 /**
  * Connolly Menu
@@ -407,6 +377,54 @@ var PearseTemplate = {
   sendMessage(id, PearseTemplate);
 }
 
+
+/********************** Lover Abbey Street Stops ************************************/
+
+/**
+ * Luas from NCI Menu
+ */
+function LowerAbbeyStreetStops(id){
+
+var LowerAbbeyStreetMenu = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please select your bus route.",
+               "image_url": "https://i.imgsafe.org/8745f7df93.png",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+        {
+            "content_type":"text",
+            "title":"33 Towards Balbriggan",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"41 Towards Swords Manor",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"41b Towards Rolestown",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"41c Towards Swords Manor",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        }
+
+    ]
+  }
+  sendMessage(id, LoverAbbeyStreetMenu);
+}
 
 
 /**** Dublin bus API ******/
