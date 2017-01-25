@@ -51,8 +51,196 @@ function sendMessage(recipientId, message) {
 }
 
 /********* MENU ***********/
+function receivedMessage(event) {
+      callGetLocaleAPI(event, handleReceivedMessage);
+}
+
+function handleReceivedMessage(event) {
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfMessage = event.timestamp;
+  var message = event.message;
 
 
+  var isEcho = message.is_echo;
+  var messageId = message.mid;
+  var appId = message.app_id;
+  var metadata = message.metadata;
+
+  // You may get a text or attachment but not both
+  var messageText = message.text;
+  var messageAttachments = message.attachments;
+  var quickReply = message.quick_reply;
+
+  if (isEcho) {
+    // Just logging message echoes to console
+    console.log("Received echo for message %s and app %d with metadata %s",
+      messageId, appId, metadata);
+    return;
+  } else if (quickReply) {
+    var quickReplyPayload = quickReply.payload;
+//    console.log("Quick reply for message %s with payload %s",
+ //     messageId, quickReplyPayload);
+
+    messageText = quickReplyPayload;
+    sendCustomMessage(senderID,messageText);
+    return;
+  }
+
+  if (messageText) {
+    if((isStopped == true) && (messageText !== "start")){
+      return;
+    }
+  console.log("Received message for user %d and page %d at %d with message: %s",
+    senderID, recipientID, timeOfMessage,messageText);
+
+    // If we receive a text message, check to see if it matches any special
+    // keywords and send back the corresponding example. Otherwise, just echo
+    // the text we received.
+    switch (messageText.toLowerCase()) {
+      case 'image':
+        sendImageMessage(senderID, "http://messengerdemo.parseapp.com/img/rift.png");
+        break;
+
+      case 'gif':
+        sendGifMessage(senderID);
+        break;
+
+      case 'audio':
+        sendAudioMessage(senderID);
+        break;
+
+      case 'video':
+        sendVideoMessage(senderID);
+        break;
+
+      case 'file':
+        sendFileMessage(senderID);
+        break;
+
+      case 'button':
+        sendButtonMessage(senderID);
+        break;
+
+      case 'generic':
+        sendGenericMessage(senderID);
+        break;
+
+      case 'receipt':
+        sendReceiptMessage(senderID);
+        break;
+
+      case 'quick reply':
+        sendQuickReply(senderID);
+        break
+
+      case 'read receipt':
+        sendReadReceipt(senderID);
+        break
+
+      case 'typing on':
+        sendTypingOn(senderID);
+        break
+
+      case 'typing off':
+        sendTypingOff(senderID);
+        break
+
+      case 'user info':
+        if(firstName)
+            sendTextMessage(senderID,firstName);
+        break
+
+      case 'add menu':
+        addPersistentMenu();
+        break
+
+      case 'remove menu':
+        removePersistentMenu();
+        break
+
+      case 'stop':  // Stop the Bot from responding if the admin sends this messages
+         if(senderID ==  1073962542672604) {
+            console.log("Stoppping bot");
+            isStopped = true;
+         }
+         break
+
+      case 'start': // start up again
+         if(senderID ==  1073962542672604)  {
+            console.log("Starting bot");
+            isStopped = false;
+         }
+         break
+
+      default:
+         sendEnteredMessage(senderID, messageText);
+
+    }
+  } else if (messageAttachments) {
+    if(messageAttachments[0].payload.url)
+        sendJsonMessage(senderID, messageAttachments[0].payload.url);
+  }
+}
+
+function addPersistentMenu(){
+ request({
+    url: 'https://graph.facebook.com/v2.6/me/thread_settings',
+    qs: { access_token: PAGE_ACCESS_TOKEN },
+    method: 'POST',
+    json:{
+        setting_type : "call_to_actions",
+        thread_state : "existing_thread",
+        call_to_actions:[
+            {
+              type:"postback",
+              title:"Home",
+              payload:"home"
+            },
+            {
+              type:"postback",
+              title:"Joke",
+              payload:"joke"
+            },
+            {
+              type:"web_url",
+              title:"DMS Software Website",
+              url:"http://www.dynamic-memory.com/"
+            }
+          ]
+    }
+
+}, function(error, response, body) {
+    console.log(response)
+    if (error) {
+        console.log('Error sending messages: ', error)
+    } else if (response.body.error) {
+        console.log('Error: ', response.body.error)
+    }
+})
+
+}
+
+function removePersistentMenu(){
+ request({
+    url: 'https://graph.facebook.com/v2.6/me/thread_settings',
+    qs: { access_token: PAGE_ACCESS_TOKEN },
+    method: 'POST',
+    json:{
+        setting_type : "call_to_actions",
+        thread_state : "existing_thread",
+        call_to_actions:[ ]
+    }
+
+}, function(error, response, body) {
+    console.log(response)
+    if (error) {
+        console.log('Error sending messages: ', error)
+    } else if (response.body.error) {
+        console.log('Error: ', response.body.error)
+    }
+})
+}
 
 /*********************** MESSAGE HANDLER **************************** */
 
