@@ -446,7 +446,7 @@ var LowerAbbeyStreetMenu = {
 
         {
             "content_type":"text",
-            "title":"33 Towards Balbriggan",
+            "title":"33 to Balbriggan",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
         {
