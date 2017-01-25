@@ -225,7 +225,7 @@ app.post('/webhook', function (req, res)
                            dublinBus(stopId);
                        }
 
-                       // Lower Abbey Street stopId
+                       // Lower Abbey Street Stops
 
                        else if (string.match(/(33 to Balbriggan)/i)) {
                             stopId = "292";
@@ -250,6 +250,14 @@ app.post('/webhook', function (req, res)
                            busNumber = "41c";
                            dublinBus(stopId);
                        }
+
+                       // Aston Key Stops
+
+                       else if (string.match(/(79 to Spiddal Park)/i)) {
+                            stopId = "326";
+                            all = true;
+                            dublinBus(stopId);
+                        }
 
 
                       // Error Message
@@ -403,7 +411,7 @@ var PearseTemplate = {
 }
 
 
-/********************** Lover Abbey Street Stops ************************************/
+
 
 /**
  * Luas from NCI Menu
@@ -442,6 +450,8 @@ var LuasTemplate = {
   sendMessage(id, LuasTemplate);
 }
 
+
+/********************** Lover Abbey Street Stops ************************************/
 
 function LowerAbbeyStreetQuery(id){
 
@@ -484,6 +494,52 @@ var LowerAbbeyStreetMenu = {
     ]
   }
   sendMessage(id, LowerAbbeyStreetMenu);
+}
+
+
+/********************** Aston Key Stops ************************************/
+
+function AstonKeyBusQuery(id){
+
+var AstonKeyBusMenu = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please select your bus route.",
+               "image_url": "https://i.imgsafe.org/88ad16ea08.jpg",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+        {
+            "content_type":"text",
+            "title":"33 to Balbriggan",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"41 to Swords Manor",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"41b to Rolestown",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"41c to Swords Manor",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        }
+
+    ]
+  }
+  sendMessage(id, AstonKeyBusMenu);
 }
 
 /**** Dublin bus API ******/
