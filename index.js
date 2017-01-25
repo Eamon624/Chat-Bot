@@ -212,6 +212,10 @@ app.post('/webhook', function (req, res)
                             LowerAbbeyStreetQuery(event.sender.id);
                         }
 
+                        else if (string.match(/(Aston Key)/i)) {
+                            AstonKeyBusQuery(event.sender.id);
+                        }
+
                       //Bus Routes
 
                      else if (string.match(/(33 to City Centre)/i)) {
