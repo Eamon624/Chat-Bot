@@ -207,12 +207,10 @@ app.post('/webhook', function (req, res)
                             getPearseOptions(event.sender.id);
                         }
 
-              /**************** Bus Routes via Streets  *********************/
 
                         else if (string.match(/(Lower Abbey Street)/i)) {
                             LowerAbbeyStreetQuery(event.sender.id);
                         }
-
 
                       //Bus Routes
 
@@ -226,6 +224,7 @@ app.post('/webhook', function (req, res)
                            busNumber = "33a";
                            dublinBus(stopId);
                        }
+
 
                       // Error Message
                       else {
@@ -383,6 +382,40 @@ var PearseTemplate = {
 /**
  * Luas from NCI Menu
  */
+function getLuasOptions(id){
+
+var LuasTemplate = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Luas from NCI.",
+               "image_url": "https://i.imgsafe.org/75d27db327.jpg",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+        {
+            "content_type":"text",
+            "title":"Northbound",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"Southbound",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+
+    ]
+  }
+  sendMessage(id, LuasTemplate);
+}
+
+
 function LowerAbbeyStreetQuery(id){
 
 var LowerAbbeyStreetMenu = {
@@ -425,7 +458,6 @@ var LowerAbbeyStreetMenu = {
   }
   sendMessage(id, LowerAbbeyStreetMenu);
 }
-
 
 /**** Dublin bus API ******/
 function dublinBus(stopId){
