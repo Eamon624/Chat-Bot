@@ -816,6 +816,23 @@ console.log("sendCustoMessage "+ messageText);
     previousMessageHash[recipientId] = messageText.toLowerCase();
 }
 
+/*
+ * Send a read receipt to indicate the message has been read
+ *
+ */
+function sendReadReceipt(recipientId) {
+  console.log("Sending a read receipt to mark message as seen");
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    sender_action: "mark_seen"
+  };
+
+  callSendAPI(messageData);
+}
+
 function sendLocale(recipientId) {
 
   var nameString = firstName + " " + lastName;
