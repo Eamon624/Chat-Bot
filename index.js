@@ -383,9 +383,9 @@ var PearseTemplate = {
 /**
  * Luas from NCI Menu
  */
-function LowerAbbeyStreetBusMenu(id){
+function LowerAbbeyStreetQuery(id){
 
-var LowerAbbeyStreetQuery = {
+var LowerAbbeyStreetMenu = {
     "attachment": {
     "type": "template",
     "payload": {
