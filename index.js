@@ -402,12 +402,12 @@ var LuasTemplate = {
 
         {
             "content_type":"text",
-            "title":"Northbound",
+            "title":"Inbound - Point",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
         {
             "content_type":"text",
-            "title":"Southbound",
+            "title":"Outbound - Tallaght",
             "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
         },
 
