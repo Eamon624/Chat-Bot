@@ -651,6 +651,28 @@ console.log("sendCustoMessage "+ messageText);
     previousMessageHash[recipientId] = messageText.toLowerCase();
 }
 
+function sendLocale(recipientId) {
+
+  var nameString = firstName + " " + lastName;
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: nameString,
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"Home",
+          "payload":"home"
+        }
+      ]
+    }
+  };
+
+  callSendAPI(messageData);
+}
 /**
  * Pearse Station Menu
  */
