@@ -210,7 +210,7 @@ app.post('/webhook', function (req, res)
               /**************** Bus Routes via Streets  *********************/
 
                         else if (string.match(/(Lower Abbey Street)/i)) {
-                            LoverAbbeyStreetMenu(event.sender.id);
+                            LowerAbbeyStreetQuery(event.sender.id);
                         }
 
 
@@ -383,9 +383,9 @@ var PearseTemplate = {
 /**
  * Luas from NCI Menu
  */
-function LowerAbbeyStreetStops(id){
+function LowerAbbeyStreetBusMenu(id){
 
-var LowerAbbeyStreetMenu = {
+var LowerAbbeyStreetQuery = {
     "attachment": {
     "type": "template",
     "payload": {
