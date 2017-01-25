@@ -185,6 +185,57 @@ function handleReceivedMessage(event) {
   }
 }
 
+function callGetLocaleAPI(event, handleReceived) {
+    var userID = event.sender.id;
+    var http = require('https');
+    var path = '/v2.6/' + userID +'?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=' + PAGE_ACCESS_TOKEN;
+    var options = {
+      host: 'graph.facebook.com',
+      path: path
+    };
+
+    if(senderContext[userID])
+    {
+       firstName = senderContext[userID].firstName;
+       lastName = senderContext[userID].lastName;
+       console.log("found " + JSON.stringify(senderContext[userID]));
+       if(!firstName)
+          firstName = "undefined";
+       if(!lastName)
+          lastName = "undefined";
+       handleReceived(event);
+       return;
+    }
+
+    var req = http.get(options, function(res) {
+      //console.log('STATUS: ' + res.statusCode);
+      //console.log('HEADERS: ' + JSON.stringify(res.headers));
+
+      // Buffer the body entirely for processing as a whole.
+      var bodyChunks = [];
+      res.on('data', function(chunk) {
+        // You can process streamed parts here...
+        bodyChunks.push(chunk);
+      }).on('end', function() {
+        var body = Buffer.concat(bodyChunks);
+        var bodyObject = JSON.parse(body);
+        firstName = bodyObject.first_name;
+        lastName = bodyObject.last_name;
+        if(!firstName)
+          firstName = "undefined";
+        if(!lastName)
+          lastName = "undefined";
+        senderContext[userID] = {};
+        senderContext[userID].firstName = firstName;
+        senderContext[userID].lastName = lastName;
+        console.log("defined " + JSON.stringify(senderContext));
+        handleReceived(event);
+      })
+    });
+    req.on('error', function(e) {
+      console.log('ERROR: ' + e.message);
+    });
+}
 function addPersistentMenu(){
  request({
     url: 'https://graph.facebook.com/v2.6/me/thread_settings',
