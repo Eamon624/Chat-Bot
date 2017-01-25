@@ -255,13 +255,21 @@ app.post('/webhook', function (req, res)
                            dublinBus(stopId);
                        }
 
-                       // Aston Key Stops
+                       // Rob's Stop
 
                        else if (string.match(/(79 to Spiddal Park)/i)) {
                             stopId = "326";
                             all = true;
                             dublinBus(stopId);
                         }
+
+                        // Talbot Street Stops
+
+                        else if (string.match(/(42 to Sand's Hotel)/i)) {
+                             stopId = "1184";
+                             busNumber = "42";
+                             dublinBus(stopId);
+                         }
 
 
                       // Error Message
@@ -279,29 +287,29 @@ app.post('/webhook', function (req, res)
 /**
  * Select Train Station
  */
-function TrainStationMenu(id){
- var TrainStations = {
-    "text":"Where are you getting the train from?",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Connolly",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"Tara Street",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"Pearse",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]
-  }
-  sendMessage(id, TrainStations);
-}
+              function TrainStationMenu(id){
+               var TrainStations = {
+                  "text":"Where are you getting the train from?",
+                  "quick_replies":[
+                    {
+                      "content_type":"text",
+                      "title":"Connolly",
+                      "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                    },
+                    {
+                      "content_type":"text",
+                      "title":"Tara Street",
+                      "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                    },
+                    {
+                      "content_type":"text",
+                      "title":"Pearse",
+                      "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                    }
+                  ]
+                }
+                sendMessage(id, TrainStations);
+              }
 
 
 /**
@@ -530,6 +538,47 @@ var AstonKeyBusMenu = {
     ]
   }
   sendMessage(id, AstonKeyBusMenu);
+}
+
+/********************** Talbot Street ************************************/
+
+function TalbotStreetBusQuery(id){
+
+var TalbotStreetBusMenu = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please select your bus route.",
+               "image_url": "https://i.imgsafe.org/88ad16ea08.jpg",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+
+        {
+            "content_type":"text",
+            "title":"42 to Sand's Hotel",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"43 to Swords Business Park",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+        {
+            "content_type":"text",
+            "title":"53 to Dublin Ferryport",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        }
+
+    ]
+  }
+  sendMessage(id, TalbotStreetBusMenu);
 }
 
 /**** Dublin bus API ******/
