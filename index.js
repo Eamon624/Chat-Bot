@@ -653,56 +653,6 @@ var DCUBusMenu = {
 /**** Real Time Train  API ******/
 
 
-function IrishRail(Stationfullname){
-    //url is set with the bus stop number passed by the event.message
-    var options2 = {
-        url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+Stationfullname+'&format=json',
-        method : 'GET'
-    };
-    //Request is made using the options and callback functions
-    request(options2, traincallback);
- }
-
- let message = "";
- function traincallback(error, response, body) {
-         body = JSON.parse(body);
-         //numberofresults will return as 0 if it past half 11
-         if(body.numberofresults === 0){
-             message = "Nope";
-         }
-         else{
-             var resultCount = 0;
-             //Display all the bus directions and due times available
-             for( var i in body.results){
-                 if(body.results[i].direction == Stationfullname || all == true){
-                     //If the bus is due now, dont display "due in due minutes"
-                     if(body.results[i].Duein === "Due"){
-                         message += "The " + body.results[i].direction + " train to " + body.results[i].destination + " due now\n";
-                     }
-                     //Stop 1 minute appearing as "1 minutes"
-                     else if(body.results[i].Duein === "1"){
-                         message += "The" + body.results[i].direction + " train to " + body.results[i].destination + " due in " + body.results[i].Duein
-                         + " minute\n";
-                     }
-                     else{
-                         message += "The" + body.results[i].direction + " train to " + body.results[i].destination + " due in " + body.results[i].Duein
-                         + " minutes\n";
-                     }
-                     resultCount++;
-                 }
-             }
-             //Check if there is not times available
-             if(resultCount === 0){
-                 message = "There is currently no train times available for " + Stationfullname + "";
-             }
-         }
-         // reset the message variable back to null to prevent double values
-         all = false;
-         Stationfullname = "";
-         Direction = "";
-         sendMessage(recipientId, {text: message});
-         message = "";
- }
 
  /**** Dublin bus API ******/
  function dublinBus(stopId){
