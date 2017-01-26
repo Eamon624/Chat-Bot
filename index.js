@@ -61,7 +61,7 @@ var Destination;
 var Stationfullname;
 var stopId;
 var recipientId;
-var userName;
+var userName = "Eamon Colman";
 var all = false;
 
 /**Looks for key words in the users string message and replies with the suitable
