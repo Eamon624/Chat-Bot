@@ -668,7 +668,7 @@ var DCUBusMenu = {
     request(options, callback);
  }
 
- let message = "";
+ 
  function callback(error, response, body) {
          body = XML.parse(body);
          //numberofresults will return as 0 if it past half 11
