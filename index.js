@@ -660,7 +660,7 @@ function IrishRail(stopId){
         method : 'GET'
     };
     //Request is made using the options and callback functions
-    request(options, Tcallback);
+    request(options, callback);
  }
 
  let message = "";
