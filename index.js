@@ -662,7 +662,7 @@ var DCUBusMenu = {
     var options = {
         url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+Stationfullname+'&format=xml',
         method : 'GET'
-        dataType: "xml",
+        
 
     };
     //Request is made using the options and callback functions
