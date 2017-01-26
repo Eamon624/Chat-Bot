@@ -653,7 +653,7 @@ var DCUBusMenu = {
 /**** Real Time Train  API ******/
 
 
-function IrishRail(stopId){
+function IrishRail(Stationfullname){
     //url is set with the bus stop number passed by the event.message
     var options = {
         url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+Stationfullname+'&format=json',
