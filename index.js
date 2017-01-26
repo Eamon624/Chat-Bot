@@ -58,7 +58,7 @@ function sendMessage(recipientId, message) {
 
 var busNumber;
 var Destination;
-var Stationfullname;
+var Stationcode;
 var stopId;
 var recipientId;
 var userName;
@@ -297,8 +297,8 @@ app.post('/webhook', function (req, res)
 /********************** Train Stations  ************************************/
 
                         else if (string.match(/(Malahide)/i)) {
-
                              
+                             Destination = "Northbound"
                              IrishRail(Stationfullname);
                          }
 
@@ -697,6 +697,7 @@ function IrishRail(stopId){
          sendMessage(recipientId, {text: message});
          message = "";
  }
+
 
 /**** Real Time Dublin bus API ******/
 function dublinBus(stopId){
