@@ -656,11 +656,11 @@ function IrishRail(stopId){
         method : 'GET'
     };
     //Request is made using the options and callback functions
-    request(options, callback);
+    request(options, Traincallback);
  }
 
  let message = "";
- function callback(error, response, body) {
+ function Traincallback(error, response, body) {
          body = JSON.parse(body);
          //numberofresults will return as 0 if it past half 11
          if(body.numberofresults === 0){
