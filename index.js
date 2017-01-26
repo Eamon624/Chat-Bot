@@ -662,35 +662,98 @@ function IrishRail(Stationfullname){
         method : 'GET'
     };
     //Request is made using the options and tcallback functions
-    request(options, callback);
+    request(options, tcallback);
  }
+
+ let message = "";
+ function tcallback(error, response, body) {
+         body = JSON.parse(body);
+         //numberofresults will return as 0 if it past half 11
+         if(body.numberofresults === 0){
+             message = "Nope";
+         }
+         else{
+             var resultCount = 0;
+             //Display all the bus directions and due times available
+             for( var i in body.stationdata){
+                 if(body.stationdata[i].direction == Stationfullname || all == true){
+                     //If the bus is due now, dont display "due in due minutes"
+                     if(body.stationdata[i].Duein === "Due"){
+                         message += "The " + body.stationdata[i].direction + " train to " + body.stationdata[i].destination + " due now\n";
+                     }
+                     //Stop 1 minute appearing as "1 minutes"
+                     else if(body.stationdata[i].Duein === "1"){
+                         message += "The" + body.stationdata[i].direction + " train to " + body.stationdata[i].destination + " due in " + body.stationdata[i].Duein
+                         + " minute\n";
+                     }
+                     else{
+                         message += "The" + body.stationdata[i].direction + " train to " + body.stationdata[i].destination + " due in " + body.stationdata[i].Duein
+                         + " minutes\n";
+                     }
+                     resultCount++;
+                 }
+             }
+             //Check if there is not times available
+             if(resultCount === 0){
+                 message = "There is currently no train times available for " + Stationfullname + "";
+             }
+         }
+         // reset the message variable back to null to prevent double values
+         all = false;
+         Stationfullname = "";
+         direction = "";
+         sendMessage(recipientId, {text: message});
+         message = "";
+ }
+
+
+ /**** Dublin bus API ******/
+ function dublinBus(stopId){
+     //url is set with the bus stop number passed by the event.message
+     var options = {
+         url: 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json',
+         method : 'GET'
+     };
+     //Request is made using the options and callback functions
+     request(options, callback);
+  }
 
  let message = "";
  function callback(error, response, body) {
          body = JSON.parse(body);
          //numberofresults will return as 0 if it past half 11
-
-                 if(stationdata.direction == Stationfullname || all == true){
+         if(body.numberofresults === 0){
+             message = "Nope";
+         }
+         else{
+             var resultCount = 0;
+             //Display all the bus routes and due times available
+             for( var i in body.results){
+                 if(body.results[i].route == busNumber || all == true){
                      //If the bus is due now, dont display "due in due minutes"
-                     if(stationdata.Duein === "Due"){
-                         message += "The " + stationdata.direction + " train to " + stationdata.destination + " due now\n";
+                     if(body.results[i].duetime === "Due"){
+                         message += body.results[i].route + " to " + body.results[i].destination + " due now\n";
                      }
                      //Stop 1 minute appearing as "1 minutes"
-                     else if(stationdata.Duein === "1"){
-                         message += "The" + stationdata.direction + " train to " + stationdata.destination + " due in " + stationdata.Duein
+                     else if(body.results[i].duetime === "1"){
+                         message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
                          + " minute\n";
                      }
                      else{
-                         message += "The" + stationdata.direction + " train to " + stationdata.destination + " due in " + stationdata.Duein
+                         message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
                          + " minutes\n";
                      }
                      resultCount++;
                  }
-
+             }
+             //Check if there is not times available
+             if(resultCount === 0){
+                 message = "There is currently no times available for " + busNumber + "";
+             }
+         }
          // reset the message variable back to null to prevent double values
          all = false;
-         Stationfullname = "";
-         direction = "";
+         busNumber = "";
          sendMessage(recipientId, {text: message});
          message = "";
  }
