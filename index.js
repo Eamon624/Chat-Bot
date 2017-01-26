@@ -653,28 +653,7 @@ var DCUBusMenu = {
 /**** Real Time Train  API ******/
 
 /**** Irish Rail API ******/
-function IrishRail(Stationfullname){
-    //url is set with the bus stop number passed by the event.message
-    var optionsrail = {
-        url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+Stationfullname+'&format=xml',
-        method : 'GET'
-    };
-    //Request is made using the options and callback functions
-    request(optionsrail, callbackrail);
- }
 
-let message = "";
-function callbackrail(error, response, body) {
-        body = XML.parse(body);
-        //numberofresults will return as 0 if it past half 11
-        if(Stationfullname === Skerries){
-            message = "This is Skerries Station";
-        }
-        else {
-            message = "There is currently no times available for " + Stationfullname + "";
-        }
-
-}
 
 /**** Real Time Train  API ******/
 
