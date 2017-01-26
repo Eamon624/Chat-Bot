@@ -670,18 +670,18 @@ function IrishRail(Stationfullname){
          body = JSON.parse(body);
          //numberofresults will return as 0 if it past half 11
 
-                 if(body.stationdata.direction == Stationfullname || all == true){
+                 if(stationdata.direction == Stationfullname || all == true){
                      //If the bus is due now, dont display "due in due minutes"
-                     if(body.stationdata.Duein === "Due"){
-                         message += "The " + body.stationdata.direction + " train to " + body.stationdata.destination + " due now\n";
+                     if(stationdata.Duein === "Due"){
+                         message += "The " + stationdata.direction + " train to " + stationdata.destination + " due now\n";
                      }
                      //Stop 1 minute appearing as "1 minutes"
-                     else if(body.stationdata.Duein === "1"){
-                         message += "The" + body.stationdata.direction + " train to " + body.stationdata.destination + " due in " + body.stationdata.Duein
+                     else if(stationdata.Duein === "1"){
+                         message += "The" + stationdata.direction + " train to " + stationdata.destination + " due in " + stationdata.Duein
                          + " minute\n";
                      }
                      else{
-                         message += "The" + body.stationdata.direction + " train to " + body.stationdata.destination + " due in " + body.stationdata.Duein
+                         message += "The" + stationdata.direction + " train to " + stationdata.destination + " due in " + stationdata.Duein
                          + " minutes\n";
                      }
                      resultCount++;
