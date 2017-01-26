@@ -296,7 +296,7 @@ app.post('/webhook', function (req, res)
 
 /********************** Train Stations  ************************************/
 
-                        else if (string.match(/(Malahide)/i)) {
+                        else if (string.match(/(Malahide1)/i)) {
 
                           Stationfullname = "Malahide";
 
@@ -667,10 +667,7 @@ function IrishRail(Stationfullname){
  function callback(error, response, body) {
          body = JSON.parse(body);
          //numberofresults will return as 0 if it past half 11
-         if(body.numberofresults === 0){
-             message = "Nope";
-         }
-         else{
+
              var resultCount = 0;
              //Display all the bus directions and due times available
              for( var i in body.results){
@@ -691,11 +688,7 @@ function IrishRail(Stationfullname){
                      resultCount++;
                  }
              }
-             //Check if there is not times available
-             if(resultCount === 0){
-                 message = "There is currently no train times available for " + Stationfullname + "";
-             }
-         }
+
          // reset the message variable back to null to prevent double values
          all = false;
          Stationfullname = "";
