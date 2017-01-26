@@ -641,36 +641,8 @@ var DCUBusMenu = {
 /**** Irish Rail API ******/
 function IrishRail(Stationfullname){
     //url is set with the bus stop number passed by the event.message
-    var optionsrail = {
-        url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+Stationfullname+'&format=xml',
-        method : 'GET'
-    };
-    //Request is made using the options and callback functions
-    request(optionsrail, callbackrail);
- }
-
-let message = "";
-function callbackrail(error, response, body) {
-        body = XML.parse(body);
-        //numberofresults will return as 0 if it past half 11
-        if(Stationfullname === Skerries){
-            message = "This is Skerries Station";
-        }
-        else {
-            message = "There is currently no times available for " + Stationfullname + "";
-        }
-        all = false;
-        busNumber = "";
-        sendMessage(recipientId, {text: message});
-        message = "";
-}
-
-
-/**** Dublin bus API ******/
-function dublinBus(stopId){
-    //url is set with the bus stop number passed by the event.message
     var options = {
-        url: 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json',
+        url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+Stationfullname+'&format=xml',
         method : 'GET'
     };
     //Request is made using the options and callback functions
@@ -679,38 +651,14 @@ function dublinBus(stopId){
 
 let message = "";
 function callback(error, response, body) {
-        body = JSON.parse(body);
+        body = XML.parse(body);
         //numberofresults will return as 0 if it past half 11
-        if(body.numberofresults === 0){
-            message = "Nope";
+        if(Stationfullname === Skerries){
+            message = "This is Skerries Station";
         }
-        else{
-            var resultCount = 0;
-            //Display all the bus routes and due times available
-            for( var i in body.results){
-                if(body.results[i].route == busNumber || all == true){
-                    //If the bus is due now, dont display "due in due minutes"
-                    if(body.results[i].duetime === "Due"){
-                        message += body.results[i].route + " to " + body.results[i].destination + " due now\n";
-                    }
-                    //Stop 1 minute appearing as "1 minutes"
-                    else if(body.results[i].duetime === "1"){
-                        message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
-                        + " minute\n";
-                    }
-                    else{
-                        message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
-                        + " minutes\n";
-                    }
-                    resultCount++;
-                }
-            }
-            //Check if there is not times available
-            if(resultCount === 0){
-                message = "There is currently no times available for " + busNumber + "";
-            }
+        else {
+            message = "There is currently no times available for " + Stationfullname + "";
         }
-        // reset the message variable back to null to prevent double values
         all = false;
         busNumber = "";
         sendMessage(recipientId, {text: message});
