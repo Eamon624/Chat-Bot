@@ -670,7 +670,7 @@ function IrishRail(stopId){
              var resultCount = 0;
              //Display all the bus routes and due times available
              for( var i in body.results){
-                 if(body.results[i].route == busNumber || all == true){
+                 if(body.results[i].route == Stationfullname || all == true){
                      //If the bus is due now, dont display "due in due minutes"
                      if(body.results[i].duetime === "Due"){
                          message += body.results[i].route + " to " + body.results[i].destination + " due now\n";
@@ -689,7 +689,7 @@ function IrishRail(stopId){
              }
              //Check if there is not times available
              if(resultCount === 0){
-                 message = "There is currently no times available for " + busNumber + "";
+                 message = "There is currently no times available for " + Stationfullname + "";
              }
          }
          // reset the message variable back to null to prevent double values
