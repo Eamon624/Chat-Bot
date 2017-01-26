@@ -652,8 +652,6 @@ var DCUBusMenu = {
 
 /**** Real Time Train  API ******/
 
-/**** Irish Rail API ******/
-
 
 /**** Real Time Train  API ******/
 
