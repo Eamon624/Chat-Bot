@@ -56,6 +56,7 @@ function sendMessage(recipientId, message) {
 
 /*********************** MESSAGE HANDLER **************************** */
 
+var Stationfullname;
 var busNumber;
 var stopId;
 var recipientId;
@@ -290,6 +291,16 @@ app.post('/webhook', function (req, res)
                               all = true;
                               dublinBus(stopId);
                           }
+
+                          // Sample Train
+
+                          else if (string.match(/(zzz)/i)) {
+                               Stationfullname = "Malahide";
+                               all = true;
+                               IrishRail(Stationfullname);
+                           }
+
+
 
 
 
