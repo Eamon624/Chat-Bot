@@ -57,6 +57,8 @@ function sendMessage(recipientId, message) {
 /*********************** MESSAGE HANDLER **************************** */
 
 var busNumber;
+var Destination;
+var Stationfullname;
 var stopId;
 var recipientId;
 var userName;
@@ -292,6 +294,13 @@ app.post('/webhook', function (req, res)
                           }
 
 
+/********************** Train Stations  ************************************/
+
+                        else if (string.match(/(Malahide)/i)) {
+                             Stationfullname = "Malahide";
+                             all = true;
+                             IrishRail(Stationfullname);
+                         }
 
 
 
@@ -638,7 +647,60 @@ var DCUBusMenu = {
 }
 
 
-/**** Dublin bus API ******/
+/**** Real Time Train  API ******/
+
+function IrishRail(stopId){
+    //url is set with the bus stop number passed by the event.message
+    var options = {
+        url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML?Stationfullname='+Stationfullname+'&format=json',
+        method : 'GET'
+    };
+    //Request is made using the options and callback functions
+    request(options, callback);
+ }
+
+ let message = "";
+ function callback(error, response, body) {
+         body = JSON.parse(body);
+         //numberofresults will return as 0 if it past half 11
+         if(body.numberofresults === 0){
+             message = "Nope";
+         }
+         else{
+             var resultCount = 0;
+             //Display all the bus routes and due times available
+             for( var i in body.results){
+                 if(body.results[i].route == busNumber || all == true){
+                     //If the bus is due now, dont display "due in due minutes"
+                     if(body.results[i].duetime === "Due"){
+                         message += body.results[i].route + " to " + body.results[i].destination + " due now\n";
+                     }
+                     //Stop 1 minute appearing as "1 minutes"
+                     else if(body.results[i].duetime === "1"){
+                         message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
+                         + " minute\n";
+                     }
+                     else{
+                         message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
+                         + " minutes\n";
+                     }
+                     resultCount++;
+                 }
+             }
+             //Check if there is not times available
+             if(resultCount === 0){
+                 message = "There is currently no times available for " + busNumber + "";
+             }
+         }
+         // reset the message variable back to null to prevent double values
+         all = false;
+         busNumber = "";
+         sendMessage(recipientId, {text: message});
+         message = "";
+ }
+
+
+/**** Real Time Dublin bus API ******/
 function dublinBus(stopId){
     //url is set with the bus stop number passed by the event.message
     var options = {
