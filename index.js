@@ -297,8 +297,8 @@ app.post('/webhook', function (req, res)
 /********************** Train Stations  ************************************/
 
                         else if (string.match(/(Malahide)/i)) {
+
                              
-                             Destination = "Northbound";
                              IrishRail(Stationfullname);
                          }
 
