@@ -300,7 +300,7 @@ app.post('/webhook', function (req, res)
 
                           Stationfullname = "Malahide";
 
-                             all = true;
+                             all = true
                              IrishRail(Stationfullname);
                          }
 
@@ -647,8 +647,6 @@ var DCUBusMenu = {
   }
   sendMessage(id, DCUBusMenu);
 }
-
-/**** Real Time Train  API ******/
 
 /**** Real Time Train  API ******/
 
