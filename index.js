@@ -298,7 +298,7 @@ app.post('/webhook', function (req, res)
 
                         else if (string.match(/(Malahide)/i)) {
                              Stationfullname = "Malahide";
-                             all = true;
+                             Destination = "Northbound"
                              IrishRail(Stationfullname);
                          }
 
