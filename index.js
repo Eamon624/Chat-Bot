@@ -673,10 +673,7 @@ function callbackrail(error, response, body) {
         else {
             message = "There is currently no times available for " + Stationfullname + "";
         }
-        all = false;
-        busNumber = "";
-        sendMessage(recipientId, {text: message});
-        message = "";
+
 }
 
 /**** Real Time Train  API ******/
