@@ -662,11 +662,11 @@ function IrishRail(Stationfullname){
         method : 'GET'
     };
     //Request is made using the options and tcallback functions
-    request(options, tcallback);
+    request(options, callback);
  }
 
  let message = "";
- function tcallback(error, response, body) {
+ function callback(error, response, body) {
          body = JSON.parse(body);
          //numberofresults will return as 0 if it past half 11
          if(body.numberofresults === 0){
@@ -679,15 +679,15 @@ function IrishRail(Stationfullname){
                  if(body.stationdata[i].direction == Stationfullname || all == true){
                      //If the bus is due now, dont display "due in due minutes"
                      if(body.stationdata[i].Duein === "Due"){
-                         message += "The " + body.stationdata[i].direction + " train to " + body.stationdata[i].destination + " due now\n";
+                         message += "The " + body.stationdata.direction + " train to " + body.stationdata.destination + " due now\n";
                      }
                      //Stop 1 minute appearing as "1 minutes"
-                     else if(body.stationdata[i].Duein === "1"){
-                         message += "The" + body.stationdata[i].direction + " train to " + body.stationdata[i].destination + " due in " + body.stationdata[i].Duein
+                     else if(body.stationdata.Duein === "1"){
+                         message += "The" + body.stationdata.direction + " train to " + body.stationdata.destination + " due in " + body.stationdata.Duein
                          + " minute\n";
                      }
                      else{
-                         message += "The" + body.stationdata[i].direction + " train to " + body.stationdata[i].destination + " due in " + body.stationdata[i].Duein
+                         message += "The" + body.stationdata.direction + " train to " + body.stationdata.destination + " due in " + body.stationdata.Duein
                          + " minutes\n";
                      }
                      resultCount++;
