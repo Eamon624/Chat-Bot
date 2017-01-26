@@ -296,9 +296,9 @@ app.post('/webhook', function (req, res)
 
 /********************** Train Stations  ************************************/
 
-                        else if (string.match(/(Malahide)/i)) {
+                        else if (string.match(/(zzz)/i)) {
 
-                          Stationfullname = "zzz";
+                          Stationfullname = "Malahide";
 
                              all = true
                              IrishRail(Stationfullname);
@@ -652,6 +652,32 @@ var DCUBusMenu = {
 
 /**** Real Time Train  API ******/
 
+/**** Irish Rail API ******/
+function IrishRail(Stationfullname){
+    //url is set with the bus stop number passed by the event.message
+    var optionsrail = {
+        url: 'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+Stationfullname+'&format=xml',
+        method : 'GET'
+    };
+    //Request is made using the options and callback functions
+    request(optionsrail, callbackrail);
+ }
+
+let message = "";
+function callbackrail(error, response, body) {
+        body = XML.parse(body);
+        //numberofresults will return as 0 if it past half 11
+        if(Stationfullname === Skerries){
+            message = "This is Skerries Station";
+        }
+        else {
+            message = "There is currently no times available for " + Stationfullname + "";
+        }
+        all = false;
+        busNumber = "";
+        sendMessage(recipientId, {text: message});
+        message = "";
+}
 
 /**** Real Time Train  API ******/
 
@@ -696,7 +722,7 @@ var DCUBusMenu = {
                  }
              }
              //Check if there is not times available
-             if(resultCount === 0){
+             else(resultCount === 0){
                  message = "There is currently no times available for " + busNumber + "";
              }
          }
