@@ -297,7 +297,9 @@ app.post('/webhook', function (req, res)
 
                           else if (string.match(/(zzz)/i)) {
 
-                               TrainTimes(stopId);
+                            Stationfullname = "Malahide"
+
+                               TrainTimes(Stationfullname);
                            }
 
 
