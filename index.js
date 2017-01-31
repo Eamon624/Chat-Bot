@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
-
 app.use(bodyParser.urlencoded({extended: false})); // parses the text to URL data
 app.use(bodyParser.json()); //Parses JSON
 app.set('port', process.env.PORT || 3000); //Set the port
@@ -53,7 +52,7 @@ function sendMessage(recipientId, message) {
 
 /********* MENU ***********/
 
-
+var irishRailApi = require('irishrail-realtime-node');
 
 /*********************** MESSAGE HANDLER **************************** */
 
@@ -62,7 +61,6 @@ var stopId;
 var recipientId;
 var userName;
 var all = false;
-
 
 
 
@@ -311,16 +309,7 @@ app.post('/webhook', function (req, res)
               res.sendStatus(200);
           });
 
-
-
-
 /********************** Train Station Real Time ************************************/
-
-
-// Irish Rail RealTime
-
-
-// Irish Rail RealTime
 
 /**
  * Select Train Station
