@@ -62,10 +62,7 @@ var recipientId;
 var userName;
 var all = false;
 
-// Irish Rail RealTime
-var irishRailApi = require('irishrail-realtime-node');
 
-var returnedResponse = {status: 0, response: someResponseObject};
 
 /**Looks for key words in the users string message and replies with the suitable
  * response depending on what the user has said.
@@ -311,8 +308,16 @@ app.post('/webhook', function (req, res)
               res.sendStatus(200);
           });
 
+
+
+
 /********************** Train Station Real Time ************************************/
 
+
+// Irish Rail RealTime
+var irishRailApi = require('irishrail-realtime-node');
+
+var returnedResponse = {status: 0, response: someResponseObject};
 /**
  * Select Train Station
  */
