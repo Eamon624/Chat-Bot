@@ -62,7 +62,7 @@ var recipientId;
 var userName;
 var all = false;
 
-var irishRailApi = require('irishrail-realtime-node');
+
 
 
 
@@ -317,6 +317,8 @@ app.post('/webhook', function (req, res)
 
 
 // Irish Rail RealTime
+
+var irishRailApi = require('irishrail-realtime-node');
 // Irish Rail RealTime
 
 /**
