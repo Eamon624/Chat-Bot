@@ -61,7 +61,8 @@ var stopId;
 var recipientId;
 var userName;
 var all = false;
-var esdjhfdas; 
+
+var irishRailApi = require('irishrail-realtime-node');
 
 
 
