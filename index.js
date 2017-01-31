@@ -52,7 +52,7 @@ function sendMessage(recipientId, message) {
 
 /********* MENU ***********/
 
-var irishRailApi = require('irishrail-realtime-node');
+
 
 /*********************** MESSAGE HANDLER **************************** */
 
