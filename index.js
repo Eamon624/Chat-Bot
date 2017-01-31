@@ -648,7 +648,7 @@ var DCUBusMenu = {
 
 
 
-function TrainTimes{
+function TrainTimes() {
 
 
 
