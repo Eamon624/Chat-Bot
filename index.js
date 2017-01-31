@@ -63,8 +63,6 @@ var recipientId;
 var userName;
 var all = false;
 
-var irishRailApi = require('irishrail-realtime-node');
-
 
 
 
