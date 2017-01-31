@@ -227,6 +227,10 @@ app.post('/webhook', function (req, res)
                             TalbotStreetBusQuery(event.sender.id);
                         }
 
+                        else if (string.match(/(Westmoreland Street)/i)) {
+                            WestmorelandStreetQuery(event.sender.id);
+                        }
+
                         else if (string.match(/(DCU Stop)/i)) {
                             MyBusQuery(event.sender.id);
                         }
@@ -272,11 +276,7 @@ app.post('/webhook', function (req, res)
 
                        // Westmoreland Street Stops
 
-                       else if (string.match(/(Westmoreland Street)/i)) {
-                            stopId = "326";
-                            all = true;
-                            WestmorelandStreetQuery(stopId);
-                        }
+
 
                        // Rob's Stop
 
