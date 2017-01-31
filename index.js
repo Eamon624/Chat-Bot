@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
+var irishRailApi = require('irishrail-realtime-node');
 
 app.use(bodyParser.urlencoded({extended: false})); // parses the text to URL data
 app.use(bodyParser.json()); //Parses JSON
@@ -318,7 +319,7 @@ app.post('/webhook', function (req, res)
 
 // Irish Rail RealTime
 
-var irishRailApi = require('irishrail-realtime-node');
+
 // Irish Rail RealTime
 
 /**
