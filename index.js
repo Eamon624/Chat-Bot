@@ -316,9 +316,7 @@ app.post('/webhook', function (req, res)
 
 // Irish Rail RealTime
 // Irish Rail RealTime
-var irishRailApi = require('irishrail-realtime-node');
 
-var returnedResponse = {status: 0, response: someResponseObject};
 /**
  * Select Train Station
  */
