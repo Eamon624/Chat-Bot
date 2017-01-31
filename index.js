@@ -270,6 +270,14 @@ app.post('/webhook', function (req, res)
                            dublinBus(stopId);
                        }
 
+                       // Westmoreland Street Stops
+
+                       else if (string.match(/(Westmoreland Street)/i)) {
+                            stopId = "326";
+                            all = true;
+                            WestmorelandStreetQuery(stopId);
+                        }
+
                        // Rob's Stop
 
                        else if (string.match(/(79 to Spiddal Park)/i)) {
@@ -606,6 +614,39 @@ var TalbotStreetBusMenu = {
     ]
   }
   sendMessage(id, TalbotStreetBusMenu);
+}
+
+
+/********************** Westmoreland Street ************************************/
+
+function WestmorelandStreetQuery(id){
+
+var WestmorelandStreetBusMenu = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please select your bus route.",
+               "image_url": "https://i.imgsafe.org/0bb6780381.png",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+
+        {
+            "content_type":"text",
+            "title":"My Stop",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        },
+
+
+    ]
+  }
+  sendMessage(id, WestmorelandStreetBusMenu);
 }
 
 /********************** My Stop ************************************/
