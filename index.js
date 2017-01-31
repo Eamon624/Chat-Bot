@@ -62,10 +62,6 @@ var recipientId;
 var userName;
 var all = false;
 
-// Train XML Request
-
-  var x = new XMLHttpRequest();
-
 /**Looks for key words in the users string message and replies with the suitable
  * response depending on what the user has said.
  */
@@ -294,13 +290,6 @@ app.post('/webhook', function (req, res)
                               all = true;
                               dublinBus(stopId);
                           }
-
-                          else if (string.match(/(zzz)/i)) {
-
-                            Stationfullname = "Malahide"
-
-                               TrainTimes(Stationfullname);
-                           }
 
 
 
@@ -647,34 +636,6 @@ var DCUBusMenu = {
   }
   sendMessage(id, DCUBusMenu);
 }
-
-
-
-function TrainTimes() {
-
-
-
-
-  x.open("GET", "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=Bayside", true);
-  x.onreadystatechange = function () {
-    if (x.readyState == 4 && x.status == 200)
-    {
-      var doc = x.responseXML;
-      // …
-    }
-  };
-  x.send(null);
-
-  sendMessage(recipientId, {text: message});
-
-
-
-}
-
-
-
-
-
 
 
 /**** Dublin bus API ******/
