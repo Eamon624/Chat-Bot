@@ -700,7 +700,7 @@ function callback(error, response, body) {
         body = JSON.parse(body);
         //numberofresults will return as 0 if it past half 11
         if(body.numberofresults === 0){
-            message = "Nope";
+            message = "There are currently no bus services in operations for this route.";
         }
         else{
             var resultCount = 0;
