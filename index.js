@@ -235,10 +235,6 @@ app.post('/webhook', function (req, res)
                             MyBusQuery(event.sender.id);
                         }
 
-                        else if (string.match(/|(Bus Stops)/i)) {
-                            BusStreetMenu(event.sender.id);
-                        }
-
                       //Bus Routes
 
                      else if (string.match(/(33 to City Centre)/i)) {
@@ -323,6 +319,9 @@ app.post('/webhook', function (req, res)
 
 
 /********************** Bus Menu for Streets ************************************/
+
+
+
 
 
 
