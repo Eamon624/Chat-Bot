@@ -235,6 +235,10 @@ app.post('/webhook', function (req, res)
                             MyBusQuery(event.sender.id);
                         }
 
+                        else if (string.match(/|(Bus Real Time)|(Bus Times)|(Bus Stops)/i)) {
+                            BusStreetMenu(event.sender.id);
+                        }
+
                       //Bus Routes
 
                      else if (string.match(/(33 to City Centre)/i)) {
@@ -316,6 +320,54 @@ app.post('/webhook', function (req, res)
               }
               res.sendStatus(200);
           });
+
+
+/********************** Bus Menu for Streets ************************************/
+
+
+function BusStreetMenu(id){
+
+var BusStreetMenuTemplate = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+        "template_type": "generic",
+        "elements":[
+            {
+               "title" : "Please Select you route",
+               "image_url": "https://i.imgsafe.org/2670d2a1eb.png",
+            }
+         ]
+        }
+     },
+    "quick_replies":[
+
+      {
+        "content_type":"text",
+        "title":"Aston Key",
+        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },
+      {
+        "content_type":"text",
+        "title":"Lower Abbey Street",
+        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },
+
+      {
+        "content_type":"text",
+        "title":"Talbot Street",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+
+    ]
+  }
+  sendMessage(id, BusStreetMenuTemplate);
+}
+
+
+
+
+
 
 /********************** Train Station Real Time ************************************/
 
