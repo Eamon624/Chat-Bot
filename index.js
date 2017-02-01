@@ -707,16 +707,16 @@ function callback(error, response, body) {
                 if(body.results[i].route == busNumber || all == true){
                     //If the bus is due now, dont display "due in due minutes"
                     if(body.results[i].duetime === "Due"){
-                        message += "The" + body.results[i].route + " to " + body.results[i].destination + " is due now\n" break;
+                        message += "The" + body.results[i].route + " to " + body.results[i].destination + " is due now\n" + break;
                     }
                     //Stop 1 minute appearing as "1 minutes"
                     else if(body.results[i].duetime === "1"){
                         message += "The " + body.results[i].route + " to " + body.results[i].destination + "bis due in " + body.results[i].duetime
-                        + " minute\n" break;
+                        + " minute\n" + break;
                     }
                     else{
                         message += "The " + body.results[i].route + " to " + body.results[i].destination + " is due in " + body.results[i].duetime
-                        + " minutes\n" break;
+                        + " minutes\n" + break;
                     }
                     resultCount++;
                 }
