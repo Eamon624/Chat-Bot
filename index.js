@@ -325,47 +325,6 @@ app.post('/webhook', function (req, res)
 /********************** Bus Menu for Streets ************************************/
 
 
-function BusStreetMenu(id){
-
-var BusStreetMenuTemplate = {
-    "attachment": {
-    "type": "template",
-    "payload": {
-        "template_type": "generic",
-        "elements":[
-            {
-               "title" : "Below are a list of completed streets",
-               "image_url": "https://i.imgsafe.org/2670d2a1eb.png",
-            }
-         ]
-        }
-     },
-    "quick_replies":[
-
-      {
-        "content_type":"text",
-        "title":"Aston Key",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"Lower Abbey Street",
-        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-
-      {
-        "content_type":"text",
-        "title":"Talbot Street",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-
-    ]
-  }
-  sendMessage(id, BusStreetMenuTemplate);
-}
-
-
-
 
 
 
