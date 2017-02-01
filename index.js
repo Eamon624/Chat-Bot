@@ -235,7 +235,7 @@ app.post('/webhook', function (req, res)
                             MyBusQuery(event.sender.id);
                         }
 
-                        else if (string.match(/|(Bus Real Time)|(Bus Times)|(Bus Stops)/i)) {
+                        else if (string.match(/|(Bus Stops)/i)) {
                             BusStreetMenu(event.sender.id);
                         }
 
@@ -334,7 +334,7 @@ var BusStreetMenuTemplate = {
         "template_type": "generic",
         "elements":[
             {
-               "title" : "Please Select you route",
+               "title" : "Below are a list of completed streets",
                "image_url": "https://i.imgsafe.org/2670d2a1eb.png",
             }
          ]
