@@ -66,6 +66,8 @@ var all = false;
 
 var irishRailApi = require('irishrail-realtime-node');
 
+// Comment
+
 
 /**Looks for key words in the users string message and replies with the suitable
  * response depending on what the user has said.
