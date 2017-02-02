@@ -64,7 +64,6 @@ var all = false;
 
 /*********************** TRAIN REAL TIME **************************** */
 
-var irishRailApi = require('irishrail-realtime-node');
 
 // Comment
 
