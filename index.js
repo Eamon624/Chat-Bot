@@ -62,7 +62,9 @@ var recipientId;
 var userName;
 var all = false;
 
+/*********************** TRAIN REAL TIME **************************** */
 
+var irishRailApi = require('irishrail-realtime-node');
 
 
 /**Looks for key words in the users string message and replies with the suitable
