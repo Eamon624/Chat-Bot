@@ -42,14 +42,26 @@ app.use(express.static('public'));
  *
  */
 
+ //Access Token for Facebook
+ var PAGE_ACCESS_TOKEN = "EAAJ2aBX63yMBAPmke2JGBlZBFpADDdgVwcdrlDH2nthuxfs3ZAjOHVZAAHUjvadzOC9io7f7siZAzua5Ji8VVPHGqukoegD9gmpdqs3xm6bUZCxIoThXyVeMmZBWu8KIvHtTFtqdcndzmUxCW2YAtsZCOp36ZCLVvhdEZBJqHLpfBDQZDZD";
 
 
-//Access Token for Facebook
-var PAGE_ACCESS_TOKEN = "EAAJ2aBX63yMBAPmke2JGBlZBFpADDdgVwcdrlDH2nthuxfs3ZAjOHVZAAHUjvadzOC9io7f7siZAzua5Ji8VVPHGqukoegD9gmpdqs3xm6bUZCxIoThXyVeMmZBWu8KIvHtTFtqdcndzmUxCW2YAtsZCOp36ZCLVvhdEZBJqHLpfBDQZDZD";
+// App Secret can be retrieved from the App Dashboard
+const APP_SECRET = process.env.APP_SECRET ;
 
-app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
-});
+
+
+if (!(APP_SECRET && PAGE_ACCESS_TOKEN)) {
+  console.error("Missing config values");
+  process.exit(1);
+}
+
+/*
+ * Use your own validation token. Check that the token used in the Webhook
+ * setup is the same token used here.
+ *
+ */
+
 
 // Facebook Webhook
 app.get('/webhook', function (req, res) {
@@ -59,13 +71,6 @@ app.get('/webhook', function (req, res) {
         res.send('Invalid verify token');
     }
 });
-
-/*
- * Use your own validation token. Check that the token used in the Webhook
- * setup is the same token used here.
- *
- */
-
 
 /*
  * All callbacks for Messenger are POST-ed. They will be sent to the same
