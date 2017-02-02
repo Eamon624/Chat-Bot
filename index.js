@@ -698,7 +698,7 @@ function callback(error, response, body) {
         body = JSON.parse(body);
         //numberofresults will return as 0 if it past half 11
         if(body.numberofresults === 0){
-            message = "Nope";
+            message = "Nope.";
         }
         else{
             var resultCount = 0;
