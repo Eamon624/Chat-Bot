@@ -1,6 +1,26 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var request = require('request');
+/* jshint node: true, devel: true */
+'use strict';
+
+var customRules = {};
+const
+  bodyParser = require('body-parser'),
+  crypto = require('crypto'),
+  express = require('express'),
+  https = require('https'),
+  request = require('request');
+
+var fs = require('fs');
+
+const _ = require('lodash');
+const   scriptRules = require('./script.json');
+const   jokes = require('./script/JOKES.json');
+
+
+var previousMessageHash = {};
+var senderContext = {};
+var isStopped = false;
+
+
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: false})); // parses the text to URL data
