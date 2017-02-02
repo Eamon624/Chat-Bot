@@ -9,19 +9,6 @@ const
   https = require('https'),
   request = require('request');
 
-var fs = require('fs');
-
-const _ = require('lodash');
-const   scriptRules = require('./script.json');
-const   jokes = require('./script/JOKES.json');
-
-
-var previousMessageHash = {};
-var senderContext = {};
-var isStopped = false;
-
-
-var app = express();
 
 app.use(bodyParser.urlencoded({extended: false})); // parses the text to URL data
 app.use(bodyParser.json()); //Parses JSON
