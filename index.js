@@ -65,7 +65,7 @@ var all = false;
 /*********************** TRAIN REAL TIME **************************** */
 
 
-// Comment
+// Comment 123
 
 
 /**Looks for key words in the users string message and replies with the suitable
