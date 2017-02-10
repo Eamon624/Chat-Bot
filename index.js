@@ -700,6 +700,7 @@ function dublinBus(stopId){
 let message = "";
 function callback(error, response, body) {
         body = JSON.parse(body);
+        StrictSSL : false
         //numberofresults will return as 0 if it past half 11
         if(body.numberofresults === 0){
             message = "Nope.";
