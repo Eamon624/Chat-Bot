@@ -692,6 +692,7 @@ function dublinBus(stopId){
     var options = {
         url: 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json',
         method : 'GET'
+        StrictSSL : false
     };
     //Request is made using the options and callback functions
     request(options, callback);
@@ -700,7 +701,7 @@ function dublinBus(stopId){
 let message = "";
 function callback(error, response, body) {
         body = JSON.parse(body);
-        StrictSSL : false
+
         //numberofresults will return as 0 if it past half 11
         if(body.numberofresults === 0){
             message = "Nope.";
