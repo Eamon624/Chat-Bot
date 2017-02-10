@@ -690,9 +690,9 @@ var DCUBusMenu = {
 function dublinBus(stopId){
     //url is set with the bus stop number passed by the event.message
     var options = {
-        url: 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json',
+        url: 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json' StrictSSL : false,
         method : 'GET'
-        StrictSSL : false
+        
     };
     //Request is made using the options and callback functions
     request(options, callback);
