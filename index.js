@@ -700,14 +700,19 @@ function dublinBus(stopId){
     request(options, callback);
  }
 
+
+
 let message = "";
 function callback(error, response, body) {
-        body = JSON.parse(body);
-
-        //numberofresults will return as 0 if it past half 11
-        if(body.numberofresults === 0){
-            message = "Nope.";
+        if(error){
+            console.log(error);
         }
+        else{
+            body = JSON.parse(body);
+            //numberofresults will return as 0 if it past half 11
+            if(body.numberofresults === 0){
+                message = "It's " + getActualTime() + ". So it's too late for busses mate";
+            }
         else{
             var resultCount = 0;
             //Display all the bus routes and due times available
