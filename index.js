@@ -692,15 +692,9 @@ function dublinBus(stopId){
     //url is set with the bus stop number passed by the event.message
 
     var options = {
-
-
-        url: 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json' ,
-
-        
-
-
-        method : 'GET'
-
+        url: 'https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json',
+        method : 'GET',
+        strictSSL: false
     };
     //Request is made using the options and callback functions
     request(options, callback);
