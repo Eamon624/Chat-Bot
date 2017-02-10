@@ -709,26 +709,26 @@ function callback(error, response, body) {
                 message = "It's " + getActualTime() + ". So it's too late for busses mate";
             }
             else{
-                var resultCount = 0;
-                //Display all the bus routes and due times available
-                for( var i in body.results){
-                    if(body.results[i].route == busNumber || all == true){
-                        //If the bus is due now, dont display "due in due minutes"
-                        if(body.results[i].duetime === "Due"){
-                            message += body.results[i].route + " to " + body.results[i].destination + " due now\n";
-                        }
-                        //Stop 1 minute appearing as "1 minutes"
-                        else if(body.results[i].duetime === "1"){
-                            message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
-                            + " minute\n";
-                        }
-                        else{
-                            message += body.results[i].route + " to " + body.results[i].destination + " due in " + body.results[i].duetime
-                            + " minutes\n";
-                        }
-                        resultCount++;
-                    }
-                }
+              var resultCount = 0;
+              //Display all the bus routes and due times available
+              for( var i in body.results){
+                  if(body.results[i].route == busNumber || all == true){
+                      //If the bus is due now, dont display "due in due minutes"
+                      if(body.results[i].duetime === "Due"){
+                          message += "◾" + body.results[i].route + " to " + body.results[i].destination + " is due now.\n" + " \n" ;
+                      }
+                      //Stop 1 minute appearing as "1 minutes"
+                      else if(body.results[i].duetime === "1"){
+                          message += "◾ " + body.results[i].route + " to " + body.results[i].destination + "bis due in " + body.results[i].duetime
+                          + " minute.\n" +  " \n";
+                      }
+                      else{
+                          message += "◾ " + body.results[i].route + " to " + body.results[i].destination + " is due in " + body.results[i].duetime
+                          + " minutes.\n" + " \n" ;
+                      }
+                      resultCount++;
+                  }
+              }
                 //Check if there is not times available
                 if(resultCount === 0){
                     message = "There is no times available for " + busNumber + " 😕";
