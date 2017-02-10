@@ -696,7 +696,7 @@ function dublinBus(stopId){
 
         url: 'http://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid='+stopId+'&format=json' ,
 
-
+        StrictSSL : false
 
 
         method : 'GET'
