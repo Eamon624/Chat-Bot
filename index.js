@@ -719,12 +719,12 @@ function callback(error, response, body) {
                       }
                       //Stop 1 minute appearing as "1 minutes"
                       else if(body.results[i].duetime === "1"){
-                          message += "• " + body.results[i].route + " to " + body.results[i].destination + "bis due in " + body.results[i].duetime
-                          + " minute." + " •\n";
+                          message += "• " + body.results[i].route + " to " + body.results[i].destination + " is due in " + body.results[i].duetime
+                          + " minute" + " •\n";
                       }
                       else{
                           message += "• " + body.results[i].route + " to " + body.results[i].destination + " is due in " + body.results[i].duetime
-                          + " minutes." + " •\n";
+                          + " minutes" + " •\n";
                       }
                       resultCount++;
                   }
