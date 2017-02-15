@@ -706,7 +706,7 @@ function callback(error, response, body) {
             body = JSON.parse(body);
             //numberofresults will return as 0 if it past half 11
             if(body.numberofresults === 0){
-                message = "Nope";
+                message = "It's " + getActualTime() + ". So it's too late for busses mate";
             }
             else{
               var resultCount = 0;
@@ -715,23 +715,23 @@ function callback(error, response, body) {
                   if(body.results[i].route == busNumber || all == true){
                       //If the bus is due now, dont display "due in due minutes"
                       if(body.results[i].duetime === "Due"){
-                          message += "• " + body.results[i].route + " to " + body.results[i].destination + " is due now." + " •\n";
+                          message += "•" + body.results[i].route + " to " + body.results[i].destination + " is due now." + "•\n";
                       }
                       //Stop 1 minute appearing as "1 minutes"
                       else if(body.results[i].duetime === "1"){
-                          message += "• " + body.results[i].route + " to " + body.results[i].destination + "bis due in " + body.results[i].duetime
-                          + " minute." + " •\n";
+                          message += "•" + body.results[i].route + " to " + body.results[i].destination + "bis due in " + body.results[i].duetime
+                          + " minute." + "•\n";
                       }
                       else{
-                          message += "• " + body.results[i].route + " to " + body.results[i].destination + " is due in " + body.results[i].duetime
-                          + " minutes." + " •\n";
+                          message += "•" + body.results[i].route + " to " + body.results[i].destination + " is due in " + body.results[i].duetime
+                          + " minutes." + "•\n";
                       }
                       resultCount++;
                   }
               }
                 //Check if there is not times available
                 if(resultCount === 0){
-                    message = "There is no times available for " + busNumber " ";
+                    message = "There is no times available for " + busNumber + " 😕";
                 }
             }
             // reset the message variable back to null to prevent double values
