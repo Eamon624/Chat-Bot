@@ -826,25 +826,7 @@ function QuickHelp(id){
  */
 
 /**************************** BASIC CONVERSATIONAL RESPONSES ********************************** */
-function getGreeting(id, usersName){
-    var rand = Math.floor((Math.random() * 7) + 1);
-    switch (rand) {
-        case 1 :
-            return "Hello how are you "+usersName+"?";
-        case 2 :
-            return "Hello there "+usersName+" :)";
-        case 3:
-            return "What can i do for you "+usersName+"?";
-        case 4:
-            return "What's up? :)";
-        case 5:
-            return "Need help? just say 'Help me'";
-        case 6:
-            return "Ask me something or say 'help me'";
-        case 7:
-            return "Just say 'what can you do' for help 😎";
-    }
-}
+
 
  function getGreeting(id, usersName){
      var rand = Math.floor((Math.random() * 12) + 1);
