@@ -80,6 +80,24 @@ app.post('/webhook', function (req, res)
     {
         var event = events[i];
 
+
+        var requestUrl = 'https://graph.facebook.com/v2.6/'+ event.sender.id +
+        '?fields=first_name&access_token=' + PAGE_ACCESS_TOKEN;
+
+        request(requestUrl, function(err, res, body){
+            if(err){
+                console.log(err)
+            }else{
+                //Parse body to a json object as the body isn't true json
+                var jsonObject = JSON.parse(body);
+                usersName = jsonObject.first_name;
+            }
+        });
+
+
+
+
+
         if (event.message && event.message.text)
         {
             var string = event.message.text;
@@ -89,10 +107,15 @@ app.post('/webhook', function (req, res)
             //Prints uses ID to the console in colour for easy readability
             console.log('\x1b[36m', "Recipient ID: " + event.sender.id, '\x1b[0m');
             console.log('\x1b[36m', "Message: " + string, '\x1b[0m');
+            console.log('\x1b[36m', "First name: " + usersName, '\x1b[0m');
 
             //If user greets the bot
-            if (string.match(/(hey)|(hello)|(hi)|(what's up?)/gi)) {
-                sendMessage(event.sender.id, {text: getGreeting()});
+            if (string.match(/(hey)|(hello)|(hi)|(what's up?)/i)) {
+                sendMessage(event.sender.id, {text: getGreeting(event.sender.id, usersName)});
+                usersName = null;
+            }
+            else if (string.match(/(my name)/i)) {
+                getUsersName(event.sender.id);
             }
             //if the user mentions bus times
 
@@ -121,6 +144,14 @@ app.post('/webhook', function (req, res)
                         }
                         else if (string.match(/(Dominic Carr)/i)){
                             sendMessage(event.sender.id,{text: getDominicCarr()});
+                        }
+
+                        // Return Users Name
+
+
+                        else if (string.match(/(Who am i)/i)) {
+                            message = "Your name is " + usersName + " :)";
+                            sendMessage(event.sender.id, {text: message});
                         }
 
                         // Time
@@ -796,8 +827,7 @@ function QuickHelp(id){
 
 /**************************** BASIC CONVERSATIONAL RESPONSES ********************************** */
 
-
- function getGreeting(){
+ function getGreeting(id, usersName){
      var rand = Math.floor((Math.random() * 12) + 1);
      switch (rand) {
          case 1 :
