@@ -149,7 +149,7 @@ app.post('/webhook', function (req, res)
                         // Return Users Name
 
 
-                        else if (string.match(/(Who am i)/i)) {
+                        else if (string.match(/(Who am i)|(What's my name?)/i)) {
                             message = "Your name is " + usersName + " :)";
                             sendMessage(event.sender.id, {text: message});
                         }
