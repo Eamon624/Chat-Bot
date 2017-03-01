@@ -837,11 +837,11 @@ function getGreeting(id, usersName){
         case 2 :
             return "Hello there "+usersName+" :)";
         case 3:
-            return "What can i do for you "+usersName+"?";
+            return "What can i do for you?";
         case 4:
-            return "What's up "+usersName+"?";
+            return "What's up?";
         case 5:
-            return "How can i help you "+usersName+"?";
+            return "How can i help you?";
 
     }
 }
