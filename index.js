@@ -830,7 +830,7 @@ function QuickHelp(id){
 
 
 function getGreeting(id, usersName){
-    var rand = Math.floor((Math.random() * 7) + 1);
+    var rand = Math.floor((Math.random() * 5) + 1);
     switch (rand) {
         case 1 :
             return "Hello how are you "+usersName+"?";
