@@ -839,13 +839,10 @@ function getGreeting(id, usersName){
         case 3:
             return "What can i do for you "+usersName+"?";
         case 4:
-            return "What's up? :)";
+            return "What's up "+usersName+"?";
         case 5:
-            return "Need help? just say 'Help me'";
-        case 6:
-            return "Ask me something or say 'help me'";
-        case 7:
-            return "Just say 'what can you do' for help 😎";
+            return "How can i help you "+usersName+"?";
+
     }
 }
 
@@ -970,7 +967,7 @@ function getSkerriesTrain(){
 
 function getRoomStatusSCR3(){
 
-            return "HCC1, Introduction to Programming is sheduled in this room until 12pm"
+            return "BSCH3, Advanced Databases is sheduled in this room until 4pm"
 
 }
 
