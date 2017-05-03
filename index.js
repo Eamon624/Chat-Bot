@@ -1,3 +1,33 @@
+/**
+ * Use strict directive prevents usage of
+ * undeclared variables
+ */
+'use strict';
+const config = require('./config');
+const apiai = require('apiai');
+const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
+const uuid = require('uuid');
+const crypto = require('crypto');
+const app = express();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
