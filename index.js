@@ -17,7 +17,7 @@ app.listen(app.get('port'), function() {
 
 // Server frontpage
 app.get('/', function (req, res) {
-    res.send('This is the callback URL \n for the facebook web hook.');
+    res.send('This is the callback URL \n for the facebook web hook kjhbflzdsfz.');
 });
 
 // Facebook Webhook
