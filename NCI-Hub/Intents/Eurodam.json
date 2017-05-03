@@ -1,0 +1,93 @@
+{
+  "templates": [
+    "What is @sys.currency-name:currency-name dam?",
+    "Eurodam",
+    "Eurodam?",
+    "What is eudodam?"
+  ],
+  "userSays": [
+    {
+      "id": "5cba9df7-466a-4db7-aa3b-f5dc131f572a",
+      "data": [
+        {
+          "text": "What is "
+        },
+        {
+          "text": "euro",
+          "alias": "currency-name",
+          "meta": "@sys.currency-name",
+          "userDefined": false
+        },
+        {
+          "text": " dam?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "f6308915-9012-4b1b-8499-02b81a286614",
+      "data": [
+        {
+          "text": "Eurodam"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "ab79b513-b40d-4f55-a98b-931138d0ea31",
+      "data": [
+        {
+          "text": "Eurodam?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "8a652246-4419-4e44-a7df-bad5adab99f2",
+      "data": [
+        {
+          "text": "What is eudodam?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "fe00eaa3-a96b-435e-b465-42e7c33797cd",
+  "name": "Eurodam",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "eurodam",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@sys.currency-name",
+          "name": "currency-name",
+          "value": "$currency-name",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Eduroam (EDUcation ROAming) is a secure world-wide roaming infrastructure developed for the educational and research community. NCI is affiliated to the eduroam service which is an authenticated access wifi service that is available in NCI and in educational institutions both in Ireland and internationally who are participating in the service."
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "cortanaCommand": {
+    "navigateOrService": "NAVIGATE",
+    "target": ""
+  },
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}
