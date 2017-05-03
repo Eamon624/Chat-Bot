@@ -206,15 +206,7 @@ app.post('/webhook', function (req, res)
                             sendMessage(event.sender.id, {text: message});
                         }
 
-                        // Username of Sender ( Not Working)
 
-
-
-
-                        else if (string.match(/(Who am i)/i)) {
-                            message = "Your name is " + usersName + " :)";
-                            sendMessage(event.sender.id, {text: message});
-                        }
                         // All Services offered by chatbot.
 
 
