@@ -217,34 +217,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 							break;
 
 
-							case "Coputing-Levels":
-
-							let replies = [
-																{
-																	"content_type":"text",
-																	"title":"Business",
-																	"payload":"Business"
-																},
-																{
-																	"content_type":"text",
-																	"title":"Computing",
-																	"payload":"Computing"
-																},
-																{
-																	"content_type":"text",
-																	"title":"Finance",
-																	"payload":"Finance"
-																}
-																,
-																{
-																	"content_type":"text",
-																	"title":"Management",
-																	"payload":"Management"
-																}
-															];
-															sendQuickReply(sender, responseText, replies);
-
-										break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
