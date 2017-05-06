@@ -708,22 +708,25 @@ function greetUserText(userId) {
 								rows.push(row);
 						})
 						.on('end', () => {
-								if (rows.length === 0 ) {
-										let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
-												'locale, timezone, gender)' +
-												'VALUES ($1, $2, $3, $4, $5, $6, $7)';
+                            if (rows.length === 0 ) {
+                                let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
+                                    'locale, timezone, gender)' +
+                                    'VALUES ($1, $2, $3, $4, $5, $6, $7)';
 
-										client.query(sql, [
-												userId,
-												user.first_name,
-												user.last_name,
-												user.profile_pic,
-												user.locale,
-												user.timezone,
-												user.gender
-										])
-								}
-						})
+
+
+																	client.query(sql, [
+																		userId,
+																		user.first_name,
+																		user.lastname,
+																		user.profile_pic,
+																		user.locale,
+																		user.timezone,
+																		user.gender,
+																	])
+
+																}
+				})
 
 
 
@@ -740,7 +743,13 @@ function greetUserText(userId) {
 	});
 }
 
+
 }
+
+
+
+
+
 /*
  * Call the Send API. The message data goes in the body. If successful, we'll
  * get the message id in a response
