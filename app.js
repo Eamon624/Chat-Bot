@@ -6,8 +6,11 @@ const express = require('express');
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const request = require('request');
+const pg = require('pg');
 const app = express();
 const uuid = require('uuid');
+
+pg.defauls.ssl = true;
 
 
 // Messenger API parameters
@@ -687,12 +690,45 @@ function greetUserText(userId) {
 		if (!error && response.statusCode == 200) {
 
 			var user = JSON.parse(body);
+			console.log("getUserData" + user);
 
 			if (user.first_name) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
 				sendTextMessage(userId, "Hi " + user.first_name + '! Ask me something about the NCI or lets just have a chat!');
+
+				pg.connect(process.env.DATABASE_URL, function (err, client) {
+					if(err) throw err;
+					console.log('connect to postgres. Searching for a user....');
+					let rows = [];
+					client
+					  .query('SELECT if FROM users WHERE fb_id = '${userId}' LIMIT 1')
+						.on('row', function (row) {
+								rows.push(row);
+						})
+						.on('end', () => {
+								if (rows.length === 0 ) {
+										let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
+												'locale, timezone, gender)' +
+												'VALUES ($1, $2, $3, $4, $5, $6, $7)';
+
+										client.query(sql, [
+												userId,
+												user.first_name,
+												user.last_name,
+												user.profile_pic,
+												user.locale,
+												user.timezone,
+												user.gender
+										])
+								}
+						})
+
+
+
+
+
 			} else {
 				console.log("Cannot get data for fb user with id",
 					userId);
@@ -704,6 +740,7 @@ function greetUserText(userId) {
 	});
 }
 
+}
 /*
  * Call the Send API. The message data goes in the body. If successful, we'll
  * get the message id in a response
