@@ -692,7 +692,7 @@ function greetUserText(userId) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
-				sendTextMessage(userId, "Welcome " + user.first_name + '!');
+				sendTextMessage(userId, "Hi " + user.first_name + '! Ask me something about the NCI or lets just have a chat!');
 			} else {
 				console.log("Cannot get data for fb user with id",
 					userId);
@@ -755,12 +755,21 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+
+		case 'GET_STARTED':
+		greetUserText(senderID);
+		break;
+
+
+
+
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
 			break;
 
 	}
+	console.log("payload" + payload);
 
 	console.log("Received postback for user %d and page %d with payload '%s' " +
 		"at %d", senderID, recipientID, payload, timeOfPostback);
