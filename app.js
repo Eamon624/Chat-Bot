@@ -695,6 +695,8 @@ function greetUserText(userId) {
                 console.log("FB user: %s %s, %s",
                     user.first_name, user.last_name, user.gender);
 
+										sendTextMessage(userId, "Welcome " + user.first_name + '! ' +'I can answer frequently asked questions for you about NCI or just have a chat');
+
 
                 pg.connect(process.env.DATABASE_URL, function (err, client) {
                     if (err) throw err;
@@ -724,7 +726,7 @@ function greetUserText(userId) {
                         })
 
                 } )
-            
+
             } else {
                 console.log("Cannot get data for fb user with id",
                     userId);
