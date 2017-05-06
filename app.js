@@ -6,9 +6,12 @@ const express = require('express');
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const request = require('request');
-const pg = require('pg')
+const pg = require('pf');
 const app = express();
 const uuid = require('uuid');
+
+
+pg.defaults.ssl= true;
 
 
 // Messenger API parameters
