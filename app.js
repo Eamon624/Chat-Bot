@@ -6,11 +6,8 @@ const express = require('express');
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const request = require('request');
-const pg = require('pg');
 const app = express();
 const uuid = require('uuid');
-
-pg.defauls.ssl = true;
 
 
 // Messenger API parameters
@@ -695,7 +692,7 @@ function greetUserText(userId) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
-				sendTextMessage(userId, "Hi " + user.first_name + '! Ask me something about the NCI or lets just have a chat!');
+				sendTextMessage(userId, "Welcome " + user.first_name + '! Ask me something about the college or lets just have a chat!');
 			} else {
 				console.log("Cannot get data for fb user with id",
 					userId);
