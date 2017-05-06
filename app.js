@@ -690,15 +690,12 @@ function greetUserText(userId) {
 		if (!error && response.statusCode == 200) {
 
 			var user = JSON.parse(body);
-			console.log("getUserData" + user);
 
 			if (user.first_name) {
 				console.log("FB user: %s %s, %s",
 					user.first_name, user.last_name, user.gender);
 
 				sendTextMessage(userId, "Hi " + user.first_name + '! Ask me something about the NCI or lets just have a chat!');
-
-				
 			} else {
 				console.log("Cannot get data for fb user with id",
 					userId);
