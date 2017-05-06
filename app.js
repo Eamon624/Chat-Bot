@@ -724,7 +724,7 @@ function greetUserText(userId) {
                         })
 
                 } )
-              
+                callback(user);
 
             } else {
                 console.log("Cannot get data for fb user with id",
