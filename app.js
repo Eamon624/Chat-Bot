@@ -198,7 +198,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 										      {
 										        "content_type":"text",
 										        "title":"Computing",
-										        "payload":"Computing-Levels"
+										        "payload":"Computing"
 										      },
 										      {
 										        "content_type":"text",
@@ -215,8 +215,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 												sendQuickReply(sender, responseText, replies);
 
 							break;
-
-
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
