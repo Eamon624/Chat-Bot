@@ -4,4 +4,5 @@ module.exports = {
     API_AI_CLIENT_ACCESS_TOKEN: '6c88a0aa9da740fca6199eac4f21f061',
     FB_APP_SECRET: '40db0f0c6967118338c94cb89288925e',
     SERVER_URL: "https://fathomless-atoll-13950.herokuapp.com/",
+    WEATHER_API_KEY: '5d58a7c93fe9bbf9a91a4889e9841e62',
 };
