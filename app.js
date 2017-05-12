@@ -241,7 +241,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 						'.<br> Email Address: ' + contact_email + '.' +
 
-						'.<br> Phone number: ' + phone_number + '.'
+		
 						'. <br> <br> Feedback: ' + feedback_content + '.';
 
 					sendEmail('NCI Hub Feedback', emailContent);
