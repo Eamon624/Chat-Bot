@@ -210,7 +210,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		case "detailed-application":
 			if (isDefined(contexts[0]) &&
-				(contexts[0].name == 'Feedback-Application/Details' )
+				(contexts[0].name == 'Feedback-Application/Details' || contexts[0].name == 'Feedback-Application/Details_dialog_context')
 				&& contexts[0].parameters) {
 
 
@@ -232,7 +232,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 
 
- else  (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != ''
+ if  (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != ''
 					&& job_vacancy != '')
 
 					{
