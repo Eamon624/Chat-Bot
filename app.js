@@ -210,7 +210,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		case "detailed-application":
 			if (isDefined(contexts[0]) &&
-				(contexts[0].name == 'Feedback-Application/Details' || contexts[0].name == 'Feedback-Application/Details_dialog_context')
+				(contexts[0].name == 'feedback-application/details' || contexts[0].name == 'feedback-application/details_dialog_context')
 				&& contexts[0].parameters) {
 
 
