@@ -244,6 +244,73 @@ if (isDefined(contexts[0]) && contexts[0].name == 'feedback-application/details'
 			sendTextMessage(sender, responseText);
 			break;
 
+			case "detailed-course-application":
+
+
+	if (isDefined(contexts[0]) && contexts[0].name == 'course_application' && contexts[0].parameters){
+
+					let current_education = (isDefined(contexts[0].parameters['current-education'])
+					&& contexts[0].parameters['current-education']!= '') ? contexts[0].parameters['current-education'] : '';
+
+					let email_address = (isDefined(contexts[0].parameters['email-address'])
+					&& contexts[0].parameters['email-address']!= '') ? contexts[0].parameters['email-address'] : '';
+
+					let user_name = (isDefined(contexts[0].parameters['user-name'])
+					&& contexts[0].parameters['user-name']!= '') ? contexts[0].parameters['user-name'] : '';
+
+					let phone_number = (isDefined(contexts[0].parameters['phone-number'])
+					&& contexts[0].parameters['phone-number']!= '') ? contexts[0].parameters['phone-number'] : '';
+
+					let College_Subjects = (isDefined(contexts[0].parameters['College-Subjects'])
+					&& contexts[0].parameters['College-Subjects']!= '') ? contexts[0].parameters['College-Subjects'] : '';
+
+
+
+
+
+	 if  (current_education != '' && email_address != '' && user_name != '' && phone_number != '' && College_Subjects != '')
+
+						{
+						let emailContent = 'Course Information request from ' + user_name + 'about NCIs ' + College_Subjects + 
+							'.<br> Current Education: ' + current_education + '.' +
+							'.<br> Email Address: ' + email_address + '.' +
+							'.<br> Phone number: ' + phone_number + '.';
+
+						sendEmail('NCI Hub Feedback', emailContent);
+
+
+
+					}
+				}
+
+				sendTextMessage(sender, responseText);
+				break;
+			case "course-enquiry":
+		let replies = [
+			{
+				"content_type":"text",
+				"title":"Business",
+				"payload":"Business"
+			},
+			{
+				"content_type":"text",
+				"title":"Computing",
+				"payload":"Computing"
+			},
+			{
+				"content_type":"text",
+				"title":"Finance",
+				"payload":"Finance"
+			},
+			{
+				"content_type":"text",
+				"title":"Not interested",
+				"payload":"Not interested"
+			}
+		];
+		sendQuickReply(sender, responseText, replies);
+		break;
+
 		case "get-current-weather":
 	if (parameters.hasOwnProperty("geo-city") && parameters["geo-city"]!='') {
 
