@@ -9,5 +9,5 @@ module.exports = {
     WEATHER_API_KEY: '5d58a7c93fe9bbf9a91a4889e9841e62',
     SENGRID_API_KEY: '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',
     EMAIL_FROM: 'eamon624@hotmail.com',
-    EMAIL_TO: 'eamon624@hotmail.com',
+    EMAIL_TO: 'eamonkcoleman@gmail.com',
 };
