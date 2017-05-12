@@ -31,7 +31,11 @@ if (!config.SERVER_URL) { //used for ink to static files
 	throw new Error('missing SERVER_URL');
 }
 
-if (!config.WEATHER_API_KEY) { //used for ink to static files
+if (!config.EMAIL_TO) { //sending email
+	throw new Error('missing EMAIL_TO');
+}
+
+if (!config.WEATHER_API_KEY) { // weather api
 	throw new Error('missing WEATHER_API_KEY');
 }
 
@@ -196,6 +200,49 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
+		case "detailed-application":
+			if (isDefined(contexts[0]) &&
+				(contexts[0].name == 'Feedback-Application/Details' || contexts[0].name == 'Feedback-Application/Details_dialog_context')
+				&& contexts[0].parameters) {
+				let contact_number = (isDefined(contexts[0].parameters['contact-number'])
+				&& contexts[0].parameters['contact-number']!= '') ? contexts[0].parameters['contact-number'] : '';
+
+				let contact_email = (isDefined(contexts[0].parameters['contact-email'])
+				&& contexts[0].parameters['contact-email']!= '') ? contexts[0].parameters['contact-email'] : '';
+
+				let feedback_content = (isDefined(contexts[0].parameters['feedback-content'])
+				&& contexts[0].parameters['feedback-content']!= '') ? contexts[0].parameters['feedback-content'] : '';
+
+				let user_name = (isDefined(contexts[0].parameters['user-name'])
+				&& contexts[0].parameters['user-name']!= '') ? contexts[0].parameters['user-name'] : '';
+
+				let student_number = (isDefined(contexts[0].parameters['student-number'])
+				&& contexts[0].parameters['student-number']!= '') ? contexts[0].parameters['student-number'] : '';
+
+
+
+ else if (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != ''
+					&& job_vacancy != '')
+
+					{
+					let emailContent = 'Feeback recieved from ' + user_name + '<br> <br>'
+
+						'.<br> Student Number: ' + previous_job + '.' +
+						'.<br> Conatct Number: ' + contact_number + '.' +
+
+						'.<br> Email Address: ' + contact_email + '.' +
+
+						'.<br> Phone number: ' + phone_number + '.';
+						'. <br> <br> Feedback: ' + feedback_content + '.'
+
+					sendEmail('NCI Hub Feedback', emailContent);
+					sendTextMessage(sender, responseText);
+				} else {
+					sendTextMessage(sender, responseText);
+				}
+			}
+
+			break;
 
 		case "get-current-weather":
 	if (parameters.hasOwnProperty("geo-city") && parameters["geo-city"]!='') {
