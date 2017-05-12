@@ -14,7 +14,6 @@ const uuid = require('uuid');
 pg.defaults.ssl= true;
 
 
-// Messenger API parameters
 if (!config.FB_PAGE_TOKEN) {
 	throw new Error('missing FB_PAGE_TOKEN');
 }
@@ -30,22 +29,19 @@ if (!config.FB_APP_SECRET) {
 if (!config.SERVER_URL) { //used for ink to static files
 	throw new Error('missing SERVER_URL');
 }
-
-if (!config.SENGRID_API_KEY) { //used for ink to static files
+if (!config.SENGRID_API_KEY) { //sending email
 	throw new Error('missing SENGRID_API_KEY');
 }
-
 if (!config.EMAIL_FROM) { //sending email
 	throw new Error('missing EMAIL_FROM');
 }
-
 if (!config.EMAIL_TO) { //sending email
 	throw new Error('missing EMAIL_TO');
 }
-
-if (!config.WEATHER_API_KEY) { // weather api
+if (!config.WEATHER_API_KEY) { //weather api key
 	throw new Error('missing WEATHER_API_KEY');
 }
+
 
 
 
