@@ -230,7 +230,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					{
 					let emailContent = 'Feeback recieved from ' + user_name + '<br> <br>'
 
-						'.<br> Student Number: ' + previous_job + '.' +
+						'.<br> Student Number: ' + student_number + '.' +
 						'.<br> Conatct Number: ' + contact_number + '.' +
 
 						'.<br> Email Address: ' + contact_email + '.' +
