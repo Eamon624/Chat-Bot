@@ -15,10 +15,10 @@
   "dependencies": {
     "apiai": "^2.0.5",
     "body-parser": "^1.15.1",
-    "sendgrid": "^4.2.0",
     "express": "^4.13.4",
-    "pg": "6.1.5",
+    "pg": "6.1.2",
     "request": "^2.72.0",
+    "sendgrid": "^4.2.0",
     "uuid": "^2.0.3"
   }
 }
