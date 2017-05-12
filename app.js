@@ -205,10 +205,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
 		case "detailed-application":
-			if (isDefined(contexts[0]) &&
-				(contexts[0].name == 'feedback-application/details' || contexts[0].name == 'feedback-application/details_dialog_context')
-				&& contexts[0].parameters) {
 
+
+if (isDefined(contexts[0]) && contexts[0].name == 'feedback-application' && contexts[0].parameters)
 
 				let contact_number = (isDefined(contexts[0].parameters['contact-number'])
 				&& contexts[0].parameters['contact-number']!= '') ? contexts[0].parameters['contact-number'] : '';
