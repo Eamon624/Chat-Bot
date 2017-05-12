@@ -241,14 +241,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 						'.<br> Email Address: ' + contact_email + '.' +
 
-		
+
 						'. <br> <br> Feedback: ' + feedback_content + '.';
 
 					sendEmail('NCI Hub Feedback', emailContent);
 					sendTextMessage(sender, responseText);
-				} else {
-					sendTextMessage(sender, responseText);
-				}
+				} 
 			}
 
 			break;
