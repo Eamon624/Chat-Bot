@@ -236,13 +236,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 						'.<br> Phone number: ' + student_number + '.';
 
 					sendEmail('NCI Hub Feedback', emailContent);
-				  sendTextMessage(sender, responseText);
-				} else {
-					sendTextMessage(sender, responseText);
+
+
+
 				}
 			}
 
-
+			sendTextMessage(sender, responseText);
 			break;
 
 		case "get-current-weather":
