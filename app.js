@@ -204,17 +204,20 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			if (isDefined(contexts[0]) &&
 				(contexts[0].name == 'Feedback-Application/Details' || contexts[0].name == 'Feedback-Application/Details_dialog_context')
 				&& contexts[0].parameters) {
+
+
 				let contact_number = (isDefined(contexts[0].parameters['contact-number'])
 				&& contexts[0].parameters['contact-number']!= '') ? contexts[0].parameters['contact-number'] : '';
 
 				let contact_email = (isDefined(contexts[0].parameters['contact-email'])
 				&& contexts[0].parameters['contact-email']!= '') ? contexts[0].parameters['contact-email'] : '';
 
+				let user_name = (isDefined(contexts[0].parameters['user-name'])
+				&& contexts[0].parameters['user-name']!= '') ? contexts[0].parameters['user-name'] : '';
+
 				let feedback_content = (isDefined(contexts[0].parameters['feedback-content'])
 				&& contexts[0].parameters['feedback-content']!= '') ? contexts[0].parameters['feedback-content'] : '';
 
-				let user_name = (isDefined(contexts[0].parameters['user-name'])
-				&& contexts[0].parameters['user-name']!= '') ? contexts[0].parameters['user-name'] : '';
 
 				let student_number = (isDefined(contexts[0].parameters['student-number'])
 				&& contexts[0].parameters['student-number']!= '') ? contexts[0].parameters['student-number'] : '';
