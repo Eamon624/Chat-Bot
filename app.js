@@ -246,7 +246,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 					sendEmail('NCI Hub Feedback', emailContent);
 					sendTextMessage(sender, responseText);
-				} 
+				} else {
+					sendTextMessage(sender, responseText);
+				}
 			}
 
 			break;
