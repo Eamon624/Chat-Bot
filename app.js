@@ -226,7 +226,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				let feedback_content = (isDefined(contexts[0].parameters['feedback-content'])
 				&& contexts[0].parameters['feedback-content']!= '') ? contexts[0].parameters['feedback-content'] : '';
 
-
 				let student_number = (isDefined(contexts[0].parameters['student-number'])
 				&& contexts[0].parameters['student-number']!= '') ? contexts[0].parameters['student-number'] : '';
 
@@ -242,8 +241,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 						'.<br> Email Address: ' + contact_email + '.' +
 
-						'.<br> Phone number: ' + phone_number + '.';
-						'. <br> <br> Feedback: ' + feedback_content + '.'
+						'.<br> Phone number: ' + phone_number + '.'
+						'. <br> <br> Feedback: ' + feedback_content + '.';
 
 					sendEmail('NCI Hub Feedback', emailContent);
 					sendTextMessage(sender, responseText);
