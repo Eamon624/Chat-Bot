@@ -245,13 +245,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 						'. <br> <br> Feedback: ' + feedback_content + '.';
 
 					sendEmail('NCI Hub Feedback', emailContent);
-					sendTextMessage(sender, responseText);
+
 				} else {
 					sendTextMessage(sender, responseText);
 				}
 			}
 
 			sendTextMessage(sender, responseText);
+			sendEmail('NCI Hub Feedback', emailContent);
 
 			break;
 

@@ -4,8 +4,8 @@ module.exports = {
     API_AI_CLIENT_ACCESS_TOKEN: '6c88a0aa9da740fca6199eac4f21f061',
     FB_APP_SECRET: '40db0f0c6967118338c94cb89288925e',
     SERVER_URL: "https://fathomless-atoll-13950.herokuapp.com/",
-    EMAIL_FROM: 'NCIHubFeedback@gmail.com',
-    EMAIL_TO: 'NCIHubFeedback@gmail.com',
+    EMAIL_FROM: 'ncihubfeedback@gmail.com',
+    EMAIL_TO: 'ncihubfeedback@gmail.com',
     WEATHER_API_KEY: '5d58a7c93fe9bbf9a91a4889e9841e62',
     SENGRID_API_KEY: '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',
 };
