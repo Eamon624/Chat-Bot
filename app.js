@@ -232,8 +232,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 
 
- if  (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != ''
-					&& job_vacancy != '')
+ if  (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != '')
 
 					{
 					let emailContent = 'Feeback recieved from ' + user_name + '.<br> <br>'
