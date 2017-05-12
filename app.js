@@ -230,25 +230,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
  if  (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != '')
 
 					{
-					let emailContent = 'Feeback recieved from ' + user_name + '.<br> <br>'
-
-						'.<br> Student Number: ' + student_number + '.' +
-						'.<br> Conatct Number: ' + contact_number + '.' +
-
-						'.<br> Email Address: ' + contact_email + '.' +
-
-
-						'. <br> <br> Feedback: ' + feedback_content + '.';
+					let emailContent = 'A new job enquiery from ' + student_number + ' for the job: ' + student_number +
+						'.<br> Previous job position: ' + student_number + '.' +
+						'.<br> Years of experience: ' + student_number + '.' +
+						'.<br> Phone number: ' + student_number + '.';
 
 					sendEmail('NCI Hub Feedback', emailContent);
-
+				  sendTextMessage(sender, responseText);
 				} else {
 					sendTextMessage(sender, responseText);
 				}
 			}
 
-			sendTextMessage(sender, responseText);
-			sendEmail('NCI Hub Feedback', emailContent);
 
 			break;
 
