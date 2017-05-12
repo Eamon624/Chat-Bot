@@ -232,7 +232,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 
 
- else if (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != ''
+ else  (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != ''
 					&& job_vacancy != '')
 
 					{
