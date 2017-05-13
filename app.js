@@ -268,13 +268,11 @@ if (isDefined(contexts[0]) && contexts[0].name == 'feedback-application/details'
 
 
 
-	 if  (current_education != '' && email_address != '' && user_name != '' && phone_number != '' && College_Subjects != '')
+	 if  (current_education != '' )
 
 						{
-						let emailContent = 'Course Information request from ' + user_name + 'about NCIs ' + College_Subjects +
-							'.<br> Current Education: ' + current_education + '.' +
-							'.<br> Email Address: ' + email_address + '.' +
-							'.<br> Phone number: ' + phone_number + '.';
+						let emailContent =
+							'.<br> Current Education: ' + current_education + '.';
 
 						sendEmail('NCI Hub Feedback', emailContent);
 
