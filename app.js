@@ -216,16 +216,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				 let feed_back = (isDefined(contexts[0].parameters['feedback']) && contexts[0].parameters['feedback']!= '') ? contexts[0].parameters['feedback']: '';
 
 				 if (phone_number != '' && user_name != '' && previous_job != '' && years_of_experience != '' && job_vacancy != '' ){
-          let emailContent = "Name: "  + user_name + "."
-
-														"<br> <br>"
-														"Topic:" + job_vacancy + "."
-
-                            "<br> <br>"
-
-														"Student Number: " + previous_job + "." +
+          let emailContent = "Name: "  + user_name + " for the job: " + job_vacancy +
+                            ".<br> Student Number: " + previous_job + "." +
                             "<br> Year: " + years_of_experience + "." +
-														
                             "<br> <br> Feedback: " + phone_number + ". ";
 
           sendEmail('New Feedback Submission', emailContent);
