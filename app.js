@@ -204,84 +204,30 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
+
+
 		case "detailed-application":
+       if (isDefined(contexts[0]) && contexts[0].name == 'job_application' && contexts[0].parameters) {
+         let phone_number = (isDefined(contexts[0].parameters['phone-number']) && contexts[0].parameters['phone-number']!= '') ? contexts[0].parameters['phone-number']: '';
+         let user_name = (isDefined(contexts[0].parameters['user-name']) && contexts[0].parameters['user-name']!= '') ? contexts[0].parameters['user-name']: '';
+         let previous_job = (isDefined(contexts[0].parameters['previous-job']) && contexts[0].parameters['previous-job']!= '') ? contexts[0].parameters['previous-job']: '';
+         let years_of_experience = (isDefined(contexts[0].parameters['years-of-experience']) && contexts[0].parameters['years-of-experience']!= '') ? contexts[0].parameters['years-of-experience']: '';
+         let job_vacancy = (isDefined(contexts[0].parameters['job-vacancy']) && contexts[0].parameters['job-vacancy']!= '') ? contexts[0].parameters['job-vacancy']: '';
 
+				 if (phone_number != '' && user_name != '' && previous_job != '' && years_of_experience != '' && job_vacancy != ''){
+          let emailContent = "A new job enquiry from"  + user_name + " for the job: " + job_vacancy +
+                            ".<br> Previous Job Position: " + previous_job + "." +
+                            ".<br> Years Of Experience: " + years_of_experience + "." +
+                            ".<br> Phone Number: " + phone_number + ".";
 
-if (isDefined(contexts[0]) && contexts[0].name == 'feedback-application/details' && contexts[0].parameters){
-
-				let contact_number = (isDefined(contexts[0].parameters['contact-number'])
-				&& contexts[0].parameters['contact-number']!= '') ? contexts[0].parameters['contact-number'] : '';
-
-				let contact_email = (isDefined(contexts[0].parameters['contact-email'])
-				&& contexts[0].parameters['contact-email']!= '') ? contexts[0].parameters['contact-email'] : '';
-
-				let user_name = (isDefined(contexts[0].parameters['user-name'])
-				&& contexts[0].parameters['user-name']!= '') ? contexts[0].parameters['user-name'] : '';
-
-				let feedback_content = (isDefined(contexts[0].parameters['feedback-content'])
-				&& contexts[0].parameters['feedback-content']!= '') ? contexts[0].parameters['feedback-content'] : '';
-
-				let student_number = (isDefined(contexts[0].parameters['student-number'])
-				&& contexts[0].parameters['student-number']!= '') ? contexts[0].parameters['student-number'] : '';
-
-
-
- if  (contact_number != '' && contact_email != '' && user_name != '' && feedback_content != '' && student_number != '')
-
-					{
-					let emailContent = 'A new job enquiery from ' + student_number + ' for the job: ' + student_number +
-						'.<br> Previous job position: ' + student_number + '.' +
-						'.<br> Years of experience: ' + student_number + '.' +
-						'.<br> Phone number: ' + student_number + '.';
-
-					sendEmail('NCI Hub Feedback', emailContent);
-
-
+          sendEmail('New Job Application', emailContent);
 
 				}
+
 			}
-
-			sendTextMessage(sender, responseText);
-			break;
-
-			case "detailed-course-application":
+          sendTextMessage(sender, responseText);
 
 
-	if (isDefined(contexts[0]) && contexts[0].name == 'course-applications-details' && contexts[0].parameters){
-
-					let current_education = (isDefined(contexts[0].parameters['current-education'])
-					&& contexts[0].parameters['current-education']!= '') ? contexts[0].parameters['current-education'] : '';
-
-					let email_address = (isDefined(contexts[0].parameters['email-address'])
-					&& contexts[0].parameters['email-address']!= '') ? contexts[0].parameters['email-address'] : '';
-
-					let user_name = (isDefined(contexts[0].parameters['user-name'])
-					&& contexts[0].parameters['user-name']!= '') ? contexts[0].parameters['user-name'] : '';
-
-					let phone_number = (isDefined(contexts[0].parameters['phone-number'])
-					&& contexts[0].parameters['phone-number']!= '') ? contexts[0].parameters['phone-number'] : '';
-
-					let College_Subjects = (isDefined(contexts[0].parameters['College-Subjects'])
-					&& contexts[0].parameters['College-Subjects']!= '') ? contexts[0].parameters['College-Subjects'] : '';
-
-
-
-
-
-	 if  (current_education != '' )
-
-						{
-						let emailContent =
-							'.<br> Current Education: ' + current_education + '.';
-
-						sendEmail('NCI Hub Feedback', emailContent);
-
-
-
-					}
-				}
-
-				sendTextMessage(sender, responseText);
 
 
 				break;
