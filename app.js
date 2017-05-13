@@ -220,7 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             ".<br> Years Of Experience: " + years_of_experience + "." +
                             ".<br> Phone Number: " + phone_number + ".";
 
-          sendEmail('New Feedback Submission', emailContent);
+          sendEmail('New Job Application', emailContent);
 
 				}
 
