@@ -271,7 +271,7 @@ if (isDefined(contexts[0]) && contexts[0].name == 'feedback-application/details'
 	 if  (current_education != '' )
 
 						{
-						let emailContent = 'Course Information request from ' + user_name + 'about NCIs ' + College_Subjects +
+						let emailContent = 'Course Information request from '
 							'.<br> Current Education: ' + current_education + '.' +
 			;
 
