@@ -247,7 +247,7 @@ if (isDefined(contexts[0]) && contexts[0].name == 'feedback-application/details'
 			case "detailed-course-application":
 
 
-	if (isDefined(contexts[0]) && contexts[0].name == 'course_application' && contexts[0].parameters){
+	if (isDefined(contexts[0]) && contexts[0].name == 'course-applications-details' && contexts[0].parameters){
 
 					let current_education = (isDefined(contexts[0].parameters['current-education'])
 					&& contexts[0].parameters['current-education']!= '') ? contexts[0].parameters['current-education'] : '';
@@ -343,7 +343,7 @@ if (isDefined(contexts[0]) && contexts[0].name == 'feedback-application/details'
 	}
 	break;
 
-	
+
 
 		default:
 			//unhandled action, just send back the text
